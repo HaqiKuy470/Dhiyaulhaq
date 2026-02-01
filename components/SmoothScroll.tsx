@@ -5,15 +5,15 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
-
 export default function SmoothScroll({ children }: { children: ReactNode }) {
+  
   useEffect(() => {
+    // KODE PERBAIKAN:
     const lenis = new Lenis({
       duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing khas Apple/Awwwards
-      direction: "vertical",
-      gestureDirection: "vertical",
-      smoothWheel: true,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing mantap
+      // Hapus 'direction', 'gestureDirection', 'smoothWheel'.
+      // Default Lenis sudah Vertical & Smooth, jadi tidak perlu ditulis lagi.
     });
 
     // Sinkronisasi Lenis dengan GSAP ScrollTrigger
