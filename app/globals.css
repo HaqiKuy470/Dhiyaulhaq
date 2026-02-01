@@ -1,26 +1,44 @@
-@import "tailwindcss";
+@import "tailwindcss"; 
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Jika @import "tailwindcss"; error/gagal (tergantung versi), 
+   ganti 1 baris di atas dengan 3 baris di bawah ini: */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Setup Dasar */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #020617; /* Slate 950 */
+  color: #e2e8f0;            /* Slate 200 */
+}
+
+/* Utilities */
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+}
+
+/* Sembunyikan kursor asli hanya di desktop */
+@media (min-width: 768px) {
+  body, a, button {
+    cursor: none !important;
+  }
+}
+/* Noise Background Overlay */
+.bg-noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50; /* Di atas background, di bawah konten */
+  opacity: 0.05; /* Sangat tipis */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }

@@ -1,6 +1,9 @@
+/** @type {import('postcss-load-config').Config} */
 const config = {
   plugins: {
-    "@tailwindcss/postcss": {},
+    // PENTING: Pakai tanda kutip karena ada karakter @
+    '@tailwindcss/postcss': {}, 
+    autoprefixer: {},
   },
 };
 
