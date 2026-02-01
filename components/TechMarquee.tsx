@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee"; // Kamu perlu install ini: npm i react
 
 const skills = [
   "Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", 
-  "Python", "PostgreSQL", "Docker", "Git", "Framer Motion", "GSAP"
+  "Python", "PostgreSQL", "Docker", "Git", "Framer Motion", "GSAP", "AI"
 ];
 
 export default function TechMarquee() {

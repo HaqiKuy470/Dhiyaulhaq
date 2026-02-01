@@ -36,8 +36,9 @@ export default function Preloader() {
   return (
     <div ref={container} className="fixed inset-0 z-[99999] bg-black flex items-center justify-center">
       <div className="flex gap-2 text-4xl md:text-6xl font-bold font-mono text-white">
-        <span className="loading-text opacity-0 text-blue-500">System</span>
-        <span className="loading-text opacity-0">Ready.</span>
+        <span className="loading-text opacity-0 text-blue-500">WELCOME</span> <br/>
+        <span className="loading-text opacity-0 text-purple-500">TO MY </span> <br/>
+        <span className="loading-text opacity-0 text-yellow-500">PORTOFOLIO</span>
       </div>
     </div>
   );

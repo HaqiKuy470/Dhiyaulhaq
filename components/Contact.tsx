@@ -23,7 +23,7 @@ export default function Contact() {
           </p>
           
           <a 
-            href="mailto:emailmu@example.com" 
+            href="mailto:haqikuy470@gmail.com" 
             className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105"
           >
             <Mail className="w-5 h-5" />

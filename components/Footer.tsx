@@ -1,5 +1,5 @@
 "use client";
-import { Github, Linkedin, Instagram, Youtube, Mail, Heart } from "lucide-react";
+import { Github, Linkedin, Instagram, Mail } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
@@ -24,7 +24,6 @@ export default function Footer() {
               <SocialLink href="https://github.com/haqikuy470" icon={<Github className="w-5 h-5"/>} />
               <SocialLink href="https://linkedin.com" icon={<Linkedin className="w-5 h-5"/>} />
               <SocialLink href="https://instagram.com/haqikuy" icon={<Instagram className="w-5 h-5"/>} />
-              <SocialLink href="https://youtube.com/@Dhaqi470" icon={<Youtube className="w-5 h-5"/>} />
             </div>
           </div>
 
@@ -45,7 +44,9 @@ export default function Footer() {
             <ul className="space-y-4 text-slate-400">
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-blue-500" />
-                <span>emailmu@student.um.ac.id</span>
+                <a href="mailto:haqikuy470@gmail.com" className="hover:text-white transition-colors">
+                  haqikuy470@gmail.com
+                </a>
               </li>
               <li className="text-sm text-slate-500">
                 Malang, Jawa Timur<br />Indonesia
@@ -57,9 +58,29 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
           <p>&copy; {new Date().getFullYear()} Arshaka. All rights reserved.</p>
-          <p className="flex items-center gap-1 mt-2 md:mt-0">
-            Dibuat dengan <Heart className="w-3 h-3 text-red-500 fill-red-500" /> menggunakan Next.js
-          </p>
+          
+          <div className="flex items-center gap-1.5 mt-2 md:mt-0">
+            <span>Created with</span>
+            
+            {/* LOGO NEXT.JS (SVG) */}
+            <svg
+              className="w-6 h-6 text-white animate-pulse" 
+              viewBox="0 0 180 180" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+                <mask id="mask0_next" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="180" height="180">
+                  <circle cx="90" cy="90" r="90" fill="black"/>
+                </mask>
+                <g mask="url(#mask0_next)">
+                  <circle cx="90" cy="90" r="90" fill="black" stroke="white" strokeWidth="4"/>
+                  <path d="M149.508 157.52L69.142 54H54V125.97H66.27V69.546L141.303 166.089C144.303 163.633 147.054 160.759 149.508 157.52Z" fill="white"/>
+                  <rect x="115" y="54" width="12" height="72" fill="white"/>
+                </g>
+            </svg>
+
+            <span>by <span className="text-blue-400 font-semibold">Haqikuy470</span></span>
+          </div>
         </div>
       </div>
     </footer>

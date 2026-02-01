@@ -22,10 +22,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Arshaka | Portfolio",
+  title: "Dhiyaulhaq | Portfolio",
   description: "Portfolio of Moh Dhiyaulhaq Ulumuddin",
   icons: {
-    icon: '/favicon.ico',
+    icon: '/logo.png',
   },
 };
 

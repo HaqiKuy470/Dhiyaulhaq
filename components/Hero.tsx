@@ -65,13 +65,13 @@ export default function Hero() {
             <h1 ref={titleRef} className="text-5xl md:text-7xl font-bold text-white leading-tight">
               Hi, I'm <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 bg-[length:200%_auto] animate-gradient">
-                Arshaka
+                Dhiyaulhaq
               </span>
             </h1>
           </div>
 
           <p ref={descRef} className="text-slate-400 text-lg md:text-xl max-w-lg leading-relaxed border-l-2 border-blue-500/50 pl-6">
-            Mahasiswa PTI yang gemar mengeksplorasi <span className="text-blue-400 font-bold">Web Development</span>, <span className="text-purple-400 font-bold">Automation</span>, dan Financial Tech.
+            Mahasiswa PTI yang gemar mengeksplorasi <span className="text-blue-400 font-bold">Web Development</span>, <span className="text-purple-400 font-bold">Automation</span>, dan <span className="text-yellow-400 font-bold">Financial Tech</span>.
           </p>
           
           {/* Buttons Area */}
@@ -84,7 +84,6 @@ export default function Hero() {
                <SocialIcon href="https://github.com" icon={<Github className="w-5 h-5"/>} />
                <SocialIcon href="https://linkedin.com" icon={<Linkedin className="w-5 h-5"/>} />
                <SocialIcon href="https://instagram.com" icon={<Instagram className="w-5 h-5"/>} />
-               <SocialIcon href="https://youtube.com" icon={<Youtube className="w-5 h-5"/>} />
             </div>
           </div>
 
@@ -103,10 +102,10 @@ export default function Hero() {
               </div>
               <div className="space-y-2 font-mono text-sm text-slate-400">
                 <p><span className="text-purple-400">const</span> <span className="text-blue-400">developer</span> = <span className="text-yellow-400">{"{"}</span></p>
-                <p className="pl-4">name: <span className="text-green-400">"Arshaka"</span>,</p>
-                <p className="pl-4">role: <span className="text-green-400">"Frontend Engineer"</span>,</p>
-                <p className="pl-4">skills: [<span className="text-green-400">"Next.js"</span>, <span className="text-green-400">"GSAP"</span>],</p>
-                <p className="pl-4">status: <span className="text-green-400">"Open for Work"</span></p>
+                <p className="pl-4">name: <span className="text-green-400">"Dhiyaulhaq"</span>,</p>
+                <p className="pl-4">role: <span className="text-green-400">"Informatics Engineer"</span>,</p>
+                <p className="pl-4">skills: [<span className="text-green-400">"Next.js"</span>, <span className="text-green-400">"Python"</span>, <span className="text-green-400">"React.js"</span>, <span className="text-green-400">"Node.js"</span>, <span className="text-green-400">"JavaScript"</span>, <span className="text-green-400">"TypeScript"</span>,<span className="text-green-400">"Linux"</span>],</p>
+                <p className="pl-4">status: <span className="text-green-400">"HighStudent"</span></p>
                 <p><span className="text-yellow-400">{"}"}</span>;</p>
                 <p className="text-slate-600 mt-4">// Coding the future...</p>
               </div>

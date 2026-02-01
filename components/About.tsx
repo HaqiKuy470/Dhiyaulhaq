@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { strong } from "framer-motion/client";
 import { User, Code2, TrendingUp, Cpu } from "lucide-react";
 
 export default function About() {
@@ -30,10 +31,10 @@ export default function About() {
             </p>
             <p>
               Saya memiliki ketertarikan spesifik pada perpotongan antara <strong>Software Engineering</strong> dan <strong>Financial Markets</strong>. 
-              Membangun bot trading, menganalisis data saham (Bandarmology), atau menciptakan sistem otomasi adalah hal yang sering saya lakukan di waktu luang.
+              Membangun bot, menganalisis data saham, atau menciptakan sistem otomasi adalah hal yang sering saya lakukan di waktu luang.
             </p>
             <p>
-              Saat ini saya fokus mendalami <strong>Next.js</strong> untuk web modern dan <strong>Python</strong> untuk AI/Automation script.
+              Saat ini saya fokus mendalami <strong>Next.js</strong> untuk web modern dan <strong>Python/JavaScript</strong> untuk Artifical Intelligence.
             </p>
           </div>
         </motion.div>
@@ -54,7 +55,7 @@ export default function About() {
             { 
               icon: <Cpu className="w-6 h-6 text-purple-400" />, 
               title: "Automation", 
-              desc: "Python scripting untuk efisiensi workflow." 
+              desc: "Python/JavaScript scripting untuk efisiensi workflow." 
             },
             { 
               icon: <User className="w-6 h-6 text-orange-400" />, 

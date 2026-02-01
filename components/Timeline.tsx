@@ -4,40 +4,44 @@ import { GraduationCap, Briefcase, Trophy, Calendar, Code2 } from "lucide-react"
 import GlowCard from "@/components/ui/GlowCard";
 import FadeIn from "@/components/ui/FadeIn";
 
-const timelineData = [
+export const timelineData = [
   {
-    year: "2024 - Sekarang",
-    title: "Pendidikan Teknik Informatika",
-    place: "Universitas Negeri Malang",
-    desc: "Mahasiswa aktif semester awal. Fokus mendalami Fundamental Pemrograman, Algoritma, dan Web Development.",
+    year: "2022 - 2025",
+    title: "Matematika dan Ilmu Pengetahuan Alam",
+    place: "MAN 1 Lamongan",
+    // Revisi: Menunjukkan bahwa logic kamu sudah diasah sejak sekolah
+    desc: "Membangun fondasi logika matematika dan analitis yang kuat sebagai dasar pemecahan masalah (Problem Solving) di bidang rekayasa perangkat lunak.",
     icon: <GraduationCap className="w-5 h-5 text-blue-400" />,
     color: "blue"
   },
   {
-    year: "Jan 2026",
-    title: "Founder & Developer",
-    place: "Arshaka Bot Platform",
-    desc: "Meluncurkan SaaS penyewaan Bot WhatsApp dengan sistem token dan manajemen grup otomatis.",
+    year: "2025 - Now",
+    title: "Pendidikan Teknik Informatika",
+    place: "Universitas Negeri Malang",
+    // Revisi: Menggunakan istilah industri (Computational Thinking, Fullstack)
+    desc: "Mahasiswa Undergraduate. Fokus mendalami Computational Thinking, Struktur Data, dan Modern Web Architecture (Next.js Ecosystem).",
     icon: <Code2 className="w-5 h-5 text-purple-400" />,
     color: "purple"
   },
-  {
-    year: "Des 2025",
+{
+    year: "Last 2025 - Now", // Rentang waktu yang menunjukkan aktif terus
     title: "Freelance Web Developer",
-    place: "Bimbel Edu Asa",
-    desc: "Membangun website profil bisnis dan sistem informasi untuk lembaga bimbingan belajar menggunakan Next.js.",
+    place: "Multiple Projects & Clients", // Menunjukkan banyak project
+    // Deskripsi ini merangkum SEMUA jenis web yang kamu buat (Bimbel, Portfolio, dll)
+    desc: "Mengerjakan berbagai ragam proyek web, mulai dari Sistem Informasi Akademik (Bimbel), Landing Page Bisnis, hingga Interactive Portfolio. Fokus pada skalabilitas, SEO, dan performa tinggi menggunakan Next.js.",
     icon: <Briefcase className="w-5 h-5 text-green-400" />,
     color: "green"
   },
   {
-    year: "Okt 2025",
-    title: "PKM Proposal Submission",
-    place: "Smart POS 'HYDRA'",
-    desc: "Mengajukan proposal Program Kreativitas Mahasiswa untuk sistem kasir UMKM berbasis Offline-First Architecture.",
+    year: "Jan 2026 - Now", // Sesuaikan bulan (Project Bot Arshaka kan?)
+    title: "AI & Automation Developer", // Perbaiki Typo & Judul lebih keren
+    place: "Arshaka Bot Platform",
+    desc: "Mengembangkan Intelligent Conversational Agents (Chatbots) multi-platform dengan integrasi API Gateway dan sistem manajemen token otomatis.",
     icon: <Trophy className="w-5 h-5 text-yellow-400" />,
     color: "yellow"
   },
 ];
+
 
 export default function Timeline() {
   return (
