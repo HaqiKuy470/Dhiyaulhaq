@@ -22,7 +22,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-4 mt-6">
               <SocialLink href="https://github.com/haqikuy470" icon={<Github className="w-5 h-5"/>} />
-              <SocialLink href="https://linkedin.com" icon={<Linkedin className="w-5 h-5"/>} />
+              <SocialLink href="https://www.linkedin.com/in/moh-dhiyaulhaq-ulumuddin-98b9022a1" icon={<Linkedin className="w-5 h-5"/>} />
               <SocialLink href="https://instagram.com/haqikuy" icon={<Instagram className="w-5 h-5"/>} />
             </div>
           </div>

@@ -26,18 +26,18 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-24 bg-slate-950 relative">
+    <section className="py-16 md:py-24 bg-slate-950 relative">
       <div className="container mx-auto px-6">
-        
+
         {/* Header Section (Rata Kiri) */}
         <div className="mb-16">
           <FadeIn direction="right">
             {/* LABEL 01. SERVICES */}
             <div className="flex items-center gap-2 text-blue-500 font-mono mb-4">
-               <Sparkles className="w-5 h-5" />
-               <span className="tracking-wide">01. Services</span>
+              <Sparkles className="w-5 h-5" />
+              <span className="tracking-wide">01. Services</span>
             </div>
-            
+
             <p className="text-slate-400 text-lg max-w-2xl leading-relaxed">
               Solusi teknologi yang saya tawarkan untuk membantu bisnis atau proyek Anda berkembang dengan efisien.
             </p>
@@ -50,7 +50,7 @@ export default function Services() {
             <FadeIn key={idx} delay={idx * 0.2} direction="up" fullWidth>
               <GlowCard className="h-full group hover:-translate-y-2 transition-transform duration-300">
                 <div className="flex flex-col h-full">
-                  
+
                   {/* Icon Wrapper */}
                   <div className="mb-6 inline-flex p-4 rounded-2xl bg-slate-900 border border-slate-800 shadow-[0_0_20px_rgba(0,0,0,0.3)] group-hover:scale-110 transition-transform w-fit">
                     {service.icon}
@@ -59,7 +59,7 @@ export default function Services() {
                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
                     {service.title}
                   </h3>
-                  
+
                   <p className="text-slate-400 leading-relaxed mb-6 flex-grow">
                     {service.desc}
                   </p>
