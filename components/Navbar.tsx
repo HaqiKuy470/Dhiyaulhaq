@@ -14,17 +14,17 @@ export default function Navbar() {
 
   return (
     <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
-      <motion.div 
+      <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="flex items-center gap-2 px-4 py-3 rounded-full bg-slate-900/80 backdrop-blur-xl border border-slate-700/50 shadow-2xl shadow-blue-500/10"
+        className="flex items-center gap-1 md:gap-2 px-3 py-2 md:px-4 md:py-3 rounded-full bg-slate-900/80 backdrop-blur-xl border border-slate-700/50 shadow-2xl shadow-blue-500/10"
       >
         {navItems.map((item, idx) => (
-          <Link 
-            key={idx} 
+          <Link
+            key={idx}
             href={item.href}
-            className="group relative p-3 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300"
+            className="group relative p-2 md:p-3 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300"
           >
             {item.icon}
 
@@ -32,7 +32,7 @@ export default function Navbar() {
               {item.name}
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 border-4 border-transparent border-b-slate-800" />
             </span>
-            
+
             <span className="absolute top-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
           </Link>
         ))}

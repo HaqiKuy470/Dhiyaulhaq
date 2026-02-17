@@ -43,7 +43,7 @@ export default function Services() {
           </FadeIn>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, idx) => (
             <FadeIn key={idx} delay={idx * 0.2} direction="up" fullWidth>
               <GlowCard className="h-full group hover:-translate-y-2 transition-transform duration-300">

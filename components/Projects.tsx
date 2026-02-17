@@ -27,13 +27,13 @@ export default function Projects() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <FadeIn key={project.id} delay={index * 0.2} fullWidth>
               <SpotlightCard
                 key={project.id}
                 className="group relative bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300"
-                >
+              >
 
                 <div className="p-6 md:p-8 h-full flex flex-col">
 

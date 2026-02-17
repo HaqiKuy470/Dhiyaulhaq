@@ -54,7 +54,7 @@ export default function Hero() {
           </div>
 
           <div className="overflow-hidden py-2">
-            <h1 ref={titleRef} className="text-4xl md:text-7xl font-bold text-white leading-tight">
+            <h1 ref={titleRef} className="text-3xl md:text-5xl lg:text-7xl font-bold text-white leading-tight">
               Hi, I'm <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 bg-[length:200%_auto] animate-gradient">
                 Dhiyaulhaq
@@ -62,11 +62,11 @@ export default function Hero() {
             </h1>
           </div>
 
-          <p ref={descRef} className="text-slate-400 text-base md:text-xl max-w-lg leading-relaxed border-l-2 border-blue-500/50 pl-6">
+          <p ref={descRef} className="text-slate-400 text-sm md:text-xl max-w-lg leading-relaxed border-l-2 border-blue-500/50 pl-4 md:pl-6">
             Mahasiswa PTI yang gemar mengeksplorasi <span className="text-blue-400 font-bold">Web Development</span>, <span className="text-purple-400 font-bold">Automation</span>, dan <span className="text-yellow-400 font-bold">Financial Tech</span>.
           </p>
 
-          <div ref={btnRef} className="flex flex-wrap gap-4 items-center">
+          <div ref={btnRef} className="flex flex-wrap gap-4 items-center pt-2">
             <button className="px-8 py-3 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-700 hover:scale-105 transition-all shadow-[0_0_20px_rgba(37,99,235,0.5)] flex items-center gap-2">
               <Download className="w-5 h-5" /> Download CV
             </button>

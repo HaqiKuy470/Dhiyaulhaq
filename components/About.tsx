@@ -7,8 +7,8 @@ import { User, Code2, TrendingUp, Cpu } from "lucide-react";
 export default function About() {
   return (
     <section className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        
+      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -18,18 +18,18 @@ export default function About() {
             <User className="w-5 h-5" />
             <span>03. About Me</span>
           </div>
-          
+
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Beyond the <span className="text-blue-500">Code</span>
           </h2>
 
           <div className="space-y-4 text-slate-400 leading-relaxed">
             <p>
-              Halo! Saya mahasiswa semester awal di <strong>Pendidikan Teknik Informatika, Universitas Negeri Malang</strong>. 
+              Halo! Saya mahasiswa semester awal di <strong>Pendidikan Teknik Informatika, Universitas Negeri Malang</strong>.
               Dunia saya tidak hanya berputar di sekitar syntax error, tapi juga bagaimana teknologi bisa menyelesaikan masalah nyata.
             </p>
             <p>
-              Saya memiliki ketertarikan spesifik pada perpotongan antara <strong>Software Engineering</strong> dan <strong>Financial Markets</strong>. 
+              Saya memiliki ketertarikan spesifik pada perpotongan antara <strong>Software Engineering</strong> dan <strong>Financial Markets</strong>.
               Membangun bot, menganalisis data saham, atau menciptakan sistem otomasi adalah hal yang sering saya lakukan di waktu luang.
             </p>
             <p>
@@ -40,25 +40,25 @@ export default function About() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[
-            { 
-              icon: <Code2 className="w-6 h-6 text-blue-400" />, 
-              title: "Fullstack Dev", 
-              desc: "Membangun aplikasi web end-to-end yang scalable." 
+            {
+              icon: <Code2 className="w-6 h-6 text-blue-400" />,
+              title: "Fullstack Dev",
+              desc: "Membangun aplikasi web end-to-end yang scalable."
             },
-            { 
-              icon: <TrendingUp className="w-6 h-6 text-green-400" />, 
-              title: "Trading Tech", 
-              desc: "Analisis pasar & pengembangan algoritma trading." 
+            {
+              icon: <TrendingUp className="w-6 h-6 text-green-400" />,
+              title: "Trading Tech",
+              desc: "Analisis pasar & pengembangan algoritma trading."
             },
-            { 
-              icon: <Cpu className="w-6 h-6 text-purple-400" />, 
-              title: "Automation", 
-              desc: "Python/JavaScript scripting untuk efisiensi workflow." 
+            {
+              icon: <Cpu className="w-6 h-6 text-purple-400" />,
+              title: "Automation",
+              desc: "Python/JavaScript scripting untuk efisiensi workflow."
             },
-            { 
-              icon: <User className="w-6 h-6 text-orange-400" />, 
-              title: "Student Life", 
-              desc: "Aktif di PTI UM & komunitas teknologi." 
+            {
+              icon: <User className="w-6 h-6 text-orange-400" />,
+              title: "Student Life",
+              desc: "Aktif di PTI UM & komunitas teknologi."
             },
           ].map((item, idx) => (
             <motion.div

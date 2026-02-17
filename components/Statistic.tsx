@@ -32,38 +32,38 @@ export default function Stats() {
           {/* Card 1: Streak */}
           <motion.div
             whileHover={{ y: -5 }}
-            className="bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden relative group h-40 md:h-52 flex items-center justify-center"
+            className="bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden relative group h-32 md:h-52 flex items-center justify-center p-2"
           >
             <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             <img
               src="https://github-readme-streak-stats.herokuapp.com/?user=HaqiKuy470&theme=tokyonight&hide_border=true&fire=FF0000&ring=FF0000&currStreakNum=FF0000&background=00000000"
               alt="GitHub Streak"
-              className="h-full w-auto object-contain p-4 scale-100 md:scale-100"
+              className="h-full w-auto object-contain scale-90 md:scale-100"
             />
           </motion.div>
 
           <motion.div
             whileHover={{ y: -5 }}
-            className="bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden relative group h-40 md:h-52 flex items-center justify-center"
+            className="bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden relative group h-32 md:h-52 flex items-center justify-center p-2"
           >
             <div className="absolute inset-0 bg-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <img
               src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=HaqiKuy470&theme=tokyonight&background=00000000"
               alt="Languages"
-              className="h-full w-auto object-contain p-2 scale-100 md:scale-110"
+              className="h-full w-auto object-contain scale-110 md:scale-110"
             />
           </motion.div>
 
           <motion.div
             whileHover={{ y: -5 }}
-            className="bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden relative group h-40 md:h-52 flex items-center justify-center"
+            className="bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden relative group h-32 md:h-52 flex items-center justify-center p-2"
           >
             <div className="absolute inset-0 bg-green-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <img
               src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=HaqiKuy470&theme=tokyonight&background=00000000"
               alt="Stats"
-              className="h-full w-auto object-contain p-2 scale-100 md:scale-105"
+              className="h-full w-auto object-contain scale-100 md:scale-105"
             />
           </motion.div>
 
