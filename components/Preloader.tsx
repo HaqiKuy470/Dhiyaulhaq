@@ -10,7 +10,6 @@ export default function Preloader() {
   useGSAP(() => {
     const tl = gsap.timeline();
 
-    // 1. Teks Loading
     tl.to(".loading-text", {
       opacity: 1,
       duration: 0.5,
@@ -19,14 +18,13 @@ export default function Preloader() {
     .to(".loading-text", {
       opacity: 0,
       duration: 0.5,
-      delay: 1 // Tahan sebentar
+      delay: 1
     })
-    // 2. Layar Hitam Naik ke Atas
     .to(container.current, {
       yPercent: -100,
       duration: 1.2,
       ease: "power4.inOut",
-      onComplete: () => setShow(false) // Hapus dari DOM setelah selesai
+      onComplete: () => setShow(false)
     });
 
   }, { scope: container });

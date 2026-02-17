@@ -32,13 +32,13 @@ export default function FadeIn({ children, delay = 0, direction = "up", fullWidt
         x: 0,
         y: 0,
         opacity: 1,
-        duration: 1.5, // Durasi lebih lama biar elegan
+        duration: 1.5,
         delay: delay,
-        ease: "power3.out", // Easing yang smooth
+        ease: "power3.out",
         scrollTrigger: {
           trigger: el.current,
-          start: "top 85%", // Mulai animasi saat elemen masuk 85% viewport
-          toggleActions: "play none none reverse", // Mainkan, kalau scroll balik dia reverse (opsional)
+          start: "top 85%",
+          toggleActions: "play none none reverse",
         },
       }
     );

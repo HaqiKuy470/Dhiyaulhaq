@@ -11,9 +11,8 @@ const Marquee = ({ items, direction = "left" }: { items: string[]; direction?: "
         initial={{ x: direction === "left" ? "0%" : "-50%" }}
         animate={{ x: direction === "left" ? "-50%" : "0%" }}
         transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
-        className="flex gap-12 py-6" // Gap diperlebar jadi 12 biar lega
+        className="flex gap-12 py-6"
       >
-        {/* Diulang 4x agar loop seamless di layar lebar */}
         {[...items, ...items, ...items, ...items].map((item, idx) => (
           <span 
             key={idx} 
@@ -31,7 +30,6 @@ export default function Skills() {
   return (
     <section className="py-10 bg-slate-950 border-y border-slate-900/50 relative overflow-hidden">
       
-      {/* Efek Kabut di Kiri & Kanan (Supaya teks hilang perlahan) */}
       <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none" />
 

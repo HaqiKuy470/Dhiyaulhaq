@@ -8,7 +8,6 @@ export default function Stats() {
     <section className="py-24 bg-slate-950 border-t border-slate-900/50 relative">
       <div className="container mx-auto px-6">
 
-        {/* Header Section dengan Nomor 04 */}
         <div className="mb-12">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -28,7 +27,6 @@ export default function Stats() {
           </p>
         </div>
 
-        {/* Grid System yang Konstan (Sejajar) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           {/* Card 1: Streak */}
@@ -37,7 +35,7 @@ export default function Stats() {
             className="bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden relative group h-40 md:h-52 flex items-center justify-center"
           >
             <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            {/* Gambar dipaksa fit di tengah tanpa mengubah ukuran kotak */}
+
             <img
               src="https://github-readme-streak-stats.herokuapp.com/?user=HaqiKuy470&theme=tokyonight&hide_border=true&fire=FF0000&ring=FF0000&currStreakNum=FF0000&background=00000000"
               alt="GitHub Streak"
@@ -45,7 +43,6 @@ export default function Stats() {
             />
           </motion.div>
 
-          {/* Card 2: Languages */}
           <motion.div
             whileHover={{ y: -5 }}
             className="bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden relative group h-40 md:h-52 flex items-center justify-center"
@@ -58,7 +55,6 @@ export default function Stats() {
             />
           </motion.div>
 
-          {/* Card 3: Overall Stats */}
           <motion.div
             whileHover={{ y: -5 }}
             className="bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden relative group h-40 md:h-52 flex items-center justify-center"

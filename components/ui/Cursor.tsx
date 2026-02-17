@@ -3,16 +3,15 @@ import AnimatedCursor from "react-animated-cursor";
 
 export default function Cursor() {
   return (
-    <div className="hidden md:block"> {/* Sembunyikan di HP */}
+    <div className="hidden md:block"> 
       <AnimatedCursor
-        innerSize={8}       // Ukuran titik inti
-        outerSize={35}      // Ukuran lingkaran luar (scanner)
-        color="34, 211, 238" // Warna Cyan Neon (RGB format tanpa koma)
-        outerAlpha={0.2}    // Transparansi lingkaran luar
+        innerSize={8}       
+        outerSize={35}      
+        color="34, 211, 238" 
+        outerAlpha={0.2}    
         innerScale={1}
-        outerScale={2}      // Seberapa besar lingkaran membesar saat hover
+        outerScale={2}      
         
-        // PENTING: Konfigurasi "Engineer Feel"
         clickables={[
           "a",
           'input[type="text"]',
@@ -27,10 +26,9 @@ export default function Cursor() {
           ".link",
         ]}
         
-        // Style Kustom untuk efek X-Ray/Scanner
         outerStyle={{
           border: '1px solid var(--cursor-color)',
-          mixBlendMode: 'exclusion' // Efek warna terbalik (keren di background gelap)
+          mixBlendMode: 'exclusion' 
         }}
         innerStyle={{
           backgroundColor: 'var(--cursor-color)',

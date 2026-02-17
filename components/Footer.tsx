@@ -5,14 +5,12 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-slate-950 border-t border-slate-800 pt-16 pb-8 relative overflow-hidden">
-      
-      {/* Background Glow (Halus di bawah) */}
+
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-blue-600/10 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          
-          {/* Brand Column */}
+
           <div className="md:col-span-2">
             <h2 className="text-2xl font-bold text-white mb-4">
               Moh Dhiyaulhaq <span className="text-blue-500">Ulumuddin</span>
@@ -27,7 +25,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation Column */}
           <div>
             <h3 className="text-white font-bold mb-6">Sitemap</h3>
             <ul className="space-y-4 text-slate-400">
@@ -38,7 +35,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Column */}
           <div>
             <h3 className="text-white font-bold mb-6">Contact</h3>
             <ul className="space-y-4 text-slate-400">
@@ -55,14 +51,12 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
           <p>&copy; {new Date().getFullYear()} Arshaka. All rights reserved.</p>
           
           <div className="flex items-center gap-1.5 mt-2 md:mt-0">
             <span>Created with</span>
             
-            {/* LOGO NEXT.JS (SVG) */}
             <svg
               className="w-6 h-6 text-white animate-pulse" 
               viewBox="0 0 180 180" 
@@ -87,7 +81,6 @@ export default function Footer() {
   );
 }
 
-// Komponen Kecil untuk Social Icon
 function SocialLink({ href, icon }: { href: string, icon: React.ReactNode }) {
   return (
     <a 

@@ -1,5 +1,5 @@
 "use client";
-import Marquee from "react-fast-marquee"; // Kamu perlu install ini: npm i react-fast-marquee
+import Marquee from "react-fast-marquee"; 
 
 const skills = [
   "Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", 

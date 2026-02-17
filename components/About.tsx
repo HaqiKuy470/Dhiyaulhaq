@@ -9,7 +9,6 @@ export default function About() {
     <section className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         
-        {/* Kiri: Deskripsi */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -39,7 +38,6 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* Kanan: Grid of Interests */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[
             { 
