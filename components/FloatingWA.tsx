@@ -4,7 +4,7 @@ import { MessageCircle } from "lucide-react";
 export default function FloatingWA() {
   return (
     <a
-      href="https://wa.me/62881036271708"
+      href="https://wa.me/message/UMGIRE2RGSX3B1?src=qr"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 group"
