@@ -21,10 +21,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dhiyaulhaq | Portfolio",
-  description: "Portfolio of Moh Dhiyaulhaq Ulumuddin",
+  title: "HeyHaqi | Portfolio Moh. Dhiyaulhaq",
+  description: "Portfolio of Moh Dhiyaulhaq Ulumuddin (HeyHaqi). Informatics Engineering Education student at Universitas Negeri Malang exploring Web Development, Automation, and Financial Tech.",
+  keywords: ["HeyHaqi", "Moh Dhiyaulhaq Ulumuddin", "Haqi", "Portfolio Web Developer", "PTI UM", "Next.js Developer Malang"],
+  authors: [{ name: "Moh. Dhiyaulhaq Ulumuddin" }],
   icons: {
     icon: '/logo.png',
+  },
+  openGraph: {
+    title: "HeyHaqi | Web Developer Portfolio",
+    description: "Portfolio of Moh Dhiyaulhaq Ulumuddin. Exploring Web Development, Automation, and Financial Tech.",
+    url: "https://heyhaqi.my.id",
+    siteName: "HeyHaqi Portfolio",
+    locale: "id_ID",
+    type: "website",
   },
 };
 
@@ -33,8 +43,33 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Moh. Dhiyaulhaq Ulumuddin",
+    "alternateName": ["HeyHaqi", "Haqi"],
+    "url": "https://heyhaqi.my.id",
+    "jobTitle": "Web Developer",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Universitas Negeri Malang"
+    },
+    "homeLocation": {
+      "@type": "Place",
+      "name": "Malang, Indonesia"
+    },
+    "knowsAbout": ["Web Development", "Next.js", "Python", "Automation", "Financial Tech"]
+  };
+
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-slate-200 overflow-x-hidden selection:bg-blue-500/30 relative`}
       >
