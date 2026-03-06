@@ -24,7 +24,7 @@ export default function Navbar() {
           <Link
             key={idx}
             href={item.href}
-            className="group relative p-2 md:p-3 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300"
+            className="group relative p-2 md:p-2 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300"
           >
             {item.icon}
 

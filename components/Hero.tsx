@@ -1,8 +1,9 @@
 "use client";
 import { useRef } from "react";
-import { Github, Linkedin, Instagram, Youtube, Download } from "lucide-react";
+import { Github, Linkedin, Instagram, Download } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import Link from "next/link"; // Jangan lupa import Link dari next/link
 
 export default function Hero() {
   const container = useRef(null);
@@ -54,7 +55,8 @@ export default function Hero() {
           </div>
 
           <div className="overflow-hidden py-2">
-            <h1 ref={titleRef} className="text-3xl md:text-5xl lg:text-7xl font-bold text-white leading-tight">
+            {/* REVISI RESPONSIVE: text-4xl di HP, tracking-tight, break-words agar tidak meleber */}
+            <h1 ref={titleRef} className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight tracking-tight break-words">
               Hi, I'm <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 bg-[length:200%_auto] animate-gradient">
                 Dhiyaulhaq
@@ -67,9 +69,14 @@ export default function Hero() {
           </p>
 
           <div ref={btnRef} className="flex flex-wrap gap-4 items-center pt-2">
-            <button className="px-8 py-3 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-700 hover:scale-105 transition-all shadow-[0_0_20px_rgba(37,99,235,0.5)] flex items-center gap-2">
-              <Download className="w-5 h-5" /> Download CV
-            </button>
+            
+            {/* REVISI TOMBOL: Menggunakan <Link> menuju /cv */}
+            <Link 
+              href="/cv" 
+              className="px-8 py-3 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-700 hover:scale-105 transition-all shadow-[0_0_20px_rgba(37,99,235,0.5)] flex items-center gap-2 cursor-pointer"
+            >
+              <Download className="w-5 h-5" /> Lihat CV
+            </Link>
 
             <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-slate-900/50 border border-slate-800 backdrop-blur-sm">
               <SocialIcon href="https://github.com/haqikuy470" icon={<Github className="w-5 h-5" />} />
@@ -80,6 +87,7 @@ export default function Hero() {
 
         </div>
 
+        {/* Kotak Kode ala Hacker (Hanya muncul di Desktop) */}
         <div className="relative hidden md:block h-[500px]">
           <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-purple-600/20 rounded-full blur-[100px] animate-pulse-slow" />
           <div className="w-full h-full border border-slate-800 bg-slate-950/50 backdrop-blur-md rounded-2xl p-6 relative overflow-hidden group hover:border-blue-500/50 transition-colors">

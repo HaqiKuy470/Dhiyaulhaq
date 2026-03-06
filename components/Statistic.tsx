@@ -1,11 +1,10 @@
 "use client";
-
 import { motion } from "framer-motion";
-import { Activity, BarChart3 } from "lucide-react";
+import { BarChart3 } from "lucide-react";
 
 export default function Stats() {
   return (
-    <section className="py-24 bg-slate-950 border-t border-slate-900/50 relative">
+    <section className="py-16 md:py-24 bg-slate-950 border-t border-slate-900/50 relative">
       <div className="container mx-auto px-6">
 
         <div className="mb-12">
@@ -22,48 +21,35 @@ export default function Stats() {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             GitHub <span className="text-blue-500">Activity</span>
           </h2>
-          <p className="text-slate-400 max-w-xl">
+          <p className="text-slate-400 max-w-xl text-sm md:text-base">
             Data real-time diambil langsung dari repositori GitHub @HaqiKuy470.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
 
-          {/* Card 1: Streak */}
-          <motion.div
-            whileHover={{ y: -5 }}
-            className="bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden relative group h-32 md:h-52 flex items-center justify-center p-2"
-          >
-            <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
+          {/* REVISI: Mengubah w-full pada <img> menjadi h-32 md:h-48 agar tingginya terkunci dan tidak melar */}
+          <motion.div whileHover={{ y: -5 }} className="w-full bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden py-6 px-4 flex justify-center items-center">
             <img
               src="https://github-readme-streak-stats.herokuapp.com/?user=HaqiKuy470&theme=tokyonight&hide_border=true&fire=FF0000&ring=FF0000&currStreakNum=FF0000&background=00000000"
               alt="GitHub Streak"
-              className="h-full w-auto object-contain scale-90 md:scale-100"
+              className="h-32 sm:h-40 md:h-48 w-auto object-contain hover:scale-105 transition-transform duration-300"
             />
           </motion.div>
 
-          <motion.div
-            whileHover={{ y: -5 }}
-            className="bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden relative group h-32 md:h-52 flex items-center justify-center p-2"
-          >
-            <div className="absolute inset-0 bg-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <motion.div whileHover={{ y: -5 }} className="w-full bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden py-6 px-4 flex justify-center items-center">
             <img
               src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=HaqiKuy470&theme=tokyonight&background=00000000"
               alt="Languages"
-              className="h-full w-auto object-contain scale-110 md:scale-110"
+              className="h-32 sm:h-40 md:h-48 w-auto object-contain hover:scale-105 transition-transform duration-300"
             />
           </motion.div>
 
-          <motion.div
-            whileHover={{ y: -5 }}
-            className="bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden relative group h-32 md:h-52 flex items-center justify-center p-2"
-          >
-            <div className="absolute inset-0 bg-green-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <motion.div whileHover={{ y: -5 }} className="w-full bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden py-6 px-4 flex justify-center items-center">
             <img
               src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=HaqiKuy470&theme=tokyonight&background=00000000"
               alt="Stats"
-              className="h-full w-auto object-contain scale-100 md:scale-105"
+              className="h-32 sm:h-40 md:h-48 w-auto object-contain hover:scale-105 transition-transform duration-300"
             />
           </motion.div>
 

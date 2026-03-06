@@ -1,13 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { strong } from "framer-motion/client";
 import { User, Code2, TrendingUp, Cpu } from "lucide-react";
 
 export default function About() {
   return (
-    <section className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+    <section className="py-16 md:py-24 relative overflow-hidden">
+      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
 
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -16,14 +15,14 @@ export default function About() {
         >
           <div className="flex items-center gap-2 text-blue-500 font-mono mb-4">
             <User className="w-5 h-5" />
-            <span>03. About Me</span>
+            <span className="text-sm md:text-base">03. About Me</span>
           </div>
 
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Beyond the <span className="text-blue-500">Code</span>
           </h2>
 
-          <div className="space-y-4 text-slate-400 leading-relaxed">
+          <div className="space-y-4 text-slate-400 text-sm md:text-base leading-relaxed">
             <p>
               Halo! Saya mahasiswa semester awal di <strong>Pendidikan Teknik Informatika, Universitas Negeri Malang</strong>.
               Dunia saya tidak hanya berputar di sekitar syntax error, tapi juga bagaimana teknologi bisa menyelesaikan masalah nyata.
@@ -33,7 +32,7 @@ export default function About() {
               Membangun bot, menganalisis data saham, atau menciptakan sistem otomasi adalah hal yang sering saya lakukan di waktu luang.
             </p>
             <p>
-              Saat ini saya fokus mendalami <strong>Next.js</strong> untuk web modern dan <strong>Python/JavaScript</strong> untuk Artifical Intelligence.
+              Saat ini saya fokus mendalami <strong>Next.js</strong> untuk web modern dan <strong>Python/JavaScript</strong> untuk Artificial Intelligence.
             </p>
           </div>
         </motion.div>
@@ -41,24 +40,24 @@ export default function About() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[
             {
-              icon: <Code2 className="w-6 h-6 text-blue-400" />,
+              icon: <Code2 className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />,
               title: "Fullstack Dev",
               desc: "Membangun aplikasi web end-to-end yang scalable."
             },
             {
-              icon: <TrendingUp className="w-6 h-6 text-green-400" />,
+              icon: <TrendingUp className="w-5 h-5 md:w-6 md:h-6 text-green-400" />,
               title: "Trading Tech",
               desc: "Analisis pasar & pengembangan algoritma trading."
             },
             {
-              icon: <Cpu className="w-6 h-6 text-purple-400" />,
+              icon: <Cpu className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />,
               title: "Automation",
-              desc: "Python/JavaScript scripting untuk efisiensi workflow."
+              desc: "Python/JS scripting untuk efisiensi workflow."
             },
             {
-              icon: <User className="w-6 h-6 text-orange-400" />,
+              icon: <User className="w-5 h-5 md:w-6 md:h-6 text-orange-400" />,
               title: "Student Life",
-              desc: "Aktif di PTI UM & komunitas teknologi."
+              desc: "Aktif di komunitas teknologi kampus."
             },
           ].map((item, idx) => (
             <motion.div
@@ -67,13 +66,13 @@ export default function About() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className="p-6 bg-slate-900/50 border border-slate-800 rounded-xl hover:bg-slate-800 transition-colors"
+              className="p-5 md:p-6 bg-slate-900/50 border border-slate-800 rounded-xl hover:bg-slate-800 transition-colors"
             >
-              <div className="bg-slate-950 w-12 h-12 rounded-lg flex items-center justify-center mb-4 border border-slate-800">
+              <div className="bg-slate-950 w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center mb-3 md:mb-4 border border-slate-800">
                 {item.icon}
               </div>
-              <h4 className="text-white font-semibold mb-1">{item.title}</h4>
-              <p className="text-xs text-slate-400">{item.desc}</p>
+              <h4 className="text-white text-sm md:text-base font-semibold mb-1">{item.title}</h4>
+              <p className="text-xs text-slate-400 leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
         </div>

@@ -11,11 +11,12 @@ export default function Footer() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
 
+          {/* Bagian Profil (Kolom 1 & 2 di Desktop) */}
           <div className="md:col-span-2">
             <h2 className="text-2xl font-bold text-white mb-4">
               Moh Dhiyaulhaq <span className="text-blue-500">Ulumuddin</span>
             </h2>
-            <p className="text-slate-400 leading-relaxed max-w-sm">
+            <p className="text-slate-400 leading-relaxed max-w-sm text-sm md:text-base">
               Mahasiswa PTI Universitas Negeri Malang yang berfokus pada Web Development, Automation, dan Financial Tech.
             </p>
             <div className="flex gap-4 mt-6">
@@ -25,34 +26,43 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
-            <h3 className="text-white font-bold mb-6">Sitemap</h3>
-            <ul className="space-y-4 text-slate-400">
-              <li><Link href="#" className="hover:text-blue-500 transition-colors">Home</Link></li>
-              <li><Link href="#about" className="hover:text-blue-500 transition-colors">About</Link></li>
-              <li><Link href="#projects" className="hover:text-blue-500 transition-colors">Projects</Link></li>
-              <li><Link href="#services" className="hover:text-blue-500 transition-colors">Services</Link></li>
-            </ul>
+          {/* Wrapper untuk Sitemap & Contact agar sejajar di HP */}
+          <div className="md:col-span-2 grid grid-cols-2 gap-4 md:gap-12">
+            
+            {/* Sitemap (Kolom Kiri) */}
+            <div>
+              <h3 className="text-white font-bold mb-4 md:mb-6">Sitemap</h3>
+              <ul className="space-y-3 md:space-y-4 text-slate-400 text-sm md:text-base">
+                <li><Link href="#" className="hover:text-blue-500 transition-colors">Home</Link></li>
+                <li><Link href="#about" className="hover:text-blue-500 transition-colors">About</Link></li>
+                <li><Link href="#projects" className="hover:text-blue-500 transition-colors">Projects</Link></li>
+                <li><Link href="#services" className="hover:text-blue-500 transition-colors">Services</Link></li>
+              </ul>
+            </div>
+
+            {/* Contact (Kolom Kanan) */}
+            <div>
+              <h3 className="text-white font-bold mb-4 md:mb-6">Contact</h3>
+              <ul className="space-y-3 md:space-y-4 text-slate-400 text-sm md:text-base">
+                <li className="flex items-start md:items-center gap-2">
+                  <Mail className="w-4 h-4 text-blue-500 mt-0.5 md:mt-0 shrink-0" />
+                  <a href="mailto:haqikuy470@gmail.com" className="hover:text-white transition-colors break-words">
+                    haqikuy470@gmail.com
+                  </a>
+                </li>
+                <li className="text-slate-500">
+                  Malang, Jawa Timur<br />Indonesia
+                </li>
+              </ul>
+            </div>
+
           </div>
 
-          <div>
-            <h3 className="text-white font-bold mb-6">Contact</h3>
-            <ul className="space-y-4 text-slate-400">
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-blue-500" />
-                <a href="mailto:haqikuy470@gmail.com" className="hover:text-white transition-colors">
-                  haqikuy470@gmail.com
-                </a>
-              </li>
-              <li className="text-sm text-slate-500">
-                Malang, Jawa Timur<br />Indonesia
-              </li>
-            </ul>
-          </div>
         </div>
 
-        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
-          <p>&copy; {new Date().getFullYear()} Arshaka. All rights reserved.</p>
+        {/* Copyright & Watermark */}
+        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 gap-4 md:gap-0">
+          <p className="text-center md:text-left">&copy; {new Date().getFullYear()} Arshaka. All rights reserved.</p>
           
           <div className="flex items-center gap-1.5 mt-2 md:mt-0">
             <span>Created with</span>
@@ -87,7 +97,7 @@ function SocialLink({ href, icon }: { href: string, icon: React.ReactNode }) {
       href={href} 
       target="_blank" 
       rel="noopener noreferrer"
-      className="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white hover:border-blue-500 transition-all duration-300"
+      className="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white hover:border-blue-500 transition-all duration-300 shrink-0"
     >
       {icon}
     </a>

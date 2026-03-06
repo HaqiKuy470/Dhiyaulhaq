@@ -59,7 +59,7 @@ export default function CustomCursor() {
   });
 
   return (
-    <>
+    <div className="hidden md:block">
       <div 
         ref={cursorRef} 
         className="fixed top-0 left-0 w-2 h-2 bg-blue-500 rounded-full pointer-events-none z-[9999]"
@@ -68,6 +68,6 @@ export default function CustomCursor() {
         ref={followerRef} 
         className="fixed top-0 left-0 w-8 h-8 border border-blue-500 rounded-full pointer-events-none z-[9998] transition-colors"
       />
-    </>
+    </div>
   );
 }
