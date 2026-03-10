@@ -1,34 +1,34 @@
 export const projects = [
   {
     id: 1,
-    title: "Arshaka Bot Platform",
-    category: "SaaS / Fullstack",
-    description: "Platform Multi-Bot-as-a-Service (BaaS). Solusi penyewaan bot otomatis untuk WhatsApp, Telegram, dan Discord yang dikelola dalam satu dashboard terpusat dengan sistem token.",
-    techStack: ["Next.js", "Node.js", "Multi-Platform API", "Payment Gateway"],
+    title: "ARK Shell",
+    category: "AI / Mobile Architecture",
+    description: "Aplikasi mobile terminal inovatif dengan integrasi kecerdasan buatan (AI) yang mendalam. Dirancang untuk membantu pengguna mengotomatisasi perintah sistem dan mengelola operasi perangkat cerdas secara langsung dari antarmuka mobile.",
+    techStack: ["Python", "AI APIs", "System Architecture", "Prompt Engineering"],
     links: { github: "#", demo: "#" }
   },
   {
     id: 2,
-    title: "Arshaka Digital Hub", 
-    category: "Web Dev / E-Commerce",
-    description: "Ekosistem layanan digital All-in-One. Mengintegrasikan marketplace (Top Up Game, PPOB, Voucher), penyewaan Bot AI, serta menyediakan Public API untuk integrasi developer.",
-    techStack: ["Next.js 14", "Supabase", "Public API", "Tailwind CSS"],
+    title: "HYDRA Smart POS",
+    category: "Web Dev / System",
+    description: "Sistem Point of Sales (POS) berbasis web yang dirancang komprehensif untuk menyederhanakan manajemen transaksi bisnis. Terintegrasi langsung dengan payment gateway Midtrans untuk pemrosesan pembayaran digital yang aman dan realtime.",
+    techStack: ["Next.js", "PHP", "Midtrans", "Tailwind CSS"],
     links: { github: "#", demo: "#" }
   },
   {
     id: 3,
-    title: "HYDRA Smart POS",
-    category: "System Architecture",
-    description: "Sistem POS Offline-First untuk UMKM dengan integrasi AI-Ledger. Dirancang untuk efisiensi sinkronisasi data.",
-    techStack: ["System Design", "Offline-First", "AI Integration"],
+    title: "ArBot Ecosystem",
+    category: "Automation / Backend",
+    description: "Ekosistem bot automasi multi-platform (WhatsApp, Telegram, Discord) untuk operasional Arshaka Digital. Menangani jutaan request untuk respons otomatis, filter keamanan (anti-link/spam), dan integrasi API publik secara real-time.",
+    techStack: ["Node.js", "REST APIs", "Webhooks", "Bot Architecture"],
     links: { github: "#", demo: "#" }
   },
   {
     id: 4,
-    title: "YouTube Automation",
-    category: "Automation",
-    description: "Pipeline Python untuk generate video otomatis dari script text, menggunakan AI Voiceover dan Image Search.",
-    techStack: ["Python", "FFmpeg", "Text-to-Speech", "Automation"],
+    title: "Face Recognition Attendance",
+    category: "Computer Vision / AI",
+    description: "Sistem pelacakan presensi presisi tinggi secara real-time menggunakan teknologi computer vision. Memanfaatkan OpenCV untuk mendeteksi dan memvalidasi wajah secara otomatis guna menggantikan sistem absensi manual yang kurang efisien.",
+    techStack: ["Python", "OpenCV", "Machine Learning", "Data Processing"],
     links: { github: "#", demo: "#" }
   }
 ];

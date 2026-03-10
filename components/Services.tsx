@@ -1,5 +1,5 @@
 "use client";
-import { Monitor, Cpu, Bot, ArrowRight, Sparkles } from "lucide-react";
+import { Monitor, Bot, ArrowRight, Sparkles, Smartphone } from "lucide-react";
 import GlowCard from "@/components/ui/GlowCard";
 import FadeIn from "@/components/ui/FadeIn";
 
@@ -7,14 +7,20 @@ const services = [
   {
     icon: <Monitor className="w-8 h-8 text-blue-400" />,
     title: "Web Development",
-    desc: "Membangun website modern yang cepat, responsif, dan SEO-friendly menggunakan Next.js dan Tailwind CSS. Cocok untuk Company Profile, Landing Page, atau Dashboard.",
+    desc: "Membangun website modern yang cepat, responsif, dan SEO-friendly menggunakan Next.js dan Tailwind CSS. Cocok untuk Company Profile, Landing Page, atau arsitektur Dashboard kompleks.",
     tags: ["Next.js", "React", "SEO"]
+  },
+  {
+    icon: <Smartphone className="w-8 h-8 text-green-400" />,
+    title: "Mobile App Development",
+    desc: "Merancang dan mengembangkan aplikasi mobile cross-platform (iOS & Android) berkinerja tinggi menggunakan Flutter. Salah satu produk unggulan yang saya kembangkan adalah HYDRA Smart POS.",
+    tags: ["Flutter", "Dart", "Mobile UI", "HYDRA"]
   },
   {
     icon: <Bot className="w-8 h-8 text-purple-400" />,
     title: "Chatbot & Financial Tech",
-    desc: "Mengotomatisasi tugas berulang atau membangun Chatbot cerdas (WhatsApp/Telegram/Discord). Hemat waktu dan biaya operasional bisnis Anda.",
-    tags: ["Python", "WhatsApp API", "Scraping", "Financial Tech"]
+    desc: "Mengotomatisasi tugas berulang dan membangun Chatbot cerdas (WhatsApp/Telegram/Discord) terintegrasi API Gateway untuk menghemat waktu dan biaya operasional bisnis Anda.",
+    tags: ["Python", "Node.js", "API", "Automation"]
   }
 ];
 
@@ -32,7 +38,7 @@ export default function Services() {
             </div>
 
             <p className="text-slate-400 text-lg max-w-2xl leading-relaxed">
-              Solusi teknologi yang saya tawarkan untuk membantu bisnis atau proyek Anda berkembang dengan efisien.
+              Solusi teknologi terintegrasi yang saya tawarkan untuk membantu digitalisasi dan skalabilitas bisnis Anda, dari arsitektur web hingga ekosistem mobile.
             </p>
           </FadeIn>
         </div>
@@ -65,7 +71,7 @@ export default function Services() {
 
                   {/* Fake CTA Link */}
                   <div className="flex items-center gap-2 text-sm font-bold text-blue-500 mt-auto group-hover:gap-3 transition-all">
-                    Start Project <ArrowRight className="w-4 h-4" />
+                    Detail Layanan <ArrowRight className="w-4 h-4" />
                   </div>
 
                 </div>
