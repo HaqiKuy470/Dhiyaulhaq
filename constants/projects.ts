@@ -26,7 +26,7 @@ export const projects = [
   {
     id: 4,
     title: "YouTube Automation",
-    category: "Automation & AI",
+    category: "Automation",
     description: "Pipeline Python untuk generate video otomatis dari script text, menggunakan AI Voiceover dan Image Search.",
     techStack: ["Python", "FFmpeg", "Text-to-Speech", "Automation"],
     links: { github: "#", demo: "#" }

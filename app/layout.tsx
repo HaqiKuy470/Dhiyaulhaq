@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "HeyHaqi | Portfolio Moh. Dhiyaulhaq",
-  description: "Portfolio of Moh Dhiyaulhaq Ulumuddin (HeyHaqi). Informatics Engineering Education student at Universitas Negeri Malang exploring Web Development, Automation, and Financial Tech.",
+  description: "Portfolio of Moh Dhiyaulhaq Ulumuddin (HeyHaqi). Informatics Engineering Education student at Universitas Negeri Malang exploring Web Development, Machine Learning, and Financial Tech.",
   keywords: ["HeyHaqi", "Moh Dhiyaulhaq Ulumuddin", "Haqi", "Portfolio Web Developer", "PTI UM", "Next.js Developer Malang"],
   authors: [{ name: "Moh. Dhiyaulhaq Ulumuddin" }],
   icons: {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "HeyHaqi | Web Developer Portfolio",
-    description: "Portfolio of Moh Dhiyaulhaq Ulumuddin. Exploring Web Development, Automation, and Financial Tech.",
+    description: "Portfolio of Moh Dhiyaulhaq Ulumuddin. Exploring Web Development, Machine Learning, and Financial Tech.",
     url: "https://heyhaqi.my.id",
     siteName: "HeyHaqi Portfolio",
     locale: "id_ID",
@@ -56,7 +56,7 @@ export default function RootLayout({
       "@type": "Place",
       "name": "Malang, Indonesia"
     },
-    "knowsAbout": ["Web Development", "Next.js", "Python", "Automation", "Financial Tech"]
+    "knowsAbout": ["Web Development", "Next.js", "Python", "Machine Learning", "Financial Tech"]
   };
 
   return (

@@ -12,16 +12,10 @@ const services = [
   },
   {
     icon: <Bot className="w-8 h-8 text-purple-400" />,
-    title: "Bot & Automation",
+    title: "Chatbot & Financial Tech",
     desc: "Mengotomatisasi tugas berulang atau membangun Chatbot cerdas (WhatsApp/Telegram/Discord). Hemat waktu dan biaya operasional bisnis Anda.",
-    tags: ["Python", "WhatsApp API", "Scraping"]
-  },
-  {
-    icon: <Cpu className="w-8 h-8 text-green-400" />,
-    title: "Custom Systems",
-    desc: "Perancangan sistem informasi kompleks seperti POS (Point of Sales), Manajemen Inventaris, atau SaaS dengan arsitektur database yang efisien.",
-    tags: ["System Design", "Database", "SaaS"]
-  },
+    tags: ["Python", "WhatsApp API", "Scraping", "Financial Tech"]
+  }
 ];
 
 export default function Services() {

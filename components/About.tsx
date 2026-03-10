@@ -46,13 +46,13 @@ export default function About() {
             },
             {
               icon: <TrendingUp className="w-5 h-5 md:w-6 md:h-6 text-green-400" />,
-              title: "Trading Tech",
+              title: "Financial Tech",
               desc: "Analisis pasar & pengembangan algoritma trading."
             },
             {
               icon: <Cpu className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />,
-              title: "Automation",
-              desc: "Python/JS scripting untuk efisiensi workflow."
+              title: "Machine Learning",
+              desc: "Python/JS scripting untuk Machine Learning."
             },
             {
               icon: <User className="w-5 h-5 md:w-6 md:h-6 text-orange-400" />,

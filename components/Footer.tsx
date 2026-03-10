@@ -17,7 +17,7 @@ export default function Footer() {
               Moh Dhiyaulhaq <span className="text-blue-500">Ulumuddin</span>
             </h2>
             <p className="text-slate-400 leading-relaxed max-w-sm text-sm md:text-base">
-              Mahasiswa PTI Universitas Negeri Malang yang berfokus pada Web Development, Automation, dan Financial Tech.
+              Mahasiswa PTI Universitas Negeri Malang yang berfokus pada Web Development, Machine Learning, dan Financial Tech.
             </p>
             <div className="flex gap-4 mt-6">
               <SocialLink href="https://github.com/haqikuy470" icon={<Github className="w-5 h-5"/>} />

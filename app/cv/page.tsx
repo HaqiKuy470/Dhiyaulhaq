@@ -34,7 +34,7 @@ export default function CVPage() {
               Moh. Dhiyaulhaq <span className="text-blue-500 print:text-blue-700">Ulumuddin</span>
             </h1>
             <h2 className="text-xl md:text-2xl text-slate-400 print:text-gray-600 font-medium">
-              Web & Automation Developer
+              Artificial Intelligence Developer
             </h2>
           </div>
           
@@ -112,7 +112,7 @@ export default function CVPage() {
             {/* REVISI: Tambahan Artificial Intelligence Engineering */}
             <div>
               <h4 className="text-slate-200 print:text-black font-semibold mb-2">Specialized Domains</h4>
-              <p className="text-slate-400 print:text-gray-700 text-sm leading-relaxed">Artificial Intelligence Engineering, Automation Bots (WhatsApp/Discord/Telegram), Bandarmology / Stock Market Data.</p>
+              <p className="text-slate-400 print:text-gray-700 text-sm leading-relaxed">Artificial Intelligence Engineering, Chatbot (WhatsApp/Discord/Telegram), Financial Tech (Bandarmology / Stock Market Data).</p>
             </div>
             
             <div>

@@ -65,7 +65,7 @@ export default function Hero() {
           </div>
 
           <p ref={descRef} className="text-slate-400 text-sm md:text-xl max-w-lg leading-relaxed border-l-2 border-blue-500/50 pl-4 md:pl-6">
-            Mahasiswa PTI yang gemar mengeksplorasi <span className="text-blue-400 font-bold">Web Development</span>, <span className="text-purple-400 font-bold">Automation</span>, dan <span className="text-yellow-400 font-bold">Financial Tech</span>.
+            Mahasiswa PTI yang gemar mengeksplorasi <span className="text-blue-400 font-bold">Artificial Intelligence</span>, <span className="text-purple-400 font-bold">Machine Learning</span>, dan <span className="text-yellow-400 font-bold">Financial Tech</span>.
           </p>
 
           <div ref={btnRef} className="flex flex-wrap gap-4 items-center pt-2">
