@@ -1,10 +1,10 @@
 export const projects = [
   {
     id: 1,
-    title: "ARK Shell",
-    category: "AI / Mobile Architecture",
-    description: "Aplikasi mobile terminal inovatif dengan integrasi kecerdasan buatan (AI) yang mendalam. Dirancang untuk membantu pengguna mengotomatisasi perintah sistem dan mengelola operasi perangkat cerdas secara langsung dari antarmuka mobile.",
-    techStack: ["Python", "AI APIs", "System Architecture", "Prompt Engineering"],
+    title: "n8n Workflow Automation",
+    category: "Automation / DevOps",
+    description: "Merancang dan mengimplementasikan alur kerja otomatisasi (workflow) tingkat lanjut menggunakan n8n. Menghubungkan berbagai layanan pihak ketiga, API, dan webhook untuk meminimalkan tugas manual, mengelola aliran data, dan meningkatkan efisiensi operasional sistem.",
+    techStack: ["n8n", "Webhooks", "API Integration", "Node.js"],
     links: { github: "#", demo: "#" }
   },
   {
