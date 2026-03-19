@@ -13,7 +13,7 @@ export const projects = [
     category: "Web Dev / System",
     description: "Sistem Point of Sales (POS) berbasis web yang dirancang komprehensif untuk menyederhanakan manajemen transaksi bisnis. Terintegrasi langsung dengan payment gateway Midtrans untuk pemrosesan pembayaran digital yang aman dan realtime.",
     techStack: ["Next.js", "PHP", "Midtrans", "Tailwind CSS"],
-    links: { github: "#", demo: "#" }
+    links: { github: "#", demo: "https://youtu.be/lOK6FEdI9m8" }
   },
   {
     id: 3,
