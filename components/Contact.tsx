@@ -33,10 +33,6 @@ export default function Contact() {
         </motion.div>
 
       </div>
-      
-      <div className="absolute bottom-0 w-full py-6 border-t border-slate-900 text-center text-slate-600 text-sm">
-        <p>&copy; {new Date().getFullYear()} Arshaka. Dibuat dengan Next.js & Tailwind.</p>
-      </div>
     </section>
   );
 }
