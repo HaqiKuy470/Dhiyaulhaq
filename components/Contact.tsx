@@ -1,37 +1,52 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { Mail, ArrowUpRight } from "lucide-react";
-
 export default function Contact() {
   return (
-    <section className="py-32 relative text-center">
-      <div className="container mx-auto px-6 relative z-10">
-        
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-3xl mx-auto"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Punya ide proyek menarik?
-          </h2>
-          <p className="text-slate-400 text-lg mb-10">
-            Saya selalu terbuka untuk diskusi tentang pengembangan web, sistem otomasi, 
-            atau sekadar ngobrol seputar teknologi dan trading.
-          </p>
+    <section id="contact" className="py-20 bg-cyan-400 border-b-8 border-black font-mono">
+      <div className="container mx-auto px-6 max-w-3xl">
+        <div className="bg-white border-4 border-black p-8 md:p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           
-          <a 
-            href="mailto:haqikuy470@gmail.com" 
-            className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105"
-          >
-            <Mail className="w-5 h-5" />
-            Hubungi Saya
-            <ArrowUpRight className="w-5 h-5" />
-          </a>
-        </motion.div>
+          <div className="inline-block bg-pink-400 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_#000] mb-8">
+            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter">
+              Contact
+            </h2>
+          </div>
+          
+          <form className="space-y-6 font-bold text-black">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="block text-sm uppercase">Name</label>
+                <input 
+                  type="text" 
+                  className="w-full p-3 border-4 border-black focus:bg-yellow-200 outline-none transition-all shadow-[4px_4px_0px_0px_#000] focus:shadow-none focus:translate-x-1 focus:translate-y-1" 
+                  placeholder="Dhiyaulhaq" 
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="block text-sm uppercase">Email</label>
+                <input 
+                  type="email" 
+                  className="w-full p-3 border-4 border-black focus:bg-yellow-200 outline-none transition-all shadow-[4px_4px_0px_0px_#000] focus:shadow-none focus:translate-x-1 focus:translate-y-1" 
+                  placeholder="haqikuy470@gmail.com" 
+                />
+              </div>
+            </div>
+            
+            <div className="space-y-2">
+              <label className="block text-sm uppercase">Message</label>
+              <textarea 
+                className="w-full p-3 border-4 border-black h-32 focus:bg-yellow-200 outline-none transition-all shadow-[4px_4px_0px_0px_#000] focus:shadow-none focus:translate-x-1 focus:translate-y-1 resize-none" 
+                placeholder="Let's build something epic..."
+              ></textarea>
+            </div>
+            
+            <button 
+              type="submit" 
+              className="w-full bg-green-400 py-4 text-xl font-black uppercase border-4 border-black shadow-[6px_6px_0px_0px_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all cursor-pointer"
+            >
+              Send Command
+            </button>
+          </form>
 
+        </div>
       </div>
     </section>
   );

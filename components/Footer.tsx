@@ -4,25 +4,24 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 border-t border-slate-800 pt-16 pb-8 relative overflow-hidden">
-
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-blue-600/10 blur-[100px] rounded-full pointer-events-none" />
-
-      <div className="container mx-auto px-6 relative z-10">
+    <footer className="bg-white border-t-8 border-black pt-16 pb-8 font-mono overflow-hidden">
+      <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
 
           {/* Bagian Profil (Kolom 1 & 2 di Desktop) */}
           <div className="md:col-span-2">
-            <h2 className="text-2xl font-bold text-white mb-4">
-              Moh Dhiyaulhaq <span className="text-blue-500">Ulumuddin</span>
-            </h2>
-            <p className="text-slate-400 leading-relaxed max-w-sm text-sm md:text-base">
-              Mahasiswa PTI Universitas Negeri Malang yang berfokus pada Web Development, Machine Learning, dan Financial Tech.
+            <div className="inline-block bg-yellow-400 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_#000] mb-6">
+              <h2 className="text-2xl font-black uppercase tracking-tighter">
+                Moh Dhiyaulhaq
+              </h2>
+            </div>
+            <p className="font-bold text-sm md:text-base border-l-4 border-black pl-4 mb-6 max-w-sm bg-gray-100 p-2">
+              Mahasiswa Pendidikan Teknik Informatika Universitas Negeri Malang yang memiliki hobi mencoba terknologi.
             </p>
-            <div className="flex gap-4 mt-6">
-              <SocialLink href="https://github.com/haqikuy470" icon={<Github className="w-5 h-5"/>} />
-              <SocialLink href="https://www.linkedin.com/in/moh-dhiyaulhaq-ulumuddin-98b9022a1" icon={<Linkedin className="w-5 h-5"/>} />
-              <SocialLink href="https://instagram.com/haqikuy" icon={<Instagram className="w-5 h-5"/>} />
+            <div className="flex gap-4">
+              <SocialLink href="https://github.com/haqikuy470" icon={<Github className="w-6 h-6"/>} />
+              <SocialLink href="https://www.linkedin.com/in/moh-dhiyaulhaq-ulumuddin-98b9022a1" icon={<Linkedin className="w-6 h-6"/>} />
+              <SocialLink href="https://instagram.com/haqikuy" icon={<Instagram className="w-6 h-6"/>} />
             </div>
           </div>
 
@@ -31,26 +30,28 @@ export default function Footer() {
             
             {/* Sitemap (Kolom Kiri) */}
             <div>
-              <h3 className="text-white font-bold mb-4 md:mb-6">Sitemap</h3>
-              <ul className="space-y-3 md:space-y-4 text-slate-400 text-sm md:text-base">
-                <li><Link href="#" className="hover:text-blue-500 transition-colors">Home</Link></li>
-                <li><Link href="#about" className="hover:text-blue-500 transition-colors">About</Link></li>
-                <li><Link href="#projects" className="hover:text-blue-500 transition-colors">Projects</Link></li>
-                <li><Link href="#services" className="hover:text-blue-500 transition-colors">Services</Link></li>
+              <h3 className="font-black uppercase mb-4 md:mb-6 border-b-4 border-black pb-2 inline-block">Sitemap</h3>
+              <ul className="space-y-3 md:space-y-4 font-bold text-sm md:text-base">
+                <li><Link href="#" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">Home</Link></li>
+                <li><Link href="#about" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">About</Link></li>
+                <li><Link href="#projects" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">Projects</Link></li>
+                <li><Link href="#services" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">Services</Link></li>
               </ul>
             </div>
 
             {/* Contact (Kolom Kanan) */}
             <div>
-              <h3 className="text-white font-bold mb-4 md:mb-6">Contact</h3>
-              <ul className="space-y-3 md:space-y-4 text-slate-400 text-sm md:text-base">
+              <h3 className="font-black uppercase mb-4 md:mb-6 border-b-4 border-black pb-2 inline-block">Contact</h3>
+              <ul className="space-y-3 md:space-y-4 font-bold text-sm md:text-base">
                 <li className="flex items-start md:items-center gap-2">
-                  <Mail className="w-4 h-4 text-blue-500 mt-0.5 md:mt-0 shrink-0" />
-                  <a href="mailto:haqikuy470@gmail.com" className="hover:text-white transition-colors break-words">
+                  <span className="bg-pink-400 p-1 border-2 border-black shrink-0">
+                    <Mail className="w-4 h-4 text-black" />
+                  </span>
+                  <a href="mailto:haqikuy470@gmail.com" className="hover:bg-pink-400 hover:px-2 transition-all border-2 border-transparent hover:border-black break-words">
                     haqikuy470@gmail.com
                   </a>
                 </li>
-                <li className="text-slate-500">
+                <li className="bg-gray-100 p-2 border-2 border-black mt-2 inline-block">
                   Malang, Jawa Timur<br />Indonesia
                 </li>
               </ul>
@@ -61,29 +62,18 @@ export default function Footer() {
         </div>
 
         {/* Copyright & Watermark */}
-        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 gap-4 md:gap-0">
-          <p className="text-center md:text-left">&copy; {new Date().getFullYear()} Arshaka. All rights reserved.</p>
+        <div className="border-t-4 border-black pt-8 flex flex-col md:flex-row justify-between items-center text-sm font-bold gap-4 md:gap-0">
+          <p className="bg-white border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_#000] text-center md:text-left">
+            &copy; {new Date().getFullYear()} ARSHAKA. ALL RIGHTS RESERVED.
+          </p>
           
-          <div className="flex items-center gap-1.5 mt-2 md:mt-0">
-            <span>Created with</span>
+          <div className="flex items-center gap-2 bg-white border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_#000]">
+            <span className="uppercase text-xs">Built with</span>
             
-            <svg
-              className="w-6 h-6 text-white animate-pulse" 
-              viewBox="0 0 180 180" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-                <mask id="mask0_next" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="180" height="180">
-                  <circle cx="90" cy="90" r="90" fill="black"/>
-                </mask>
-                <g mask="url(#mask0_next)">
-                  <circle cx="90" cy="90" r="90" fill="black" stroke="white" strokeWidth="4"/>
-                  <path d="M149.508 157.52L69.142 54H54V125.97H66.27V69.546L141.303 166.089C144.303 163.633 147.054 160.759 149.508 157.52Z" fill="white"/>
-                  <rect x="115" y="54" width="12" height="72" fill="white"/>
-                </g>
-            </svg>
+            {/* Logo Next.js versi solid/brutalist */}
+            <div className="bg-black text-white px-1 text-xs font-black">NEXT.JS</div>
 
-            <span>by <span className="text-blue-400 font-semibold">Haqikuy470</span></span>
+            <span className="uppercase text-xs">by <span className="bg-blue-400 px-1 border border-black text-black">Haqikuy470</span></span>
           </div>
         </div>
       </div>
@@ -97,7 +87,7 @@ function SocialLink({ href, icon }: { href: string, icon: React.ReactNode }) {
       href={href} 
       target="_blank" 
       rel="noopener noreferrer"
-      className="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white hover:border-blue-500 transition-all duration-300 shrink-0"
+      className="w-12 h-12 bg-white border-4 border-black shadow-[4px_4px_0px_0px_#000] flex items-center justify-center text-black hover:shadow-none hover:translate-x-1 hover:translate-y-1 hover:bg-black hover:text-white transition-all shrink-0"
     >
       {icon}
     </a>

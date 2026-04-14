@@ -1,83 +1,43 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { User, Code2, TrendingUp, Cpu } from "lucide-react";
-
 export default function About() {
   return (
-    <section className="py-16 md:py-24 relative overflow-hidden">
-      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex items-center gap-2 text-blue-500 font-mono mb-4">
-            <User className="w-5 h-5" />
-            <span className="text-sm md:text-base">03. About Me</span>
+    <section id="about" className="py-20 bg-white border-b-8 border-black font-mono">
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl font-black uppercase mb-12 inline-block bg-green-400 px-4 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+          About
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="brutalist-card p-8 bg-purple-200">
+            <h3 className="text-2xl font-black mb-4 underline">Biography</h3>
+            <p className="font-bold leading-relaxed">
+              Saya adalah mahasiswa Pendidikan Teknik Informatika di Universitas Negeri Malang. 
+              Fokus saya saat ini adalah membangun ekosistem digital melalui brand Arshaka, 
+              menggabungkan efisiensi sistem dengan desain yang fungsional.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              <span className="bg-white border-2 border-black px-2 py-1 text-xs font-black">UM STUDENT</span>
+              <span className="bg-white border-2 border-black px-2 py-1 text-xs font-black">WEB DEV</span>
+              <span className="bg-white border-2 border-black px-2 py-1 text-xs font-black">TRADING ENTHUSIAST</span>
+            </div>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Beyond the <span className="text-blue-500">Code</span>
-          </h2>
-
-          <div className="space-y-4 text-slate-400 text-sm md:text-base leading-relaxed">
-            <p>
-              Halo! Saya mahasiswa semester awal di <strong>Pendidikan Teknik Informatika, Universitas Negeri Malang</strong>.
-              Dunia saya tidak hanya berputar di sekitar syntax error, tapi juga bagaimana teknologi bisa menyelesaikan masalah nyata.
-            </p>
-            <p>
-              Saya memiliki ketertarikan spesifik pada perpotongan antara <strong>Software Engineering</strong> dan <strong>Financial Markets</strong>.
-              Membangun bot, menganalisis data saham, atau menciptakan sistem otomasi adalah hal yang sering saya lakukan di waktu luang.
-            </p>
-            <p>
-              Saat ini saya fokus mendalami <strong>Next.js</strong> untuk web modern dan <strong>Python/JavaScript</strong> untuk Artificial Intelligence.
-            </p>
+          <div className="grid grid-cols-2 gap-4">
+            <StatBox label="Projects" value="20+" color="bg-cyan-400" />
+            <StatBox label="Experience" value="2 Yrs" color="bg-yellow-400" />
+            <StatBox label="Tech Stack" value="15+" color="bg-pink-400" />
+            <StatBox label="Clients" value="10+" color="bg-green-400" />
           </div>
-        </motion.div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {[
-            {
-              icon: <Code2 className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />,
-              title: "Fullstack Dev",
-              desc: "Membangun aplikasi web end-to-end yang scalable."
-            },
-            {
-              icon: <TrendingUp className="w-5 h-5 md:w-6 md:h-6 text-green-400" />,
-              title: "Financial Tech",
-              desc: "Analisis pasar & pengembangan algoritma trading."
-            },
-            {
-              icon: <Cpu className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />,
-              title: "Machine Learning",
-              desc: "Python/JS scripting untuk Machine Learning."
-            },
-            {
-              icon: <User className="w-5 h-5 md:w-6 md:h-6 text-orange-400" />,
-              title: "Student Life",
-              desc: "Aktif di komunitas teknologi kampus."
-            },
-          ].map((item, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: idx * 0.1 }}
-              viewport={{ once: true }}
-              className="p-5 md:p-6 bg-slate-900/50 border border-slate-800 rounded-xl hover:bg-slate-800 transition-colors"
-            >
-              <div className="bg-slate-950 w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center mb-3 md:mb-4 border border-slate-800">
-                {item.icon}
-              </div>
-              <h4 className="text-white text-sm md:text-base font-semibold mb-1">{item.title}</h4>
-              <p className="text-xs text-slate-400 leading-relaxed">{item.desc}</p>
-            </motion.div>
-          ))}
         </div>
-
       </div>
     </section>
+  );
+}
+
+function StatBox({ label, value, color }: { label: string, value: string, color: string }) {
+  return (
+    <div className={`border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${color}`}>
+      <div className="text-3xl font-black">{value}</div>
+      <div className="text-xs uppercase font-bold">{label}</div>
+    </div>
   );
 }

@@ -1,74 +1,57 @@
-"use client";
-
-import { projects } from "@/constants/projects";
-import { motion } from "framer-motion";
-import { ExternalLink, Github, FolderGit2 } from "lucide-react";
-import Link from "next/link";
-import SpotlightCard from "./ui/SpotlightCard";
-import FadeIn from "./ui/FadeIn";
-
 export default function Projects() {
   return (
-    <section id="projects" className="py-16 md:py-24 bg-slate-950 relative">
+    <section id="projects" className="py-20 border-b-8 border-black bg-[#f4f4f0] font-mono">
+      {/* Hapus flex-col dan items-center di sini agar otomatis rata kiri */}
       <div className="container mx-auto px-6">
+        
+        {/* Title */}
+        <h2 className="text-4xl md:text-5xl font-black uppercase mb-12 inline-block bg-green-400 px-4 py-2 border-4 border-black shadow-[6px_6px_0px_0px_#000]">
+          Our Product
+        </h2>
 
-        <div className="mb-16">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-2 text-blue-500 font-mono mb-4"
-          >
-            <FolderGit2 className="w-5 h-5" />
-            <span>02. Featured Projects</span>
-          </motion.div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Apa yang telah saya <span className="text-blue-500">bangun?</span>
-          </h2>
-        </div>
+        {/* Flagship Product Card - ARSHAKA (Sekarang full-width mengikuti container) */}
+        <div className="w-full bg-white border-4 border-black shadow-[8px_8px_0px_0px_#000] flex flex-col md:flex-row overflow-hidden hover:shadow-none hover:translate-x-2 hover:translate-y-2 transition-all">
+          
+          {/* Bagian Visual */}
+          <div className="md:w-1/2 h-64 md:h-auto border-b-4 md:border-b-0 md:border-r-4 border-black bg-purple-500 flex flex-col items-center justify-center p-8 relative overflow-hidden">
+            <span className="text-6xl md:text-8xl font-black opacity-20 uppercase tracking-tighter absolute -right-4 -bottom-4 rotate-6">
+              ARSHAKA
+            </span>
+            
+            <div className="relative z-10 bg-yellow-400 px-6 py-4 border-4 border-black shadow-[6px_6px_0px_0px_#000] transform -rotate-2">
+              <span className="text-3xl md:text-5xl font-black text-black uppercase tracking-tighter">
+                ARSHAKA
+              </span>
+            </div>
+          </div>
+          
+          {/* Bagian Konten/Deskripsi */}
+          <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-white">
+            <div className="mb-4 flex flex-wrap gap-2">
+              <span className="text-xs font-black uppercase border-2 border-black px-2 py-1 bg-cyan-400 shadow-[2px_2px_0px_0px_#000]">
+                Superweb Ecosystem
+              </span>
+              <span className="text-xs font-black uppercase border-2 border-black px-2 py-1 bg-gray-100 shadow-[2px_2px_0px_0px_#000]">
+                In-Development
+              </span>
+            </div>
+            
+            <h3 className="text-3xl font-black uppercase mb-4">Arshaka Project</h3>
+            
+            <p className="font-bold text-sm md:text-base mb-8 leading-relaxed text-black bg-pink-200 border-2 border-black p-4 shadow-[4px_4px_0px_0px_#000]">
+              Ekosistem digital yang terintegrasi untuk membantu bisnis Anda untuk berkembang dan sukses.
+            </p>
+            
+            <div className="flex gap-4">
+              <button className="flex-1 px-4 py-3 border-4 border-black font-black uppercase bg-white text-xs md:text-sm shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all text-center">
+                Details
+              </button>
+              <button className="flex-1 px-4 py-3 border-4 border-black font-black uppercase bg-black text-white text-xs md:text-sm shadow-[4px_4px_0px_0px_rgba(255,255,255,0.3)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all text-center">
+                Launch
+              </button>
+            </div>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {projects.map((project, index) => (
-            <FadeIn key={project.id} delay={index * 0.2} fullWidth>
-              <SpotlightCard
-                key={project.id}
-                className="group relative bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300"
-              >
-
-                <div className="p-6 md:p-8 h-full flex flex-col">
-
-                  <div className="flex justify-between items-start mb-4">
-                    <div className="bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full text-xs font-mono">
-                      {project.category}
-                    </div>
-                    <div className="flex gap-4">
-                      <Link href={project.links.github} className="text-slate-400 hover:text-white transition-colors">
-                        <Github className="w-5 h-5" />
-                      </Link>
-                      <Link href={project.links.demo} className="text-slate-400 hover:text-white transition-colors">
-                        <ExternalLink className="w-5 h-5" />
-                      </Link>
-                    </div>
-                  </div>
-
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {project.techStack.map((tech, i) => (
-                      <span key={i} className="text-xs font-mono text-slate-500 bg-slate-800/50 px-2 py-1 rounded">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </SpotlightCard>
-            </FadeIn>
-          ))}
         </div>
 
       </div>

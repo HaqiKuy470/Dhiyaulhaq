@@ -1,36 +1,25 @@
+import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import TechMarquee from "@/components/TechMarquee";
+import About from "@/components/About";
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
-import About from "@/components/About";
-import Stats from "@/components/Statistic";
-import Timeline from "@/components/Timeline";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+import Skills from "@/components/Skills";
+import Timeline from "@/components/Timeline";
 
 export default function Home() {
   return (
-    <main>
-        <section id="home">
-          <Hero />
-          <TechMarquee/>
-        </section>
-        
-        <section id="services">
-           <Services /> 
-        </section>
-        <section id="projects"> 
-           <Projects /> 
-        </section>
-
-        <section id="about"> 
-            <About />     
-            <Stats />     
-            <Timeline />  
-        </section>
-
-        <section id="contact"> 
-           <Contact /> 
-        </section>
+    <main className="min-h-screen">
+      <Navbar />
+      <Hero />
+      <About />
+      <Timeline />
+      <Skills />
+      <Services />
+      <Projects />
+      <Contact />
+      <Footer />
     </main>
   );
 }
