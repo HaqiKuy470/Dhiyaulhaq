@@ -1,7 +1,8 @@
 "use client";
 
-import { ArrowLeft, Printer, Mail, MapPin, Github, Linkedin, Phone } from "lucide-react";
+import { Printer, Mail, MapPin, Globe, Phone, ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function CVPage() {
   const handlePrint = () => {
@@ -9,126 +10,194 @@ export default function CVPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-300 py-10 px-4 md:px-8 selection:bg-blue-500/30 font-sans">
+    <div className="min-h-screen bg-gray-100 py-10 px-4 md:px-8 selection:bg-[#8D624F]/30 font-sans flex flex-col items-center">
       
       {/* ACTION BUTTONS (Disembunyikan saat di-print) */}
-      <div className="max-w-4xl mx-auto flex justify-between items-center mb-8 print:hidden">
-        <Link href="/" className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-          <ArrowLeft className="w-5 h-5" /> Kembali ke Portfolio
+      <div className="w-full max-w-[210mm] flex justify-between items-center mb-8 print:hidden">
+        <Link href="/" className="flex items-center gap-2 text-gray-500 hover:text-gray-800 transition-colors font-medium">
+          <ArrowLeft className="w-5 h-5" /> Kembali
         </Link>
         <button 
           onClick={handlePrint}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-semibold"
+          className="flex items-center gap-2 px-5 py-2.5 bg-[#8D624F] hover:bg-[#724e3e] text-white rounded-lg transition-colors font-semibold shadow-md"
         >
-          <Printer className="w-4 h-4" /> Print PDF
+          <Printer className="w-4 h-4" /> Print PDF (A4)
         </button>
       </div>
 
-      {/* KERTAS CV */}
-      <div className="max-w-4xl mx-auto bg-slate-900/50 md:bg-slate-900 border border-slate-800 md:p-12 p-6 rounded-2xl shadow-2xl print:bg-white print:text-black print:shadow-none print:border-none print:p-0">
+      {/* KERTAS CV (Ukuran A4 standard) */}
+      <div className="w-full max-w-[210mm] min-h-[297mm] bg-white shadow-2xl print:shadow-none flex flex-col md:flex-row overflow-hidden text-gray-800">
         
-        {/* HEADER */}
-        <header className="border-b border-slate-800 print:border-gray-300 pb-8 mb-8 text-center md:text-left flex flex-col md:flex-row md:justify-between items-center md:items-start gap-6">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white print:text-black mb-2 tracking-tight">
-              Moh. Dhiyaulhaq <span className="text-blue-500 print:text-blue-700">Ulumuddin</span>
+        {/* =========================================
+            KOLOM KIRI (SIDEBAR PASTEL)
+            ========================================= */}
+        <div className="w-full md:w-[35%] bg-[#EFECE8] p-8 flex flex-col">
+          
+          {/* Foto Profil Placeholder */}
+          <div className="flex justify-center mb-10 mt-4 md:mt-0 relative">
+            <div className="w-40 h-40 rounded-full border-4 border-white shadow-md overflow-hidden bg-gray-300 relative">
+              {/* Ganti '/profile.jpg' dengan path foto aslimu di folder public */}
+              <Image 
+                src="/logo.png" 
+                alt="Profile" 
+                fill 
+                className="object-cover" 
+                // Jika gambar belum ada, hapus tag Image ini dan gunakan bg-gray-300 sementara
+              />
+            </div>
+            {/* Aksen garis vertikal di sebelah kanan foto (seperti di gambar) */}
+            <div className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-[3px] h-20 bg-[#D4C3B3] hidden md:block"></div>
+          </div>
+
+          {/* KONTAK */}
+          <div className="mb-10">
+            <h2 className="text-xl font-serif font-bold text-[#8D624F] mb-4 border-b-2 border-[#D4C3B3] pb-2 tracking-widest">
+              KONTAK
+            </h2>
+            <div className="flex flex-col gap-4 text-sm text-gray-700">
+              <div className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-[#8D624F]" /> +62 857 9228 2715
+              </div>
+              <div className="flex items-center gap-3 break-all">
+                <Mail className="w-4 h-4 text-[#8D624F]" /> haqikuy470@gmail.com
+              </div>
+              <div className="flex items-center gap-3">
+                <Globe className="w-4 h-4 text-[#8D624F]" /> heyhaqi.my.id
+              </div>
+              <div className="flex items-center gap-3">
+                <MapPin className="w-4 h-4 text-[#8D624F]" /> Malang
+              </div>
+            </div>
+          </div>
+
+          {/* PENDIDIKAN */}
+          <div className="mb-10">
+            <h2 className="text-xl font-serif font-bold text-[#8D624F] mb-4 border-b-2 border-[#D4C3B3] pb-2 tracking-widest">
+              PENDIDIKAN
+            </h2>
+            
+            <div className="mb-5">
+              <h3 className="font-serif font-bold text-[#8D624F]">MAN 1 Lamongan</h3>
+              <p className="text-sm text-gray-600 mb-1">Matematika dan IPA</p>
+              <span className="inline-block bg-[#E5D7CB] text-[#5A4535] text-xs font-semibold px-2 py-1">2022 - 2025</span>
+            </div>
+
+            <div>
+              <h3 className="font-serif font-bold text-[#8D624F]">Pendidikan Teknik Informatika</h3>
+              <p className="text-sm text-gray-600 mb-1">Universitas Negeri Malang</p>
+              <span className="inline-block bg-[#E5D7CB] text-[#5A4535] text-xs font-semibold px-2 py-1">2025 - NOW</span>
+            </div>
+          </div>
+
+          {/* KEAHLIAN */}
+          <div className="mb-8">
+            <h2 className="text-xl font-serif font-bold text-[#8D624F] mb-4 border-b-2 border-[#D4C3B3] pb-2 tracking-widest">
+              KEAHLIAN
+            </h2>
+            <ul className="flex flex-col gap-2 text-sm text-gray-700">
+              <li>Front-end & Back-end</li>
+              <li>Database</li>
+              <li>Desain Web</li>
+              <li>Mampu bekerja dalam tim</li>
+              <li>Aktif bahasa inggris</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* =========================================
+            KOLOM KANAN (MAIN CONTENT)
+            ========================================= */}
+        <div className="w-full md:w-[65%] p-8 md:p-12 md:pt-16 bg-white flex flex-col">
+          
+          {/* HEADER (NAMA & TITLE) */}
+          <header className="mb-10">
+            <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#8D624F] leading-[1.1] mb-4 uppercase">
+              MOH DHIYAULHAQ <br />
+              ULUMUDDIN
             </h1>
-            <h2 className="text-xl md:text-2xl text-slate-400 print:text-gray-600 font-medium">
+            <h2 className="text-base md:text-lg tracking-[0.15em] text-gray-800 font-medium uppercase">
               Artificial Intelligence Developer
             </h2>
-          </div>
-          
-          <div className="flex flex-col gap-2 text-sm text-slate-400 print:text-gray-600">
-            <a href="mailto:haqikuy470@gmail.com" className="flex items-center gap-2 hover:text-blue-500 transition-colors justify-center md:justify-end">
-              <Mail className="w-4 h-4" /> haqikuy470@gmail.com
-            </a>
-            <div className="flex items-center gap-2 justify-center md:justify-end">
-              <Phone className="w-4 h-4" /> 085111422715
-            </div>
-            <div className="flex items-center gap-2 justify-center md:justify-end">
-              <MapPin className="w-4 h-4" /> Malang, Indonesia
-            </div>
-            <div className="flex items-center gap-4 justify-center md:justify-end mt-2">
-              <Link href="https://github.com/haqikuy470" target="_blank" className="hover:text-white print:text-black transition-colors"><Github className="w-5 h-5"/></Link>
-              <Link href="https://www.linkedin.com/in/moh-dhiyaulhaq-ulumuddin-98b9022a1" target="_blank" className="hover:text-white print:text-black transition-colors"><Linkedin className="w-5 h-5"/></Link>
-            </div>
-          </div>
-        </header>
+          </header>
 
-        {/* TENTANG SAYA */}
-        <section className="mb-8">
-          <h3 className="text-xl font-bold text-white print:text-black mb-4 flex items-center gap-2 uppercase tracking-widest text-sm">
-            <span className="w-8 h-[1px] bg-blue-500"></span> Professional Summary
-          </h3>
-          <p className="leading-relaxed text-slate-400 print:text-gray-700 text-justify">
-            Mahasiswa Pendidikan Teknik Informatika yang antusias dengan pengembangan perangkat lunak, otomasi, dan teknologi finansial. Memiliki pengalaman praktis dalam membangun arsitektur web modern menggunakan ekosistem Next.js, serta pengembangan bot/otomasi dengan Python dan JavaScript. Berfokus pada penulisan kode yang bersih, efisiensi sistem, dan penyelesaian masalah analitis.
-          </p>
-        </section>
+          {/* TENTANG SAYA */}
+          <section className="mb-10">
+            <h2 className="text-2xl font-serif font-bold text-[#8D624F] mb-4 border-b-2 border-[#E5D7CB] pb-2 tracking-wide uppercase">
+              Tentang Saya
+            </h2>
+            <p className="text-gray-600 leading-relaxed text-justify text-sm">
+              Mahasiswa Pendidikan Teknik Informatika yang berfokus pada integrasi Artificial Intelligence dan arsitektur software. Berpengalaman dalam membangun dan mengelola ekosistem aplikasi web SaaS yang terintegrasi dengan AI untuk menciptakan solusi digital yang efisien dan otomatis.
+            </p>
+          </section>
 
-        {/* PENDIDIKAN */}
-        <section className="mb-8">
-          <h3 className="text-xl font-bold text-white print:text-black mb-4 flex items-center gap-2 uppercase tracking-widest text-sm">
-            <span className="w-8 h-[1px] bg-blue-500"></span> Education
-          </h3>
-          <div className="space-y-6">
-            <div className="relative pl-4 border-l-2 border-slate-800 print:border-gray-300">
-              <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-1.5 ring-4 ring-slate-900 print:ring-white"></div>
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-1">
-                <h4 className="text-lg font-bold text-slate-200 print:text-black">Universitas Negeri Malang</h4>
-                <span className="text-blue-500 font-mono text-sm">2025 - Present</span>
+          {/* PROYEK & PENGALAMAN */}
+          <section className="mb-8 flex-1">
+            <h2 className="text-2xl font-serif font-bold text-[#8D624F] mb-6 border-b-2 border-[#E5D7CB] pb-2 tracking-wide uppercase">
+              Proyek & Pengalaman
+            </h2>
+            
+            <div className="space-y-6">
+              {/* Item 1 */}
+              <div>
+                <h3 className="text-[#8D624F] font-serif font-bold text-lg mb-1">
+                  n8n Workflow Automation Architect
+                </h3>
+                <ul className="list-disc list-outside ml-5 text-sm text-gray-600 leading-relaxed space-y-1">
+                  <li>Membangun alur otomatisasi sistem (workflow) kompleks berbasis n8n.</li>
+                  <li>Menghubungkan API dan webhook untuk mereduksi tugas manual dan meningkatkan efisiensi operasional web.</li>
+                </ul>
               </div>
-              <p className="text-slate-400 print:text-gray-600 font-medium mb-2">S1 Pendidikan Teknik Informatika</p>
-            </div>
-            
-            <div className="relative pl-4 border-l-2 border-slate-800 print:border-gray-300">
-              <div className="absolute w-3 h-3 bg-slate-600 print:bg-gray-400 rounded-full -left-[7px] top-1.5 ring-4 ring-slate-900 print:ring-white"></div>
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-1">
-                <h4 className="text-lg font-bold text-slate-200 print:text-black">MAN 1 Lamongan</h4>
-                <span className="text-slate-500 print:text-gray-500 font-mono text-sm">2022 - 2025</span>
+
+              {/* Item 2 */}
+              <div>
+                <h3 className="text-[#8D624F] font-serif font-bold text-lg mb-1">
+                  Fullstack Web & Mobile Developer
+                </h3>
+                <ul className="list-disc list-outside ml-5 text-sm text-gray-600 leading-relaxed space-y-1">
+                  <li>Mengembangkan arsitektur web Point of Sales (Next.js) yang terintegrasi Midtrans untuk transaksi real-time.</li>
+                  <li>Mengeksplorasi pengembangan antarmuka mobile cross-platform dengan ekosistem Flutter.</li>
+                </ul>
               </div>
-              <p className="text-slate-400 print:text-gray-600 font-medium">Matematika dan Ilmu Pengetahuan Alam</p>
-            </div>
-          </div>
-        </section>
 
-        {/* SKILLS */}
-        <section className="mb-8">
-          <h3 className="text-xl font-bold text-white print:text-black mb-4 flex items-center gap-2 uppercase tracking-widest text-sm">
-            <span className="w-8 h-[1px] bg-blue-500"></span> Core Competencies
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            
-            {/* REVISI: Tambahan Dart, Flutter, Java, PostgreSQL, MySQL */}
-            <div>
-              <h4 className="text-slate-200 print:text-black font-semibold mb-2">Programming & Frameworks</h4>
-              <p className="text-slate-400 print:text-gray-700 text-sm leading-relaxed">Next.js, React.js, Dart, Flutter, PHP, Laravel, Node.js, Python, Java, JavaScript, TypeScript, Tailwind CSS, PostgreSQL, MySQL.</p>
-            </div>
-            
-            <div>
-              <h4 className="text-slate-200 print:text-black font-semibold mb-2">Tools & Environments</h4>
-              <p className="text-slate-400 print:text-gray-700 text-sm leading-relaxed">Linux (Ubuntu), Git, Docker, Framer Motion, GSAP, Godot Engine.</p>
-            </div>
-            
-            {/* REVISI: Tambahan Artificial Intelligence Engineering */}
-            <div>
-              <h4 className="text-slate-200 print:text-black font-semibold mb-2">Specialized Domains</h4>
-              <p className="text-slate-400 print:text-gray-700 text-sm leading-relaxed">Artificial Intelligence Engineering, Chatbot (WhatsApp/Discord/Telegram), Financial Tech (Bandarmology / Stock Market Data).</p>
-            </div>
-            
-            <div>
-              <h4 className="text-slate-200 print:text-black font-semibold mb-2">Languages</h4>
-              <p className="text-slate-400 print:text-gray-700 text-sm leading-relaxed">Bahasa Indonesia (Native), English (Professional Working).</p>
-            </div>
-          </div>
-        </section>
+              {/* Item 3 */}
+              <div>
+                <h3 className="text-[#8D624F] font-serif font-bold text-lg mb-1">
+                  Backend Automation Developer
+                </h3>
+                <ul className="list-disc list-outside ml-5 text-sm text-gray-600 leading-relaxed space-y-1">
+                  <li>Membangun infrastruktur bot automasi multi-platform (WhatsApp, Telegram, Discord).</li>
+                  <li>Menangani perutean data skala menengah untuk respons otomatis, filter keamanan interaktif, dan integrasi API publik.</li>
+                </ul>
+              </div>
 
+              {/* Item 4 */}
+              <div>
+                <h3 className="text-[#8D624F] font-serif font-bold text-lg mb-1">
+                  Computer Vision Engineer
+                </h3>
+                <ul className="list-disc list-outside ml-5 text-sm text-gray-600 leading-relaxed space-y-1">
+                  <li>Membangun sistem pelacakan presensi presisi tinggi menggunakan Python dan OpenCV.</li>
+                  <li>Mengotomatisasi validasi wajah real-time untuk menggantikan sistem absensi manual yang kurang efisien.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+        </div>
       </div>
       
       {/* CSS KHUSUS UNTUK PRINT */}
       <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap');
+        
+        /* Font serif custom untuk CV ini agar mirip gambar */
+        .font-serif {
+          font-family: 'Playfair Display', serif;
+        }
+
         @media print {
-          body { background-color: white !important; -webkit-print-color-adjust: exact; }
-          @page { margin: 1cm; }
+          @page { size: A4; margin: 0; }
+          body { background-color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
         }
       `}} />
     </div>
