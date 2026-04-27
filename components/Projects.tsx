@@ -3,18 +3,14 @@ import { Link } from "lucide-react";
 export default function Projects() {
   return (
     <section id="projects" className="py-20 border-b-8 border-black bg-[#f4f4f0] font-mono">
-      {/* Hapus flex-col dan items-center di sini agar otomatis rata kiri */}
       <div className="container mx-auto px-6">
         
-        {/* Title */}
         <h2 className="text-4xl md:text-5xl font-black uppercase mb-12 inline-block bg-green-400 px-4 py-2 border-4 border-black shadow-[6px_6px_0px_0px_#000]">
           Our Product
         </h2>
 
-        {/* Flagship Product Card - ARSHAKA (Sekarang full-width mengikuti container) */}
         <div className="w-full bg-white border-4 border-black shadow-[8px_8px_0px_0px_#000] flex flex-col md:flex-row overflow-hidden hover:shadow-none hover:translate-x-2 hover:translate-y-2 transition-all">
           
-          {/* Bagian Visual */}
           <div className="md:w-1/2 h-64 md:h-auto border-b-4 md:border-b-0 md:border-r-4 border-black bg-purple-500 flex flex-col items-center justify-center p-8 relative overflow-hidden">
             <span className="text-6xl md:text-8xl font-black opacity-20 uppercase tracking-tighter absolute -right-4 -bottom-4 rotate-6">
               ARSHAKA
@@ -27,7 +23,6 @@ export default function Projects() {
             </div>
           </div>
           
-          {/* Bagian Konten/Deskripsi */}
           <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-white">
             <div className="mb-4 flex flex-wrap gap-2">
               <span className="text-xs font-black uppercase border-2 border-black px-2 py-1 bg-cyan-400 shadow-[2px_2px_0px_0px_#000]">
