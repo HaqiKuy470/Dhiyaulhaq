@@ -1,5 +1,5 @@
 {
-  "name": "portofolio-brutalist",
+  "name": "portofolio-dhiyaulhaq",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "framer-motion": "^12.3.25",
     "lucide-react": "^0.563.0",
     "next": "16.1.6",
     "react": "19.2.3",

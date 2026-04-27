@@ -1,3 +1,5 @@
+import { Link } from "lucide-react";
+
 export default function Projects() {
   return (
     <section id="projects" className="py-20 border-b-8 border-black bg-[#f4f4f0] font-mono">
@@ -43,12 +45,12 @@ export default function Projects() {
             </p>
             
             <div className="flex gap-4">
-              <button className="flex-1 px-4 py-3 border-4 border-black font-black uppercase bg-white text-xs md:text-sm shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all text-center">
+              <Link href="https://company.heyhaqi.my.id/" className="flex-1 px-4 py-3 border-4 border-black font-black uppercase bg-white text-xs md:text-sm shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all text-center">
                 Details
-              </button>
-              <button className="flex-1 px-4 py-3 border-4 border-black font-black uppercase bg-black text-white text-xs md:text-sm shadow-[4px_4px_0px_0px_rgba(255,255,255,0.3)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all text-center">
+              </Link>
+              <Link href="https://company.heyhaqi.my.id/" className="flex-1 px-4 py-3 border-4 border-black font-black uppercase bg-black text-white text-xs md:text-sm shadow-[4px_4px_0px_0px_rgba(255,255,255,0.3)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all text-center">
                 Launch
-              </button>
+              </Link>
             </div>
           </div>
 
