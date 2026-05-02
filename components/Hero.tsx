@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-[100dvh] flex items-center pt-24 md:pt-20 bg-[#f4f4f0] text-black font-mono border-b-8 border-black overflow-hidden">
+    <section id="home" className="min-h-[100dvh] flex items-center pt-32 md:pt-40 bg-[#f4f4f0] text-black font-mono border-b-8 border-black overflow-hidden">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
         <div className="space-y-6 md:space-y-8 z-10">
@@ -18,7 +18,7 @@ export default function Hero() {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-tight tracking-tighter">
               Hi, I'm <br />
               <span className="bg-cyan-400 px-2 mt-2 inline-block border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-                Dhiyaulhaq Ulumuddin
+                Dhiyaulhaq
               </span>
             </h1>
           </div>
@@ -39,7 +39,7 @@ export default function Hero() {
               <SocialIcon href="https://github.com/haqikuy470" icon={<Github className="w-6 h-6" />} />
               <SocialIcon href="https://www.linkedin.com/in/moh-dhiyaulhaq-ulumuddin-98b9022a1" icon={<Linkedin className="w-6 h-6" />} />
               <SocialIcon href="https://instagram.com/haqikuy" icon={<Instagram className="w-6 h-6" />} />
-              <SocialIcon href="https://youtube.com/@heyhaqi" icon={<Youtube className="w-6 h-6" />} />
+              <SocialIcon href="https://youtube.com/@haqikuy" icon={<Youtube className="w-6 h-6" />} />
               <SocialIcon href="https://tiktok.com/@haqikuy" icon={<Music className="w-6 h-6" />} />
             </div>
           </div>

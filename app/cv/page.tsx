@@ -79,7 +79,7 @@ export default function CVPage() {
                 <div className="bg-[#8D624F] p-1.5 rounded-full text-white">
                   <Youtube className="w-3.5 h-3.5" />
                 </div>
-                youtube.com/@heyhaqi
+                youtube.com/@haqikuy
               </div>
               <div className="flex items-center gap-3">
                 <div className="bg-[#8D624F] p-1.5 rounded-full text-white">
