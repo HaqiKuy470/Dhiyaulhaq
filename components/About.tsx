@@ -10,14 +10,13 @@ export default function About() {
           <div className="brutalist-card p-8 bg-purple-200">
             <h3 className="text-2xl font-black mb-4 underline">Biography</h3>
             <p className="font-bold leading-relaxed">
-              Saya adalah mahasiswa Pendidikan Teknik Informatika di Universitas Negeri Malang. 
-              Fokus saya saat ini adalah membangun ekosistem digital melalui brand Arshaka, 
-              menggabungkan efisiensi sistem dengan desain yang fungsional.
+              Informatics Engineering student specializing in AI integration and software architecture. Experienced in building and managing SaaS web application ecosystems integrated with AI to create efficient, automated digital solutions. Proficient in fullstack development with Next.js, Node.js, Python, and Flutter.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
-              <span className="bg-white border-2 border-black px-2 py-1 text-xs font-black">UM STUDENT</span>
-              <span className="bg-white border-2 border-black px-2 py-1 text-xs font-black">WEB DEV</span>
-              <span className="bg-white border-2 border-black px-2 py-1 text-xs font-black">TRADING ENTHUSIAST</span>
+              <span className="bg-white border-2 border-black px-2 py-1 text-xs font-black">AI INTEGRATION</span>
+              <span className="bg-white border-2 border-black px-2 py-1 text-xs font-black">SOFTWARE ARCHITECTURE</span>
+              <span className="bg-white border-2 border-black px-2 py-1 text-xs font-black">FULLSTACK DEV</span>
+              <span className="bg-white border-2 border-black px-2 py-1 text-xs font-black">AUTOMATION</span>
             </div>
           </div>
 

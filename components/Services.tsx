@@ -2,21 +2,21 @@ const SERVICES = [
   { 
     id: "01",
     title: "Web Development", 
-    desc: "Membangun ekosistem web modern, responsif, dan cepat menggunakan Next.js dan React.", 
+    desc: "Building modern, responsive, and fast web ecosystems using Next.js and React.", 
     color: "bg-pink-400" 
   },
   { 
     id: "02",
     title: "AI & Machine Learning", 
-    desc: "Eksplorasi dan implementasi kecerdasan buatan untuk otomatisasi dan analisis data.", 
+    desc: "Exploration and implementation of artificial intelligence for automation and data analysis.", 
     color: "bg-cyan-400" 
   },
   { 
     id: "03",
-    title: "Web 3 Development", 
-    desc: "Pengembangan Aplikasi Web 3 untuk kebutuhan industri dan financial.", 
+    title: "Mobile Development", 
+    desc: "Developing cross-platform mobile applications using Flutter for efficient business solutions.", 
     color: "bg-yellow-400" 
-  }
+  },
 ];
 
 export default function Services() {

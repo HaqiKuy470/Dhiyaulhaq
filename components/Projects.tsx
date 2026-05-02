@@ -1,4 +1,4 @@
-import { Link } from "lucide-react";
+import Link from "next/link";
 
 export default function Projects() {
   return (
@@ -36,7 +36,7 @@ export default function Projects() {
             <h3 className="text-3xl font-black uppercase mb-4">Arshaka Project</h3>
             
             <p className="font-bold text-sm md:text-base mb-8 leading-relaxed text-black bg-pink-200 border-2 border-black p-4 shadow-[4px_4px_0px_0px_#000]">
-              Ekosistem digital yang terintegrasi untuk membantu bisnis Anda untuk berkembang dan sukses.
+              An integrated digital ecosystem to help your business grow and succeed.
             </p>
             
             <div className="flex gap-4">

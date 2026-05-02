@@ -1,6 +1,6 @@
 "use client";
 
-import { Printer, Mail, MapPin, Globe, Phone, ArrowLeft, Github } from "lucide-react";
+import { Printer, Mail, MapPin, Globe, Phone, ArrowLeft, Github, Youtube, Music } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -12,10 +12,9 @@ export default function CVPage() {
   return (
     <div className="min-h-screen bg-[#F3F4F6] py-10 px-4 md:px-8 selection:bg-[#8D624F]/30 font-sans flex flex-col items-center">
       
-      {/* ACTION BUTTONS */}
       <div className="w-full max-w-[210mm] flex justify-between items-center mb-8 print:hidden">
         <Link href="/" className="flex items-center gap-2 text-gray-500 hover:text-gray-800 transition-colors font-medium">
-          <ArrowLeft className="w-5 h-5" /> Kembali
+          <ArrowLeft className="w-5 h-5" /> Back
         </Link>
         <button 
           onClick={handlePrint}
@@ -25,15 +24,10 @@ export default function CVPage() {
         </button>
       </div>
 
-      {/* KERTAS CV (Ukuran A4 standard) */}
       <div className="w-full max-w-[210mm] min-h-[297mm] bg-white shadow-2xl print:shadow-none flex flex-col md:flex-row overflow-hidden text-gray-800">
         
-        {/* =========================================
-            KOLOM KIRI (SIDEBAR)
-            ========================================= */}
         <div className="w-full md:w-[35%] bg-[#E8E8E8] p-8 flex flex-col">
           
-          {/* Foto Profil */}
           <div className="flex justify-center mb-10 mt-4 md:mt-0 relative">
             <div className="w-44 h-44 rounded-full border-4 border-white shadow-md overflow-hidden bg-gray-300 relative">
               <Image 
@@ -43,11 +37,9 @@ export default function CVPage() {
                 className="object-cover" 
               />
             </div>
-            {/* Aksen garis vertikal brown */}
             <div className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-[2px] h-32 bg-[#8D624F] hidden md:block opacity-50"></div>
           </div>
 
-          {/* KONTAK */}
           <div className="mb-10">
             <h2 className="text-2xl font-serif font-bold text-[#8D624F] mb-4 border-b border-[#C0A080] pb-2 tracking-widest">
               CONTACT
@@ -83,10 +75,21 @@ export default function CVPage() {
                 </div>
                 github.com/HaqiKuy470
               </div>
+              <div className="flex items-center gap-3">
+                <div className="bg-[#8D624F] p-1.5 rounded-full text-white">
+                  <Youtube className="w-3.5 h-3.5" />
+                </div>
+                youtube.com/@heyhaqi
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="bg-[#8D624F] p-1.5 rounded-full text-white">
+                  <Music className="w-3.5 h-3.5" />
+                </div>
+                @haqikuy
+              </div>
             </div>
           </div>
 
-          {/* STUDY */}
           <div className="mb-10">
             <h2 className="text-2xl font-serif font-bold text-[#8D624F] mb-4 border-b border-[#C0A080] pb-2 tracking-widest">
               STUDY
@@ -105,7 +108,6 @@ export default function CVPage() {
             </div>
           </div>
 
-          {/* SKILLS */}
           <div>
             <h2 className="text-2xl font-serif font-bold text-[#8D624F] mb-4 border-b border-[#C0A080] pb-2 tracking-widest">
               SKILLS
@@ -136,12 +138,8 @@ export default function CVPage() {
           </div>
         </div>
 
-        {/* =========================================
-            KOLOM KANAN (MAIN CONTENT)
-            ========================================= */}
         <div className="w-full md:w-[65%] p-8 md:p-12 bg-white flex flex-col">
           
-          {/* HEADER (NAMA & TITLE) */}
           <header className="mb-12 mt-4">
             <h1 className="text-[40px] md:text-[52px] font-serif font-bold text-[#8D624F] leading-[1.1] mb-4 uppercase tracking-tight">
               MOH DHIYAULHAQ <br />
@@ -152,7 +150,6 @@ export default function CVPage() {
             </h2>
           </header>
 
-          {/* ABOUT ME */}
           <section className="mb-12">
             <h2 className="text-2xl font-serif font-bold text-[#8D624F] mb-4 border-b border-[#E5D7CB] pb-2 tracking-wide uppercase">
               ABOUT ME
@@ -162,14 +159,12 @@ export default function CVPage() {
             </p>
           </section>
 
-          {/* PROJECTS & EXPERIENCE */}
           <section className="flex-1">
             <h2 className="text-2xl font-serif font-bold text-[#8D624F] mb-6 border-b border-[#E5D7CB] pb-2 tracking-wide uppercase">
               PROJECTS & EXPERIENCE
             </h2>
             
             <div className="space-y-8">
-              {/* Project 1 */}
               <div>
                 <h3 className="text-[#8D624F] font-bold text-lg mb-2">
                   Web-Based Terminal Manager - 2026
@@ -180,7 +175,6 @@ export default function CVPage() {
                 </ul>
               </div>
 
-              {/* Project 2 */}
               <div>
                 <h3 className="text-[#8D624F] font-bold text-lg mb-2">
                   PPOB Web Platform (16 Categories) - 2025
@@ -191,7 +185,6 @@ export default function CVPage() {
                 </ul>
               </div>
 
-              {/* Project 3 */}
               <div>
                 <h3 className="text-[#8D624F] font-bold text-lg mb-2">
                   Multi-Platform Bot Development - 2025
@@ -202,7 +195,6 @@ export default function CVPage() {
                 </ul>
               </div>
 
-              {/* Project 4 */}
               <div>
                 <h3 className="text-[#8D624F] font-bold text-lg mb-2">
                   Point of Sales (POS) Application - 2025
@@ -219,7 +211,6 @@ export default function CVPage() {
         </div>
       </div>
       
-      {/* CSS KHUSUS UNTUK PRINT & FONTS */}
       <style dangerouslySetInnerHTML={{__html: `
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
         
@@ -235,4 +226,4 @@ export default function CVPage() {
       `}} />
     </div>
   );
-}
+}

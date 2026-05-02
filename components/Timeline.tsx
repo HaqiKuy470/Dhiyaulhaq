@@ -1,7 +1,7 @@
 const TIMELINE = [
-  { year: "Sekarang", title: "Pendidikan Teknik Informatika", desc: "Universitas Negeri Malang (UM). Fokus mengeksplorasi Web Dev dan AI.", color: "bg-green-400" },
-  { year: "2026", title: "Arshaka Ecosystem ", desc: "Membangun ekosistem digital .", color: "bg-cyan-400" },
-  { year: "2025", title: "MAN 1 Lamongan", desc: "Menyelesaikan pendidikan menengah atas dengan minat kuat di bidang teknologi.", color: "bg-pink-400" },
+  { year: "2025 - NOW", title: "Informatics Engineering Education", desc: "Universitas Negeri Malang (UM). Specializing in AI integration and software architecture.", color: "bg-green-400" },
+  { year: "2025 - NOW", title: "Arshaka Ecosystem", desc: "Building and managing SaaS web application ecosystems integrated with AI.", color: "bg-cyan-400" },
+  { year: "2022 - 2025", title: "MAN 1 Lamongan", desc: "Completed secondary education in Mathematics & Natural Science (MIPA).", color: "bg-pink-400" },
 ];
 
 export default function Timeline() {
