@@ -29,7 +29,7 @@ export default function ArticlePage() {
   return (
     <main className="min-h-screen bg-[#f4f4f0] font-mono text-black">
       <Navbar />
-      <div className="container mx-auto max-w-3xl py-12 px-6 pt-32">
+      <div className="container mx-auto max-w-6xl py-12 px-6 pt-32">
         
         <Link 
           href="/news" 
