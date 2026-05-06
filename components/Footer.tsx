@@ -31,10 +31,10 @@ export default function Footer() {
             <div>
               <h3 className="font-black uppercase mb-4 md:mb-6 border-b-4 border-black pb-2 inline-block">Sitemap</h3>
               <ul className="space-y-3 md:space-y-4 font-bold text-sm md:text-base">
-                <li><Link href="#" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">Home</Link></li>
-                <li><Link href="#about" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">About</Link></li>
-                <li><Link href="#projects" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">Projects</Link></li>
-                <li><Link href="#services" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">Services</Link></li>
+                <li><Link href="/" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">Home</Link></li>
+                <li><Link href="/projects" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">Projects</Link></li>
+                <li><Link href="/certificates" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">Certificates</Link></li>
+                <li><Link href="/news" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">News</Link></li>
               </ul>
             </div>
 

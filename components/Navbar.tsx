@@ -2,11 +2,10 @@ import Link from "next/link";
 
 export default function Navbar() {
   const menuItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "Projects", href: "/projects" },
+    { name: "Certificates", href: "/certificates" },
+    { name: "News", href: "/news" },
   ];
 
   return (
