@@ -172,6 +172,13 @@ const CERTIFICATES = [
     image: "/Sertif/Udemy/UC-9ff05921-4ad5-47d8-b558-bc5905aa3807.png",
     pdf: "/Sertif/Udemy/UC-9ff05921-4ad5-47d8-b558-bc5905aa3807.pdf",
     color: "bg-orange-400"
+  },
+    {
+    title: "Converted Website Into Mobile APPS",
+    issuer: "Udemy",
+    image: "/Sertif/Udemy/UC-8fc02690-1a9f-446d-ae9b-d15cd05d4c3b.png",
+    pdf: "/Sertif/Udemy/UC-8fc02690-1a9f-446d-ae9b-d15cd05d4c3b.pdf",
+    color: "bg-orange-400"
   }
 ];
 

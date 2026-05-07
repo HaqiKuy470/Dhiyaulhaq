@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Modern Neo-Brutalism Portfolio
 
-## Getting Started
+Personal portfolio website built with **Next.js**, **Tailwind CSS**, and **Framer Motion**. Designed with a bold Neo-Brutalism aesthetic to showcase projects, skills, and professional experience.
 
-First, run the development server:
+![Portfolio Preview](/public/logo.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 👤 About Me
+
+Hi, I'm **Moh Dhiyaulhaq Ulumuddin**, an Informatics Engineering student at State University of Malang. I specialize in:
+- 🤖 **AI Integration**
+- 🏗️ **Software Architecture**
+- 🚀 **SaaS Ecosystems**
+- ⚙️ **Automated Digital Solutions**
+
+## 🚀 Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) (Neo-Brutalism Design)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Components:** [React Fast Marquee](https://www.npmjs.com/package/react-fast-marquee)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+
+## ✨ Key Features
+
+- **Responsive Design:** Optimized for mobile, tablet, and desktop.
+- **Neo-Brutalism UI:** High-contrast colors, bold shadows, and sharp borders.
+- **Project Showcase:** Detailed view of latest work and contributions.
+- **Certificates Gallery:** Collection of professional certifications (Coursera, Dicoding, Udemy, etc.).
+- **Interactive Timeline:** Professional and educational journey overview.
+- **News/Blog Section:** Dynamic content management for articles and updates.
+
+## 📂 Project Structure
+
+```text
+├── app/              # Next.js App Router (Pages & Layouts)
+├── components/       # Reusable UI Components (Hero, About, Skills, etc.)
+├── public/           # Static assets (Images, CV, Certificates)
+├── tailwind.config.ts # Custom Neo-Brutalism theme configuration
+└── tsconfig.json     # TypeScript configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Installation & Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/haqikuy470/portofolio-dhiyaulhaq.git
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3008](http://localhost:3008) (Default port configured in `package.json`)
 
-To learn more about Next.js, take a look at the following resources:
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is open-source and available under the [MIT License](LICENSE).
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Built with 💻 and ☕ by [Dhiyaulhaq](https://github.com/haqikuy470)
