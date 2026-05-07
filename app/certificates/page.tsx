@@ -7,6 +7,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const CERTIFICATES = [
+  // Hackaton
+  {
+    title: "Hackathon Refactory UNAIR",
+    issuer: "Hackaton",
+    image: "/Sertif/Hackaton/REFACTORY_UNAIR.png",
+    pdf: "/Sertif/Hackaton/REFACTORY_UNAIR.pdf",
+    color: "bg-purple-400"
+  },
   // Dicoding - Bank Indonesia
   {
     title: "Back-End with Google Cloud",
@@ -142,14 +150,6 @@ const CERTIFICATES = [
     image: "/Sertif/Dicoding/MICROSOFT/FundamentalPemrosesanData.png",
     pdf: "/Sertif/Dicoding/MICROSOFT/FundamentalPemrosesanData.pdf",
     color: "bg-cyan-400"
-  },
-  // Hackaton
-  {
-    title: "Hackathon Refactory UNAIR",
-    issuer: "Hackaton",
-    image: "/Sertif/Hackaton/REFACTORY_UNAIR.png",
-    pdf: "/Sertif/Hackaton/REFACTORY_UNAIR.pdf",
-    color: "bg-purple-400"
   },
   // Udemy
   {
