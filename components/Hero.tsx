@@ -37,7 +37,7 @@ export default function Hero() {
 
             <div className="flex items-center gap-2 bg-white p-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <SocialIcon href="https://github.com/haqikuy470" icon={<Github className="w-6 h-6" />} />
-              <SocialIcon href="https://www.linkedin.com/in/moh-dhiyaulhaq-ulumuddin-98b9022a1" icon={<Linkedin className="w-6 h-6" />} />
+              <SocialIcon href="https://www.linkedin.com/in/moh-dhiyaulhaq/" icon={<Linkedin className="w-6 h-6" />} />
               <SocialIcon href="https://instagram.com/haqikuy" icon={<Instagram className="w-6 h-6" />} />
               <SocialIcon href="https://youtube.com/@haqikuy" icon={<Youtube className="w-6 h-6" />} />
               <SocialIcon href="https://tiktok.com/@haqikuy" icon={<Music className="w-6 h-6" />} />
