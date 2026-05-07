@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, ExternalLink, Github, Terminal, Smartphone, Globe, Bot } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Terminal, Smartphone, Globe, Bot, BookAIcon } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -98,10 +98,10 @@ export default function ProjectsPage() {
                   
                   <div className="flex gap-4">
                     <button className="flex-1 px-4 py-3 bg-white border-4 border-black font-black uppercase text-xs shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex items-center justify-center gap-2">
-                      <Github className="w-4 h-4" /> Code
+                      <BookAIcon className="w-4 h-4" /> Documentation
                     </button>
                     <button className="flex-1 px-4 py-3 bg-black text-white border-4 border-black font-black uppercase text-xs shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex items-center justify-center gap-2">
-                      <ExternalLink className="w-4 h-4" /> Live Demo
+                      <ExternalLink className="w-4 h-4" /> Live
                     </button>
                   </div>
                 </div>
