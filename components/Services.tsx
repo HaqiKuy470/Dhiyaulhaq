@@ -24,7 +24,7 @@ export default function Services() {
     <section id="services" className="py-20 bg-white border-b-8 border-black">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-black uppercase mb-12 inline-block bg-purple-400 px-4 py-2 border-4 border-black shadow-[6px_6px_0px_0px_#000]">
-          Skills
+          Service
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
