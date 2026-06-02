@@ -27,7 +27,7 @@ const EVENT_PHOTOS: EventPhoto[] = [
     event: "Hackathon Refactory UNAIR",
     date: "2026",
     location: "Universitas Airlangga, Surabaya",
-    src: "/Dokumentasi/DSC_0330.JPG",
+    src: "/Dokumentasi/DSC_0330.webp",
     color: "bg-purple-400",
   },
   {
@@ -36,7 +36,7 @@ const EVENT_PHOTOS: EventPhoto[] = [
     event: "Hackathon Refactory UNAIR",
     date: "2026",
     location: "Universitas Airlangga, Surabaya",
-    src: "/Dokumentasi/DSC_0390.JPG",
+    src: "/Dokumentasi/DSC_0390.webp",
     color: "bg-purple-400",
   },
   {
@@ -45,7 +45,7 @@ const EVENT_PHOTOS: EventPhoto[] = [
     event: "Hackathon Refactory UNAIR",
     date: "2026",
     location: "Universitas Airlangga, Surabaya",
-    src: "/Dokumentasi/DSC_0826.JPG",
+    src: "/Dokumentasi/DSC_0826.webp",
     color: "bg-purple-400",
   },
   {
@@ -54,7 +54,7 @@ const EVENT_PHOTOS: EventPhoto[] = [
     event: "Hackathon Refactory UNAIR",
     date: "2026",
     location: "Universitas Airlangga, Surabaya",
-    src: "/Dokumentasi/DSC_1076.JPG",
+    src: "/Dokumentasi/DSC_1076.webp",
     color: "bg-purple-400",
   },
   {
@@ -195,7 +195,7 @@ export default function DocumentationPage() {
           <Upload className="w-5 h-5 shrink-0 mt-0.5" />
           <p className="text-xs font-bold">
             <span className="font-black">Cara tambah foto:</span> Letakkan foto di{" "}
-            <code className="bg-yellow-200 border border-black px-1">/public/Dokumentasi/[NamaEvent]/foto.jpg</code>{" "}
+            <code className="bg-yellow-200 border border-black px-1">/public/Dokumentasi/[NamaEvent]/foto.webp</code>{" "}
             lalu update array <code className="bg-yellow-200 border border-black px-1">EVENT_PHOTOS</code> di file ini.
           </p>
         </div>

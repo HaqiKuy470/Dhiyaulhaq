@@ -19,52 +19,52 @@ interface Cert {
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const CERTIFICATES: Cert[] = [
   // Hackaton
-  { title: "Hackathon Refactory UNAIR", issuer: "Hackaton", image: "/Sertif/Hackaton/REFACTORY_UNAIR.png", pdf: "/Sertif/Hackaton/REFACTORY_UNAIR.pdf", color: "bg-purple-400" },
+  { title: "Hackathon Refactory UNAIR", issuer: "Hackaton", image: "/Sertif/Hackaton/REFACTORY_UNAIR.webp", pdf: "/Sertif/Hackaton/REFACTORY_UNAIR.pdf", color: "bg-purple-400" },
   // Dicoding x Bank Indonesia
-  { title: "Back-End with Google Cloud",  issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/BackEndGoogleCloud.png",   pdf: "/Sertif/Dicoding/BANK-INDONESIA/BackEndGoogleCloud.pdf",   color: "bg-blue-400" },
-  { title: "Back-End with Python",        issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/BackEndPython.png",          pdf: "/Sertif/Dicoding/BANK-INDONESIA/BackEndPython.pdf",          color: "bg-blue-400" },
-  { title: "Dasar AI",                    issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/DasarAI.png",                pdf: "/Sertif/Dicoding/BANK-INDONESIA/DasarAI.pdf",                color: "bg-blue-400" },
-  { title: "Dasar Data Science",          issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/DasarDataScience.png",       pdf: "/Sertif/Dicoding/BANK-INDONESIA/DasarDataScience.pdf",       color: "bg-blue-400" },
-  { title: "Dasar Google Cloud",          issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/DasarGoogleCloud.png",       pdf: "/Sertif/Dicoding/BANK-INDONESIA/DasarGoogleCloud.pdf",       color: "bg-blue-400" },
-  { title: "Dasar Machine Learning",      issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/DasarMachineLearning.png",   pdf: "/Sertif/Dicoding/BANK-INDONESIA/DasarMachineLearning.pdf",   color: "bg-blue-400" },
-  { title: "Dasar Python",                issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/DasarPython.png",            pdf: "/Sertif/Dicoding/BANK-INDONESIA/DasarPython.pdf",            color: "bg-blue-400" },
-  { title: "Prompt Engineering",          issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/PromtEngine.png",            pdf: "/Sertif/Dicoding/BANK-INDONESIA/PromtEngine.pdf",            color: "bg-blue-400" },
-  { title: "UX Design",                   issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/UXDesign.png",               pdf: "/Sertif/Dicoding/BANK-INDONESIA/UXDesign.pdf",               color: "bg-blue-400" },
+  { title: "Back-End with Google Cloud", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/BackEndGoogleCloud.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/BackEndGoogleCloud.pdf", color: "bg-blue-400" },
+  { title: "Back-End with Python", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/BackEndPython.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/BackEndPython.pdf", color: "bg-blue-400" },
+  { title: "Dasar AI", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/DasarAI.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/DasarAI.pdf", color: "bg-blue-400" },
+  { title: "Dasar Data Science", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/DasarDataScience.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/DasarDataScience.pdf", color: "bg-blue-400" },
+  { title: "Dasar Google Cloud", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/DasarGoogleCloud.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/DasarGoogleCloud.pdf", color: "bg-blue-400" },
+  { title: "Dasar Machine Learning", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/DasarMachineLearning.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/DasarMachineLearning.pdf", color: "bg-blue-400" },
+  { title: "Dasar Python", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/DasarPython.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/DasarPython.pdf", color: "bg-blue-400" },
+  { title: "Prompt Engineering", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/PromtEngine.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/PromtEngine.pdf", color: "bg-blue-400" },
+  { title: "UX Design", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/UXDesign.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/UXDesign.pdf", color: "bg-blue-400" },
   // Dicoding x DBS
-  { title: "Dasar Data Science",    issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/DasarDataScience.png",    pdf: "/Sertif/Dicoding/DBS/DasarDataScience.pdf",    color: "bg-red-400" },
-  { title: "Dasar Machine Learning",issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/DasarMachineLearning.png",pdf: "/Sertif/Dicoding/DBS/DasarMachineLearning.pdf",color: "bg-red-400" },
-  { title: "Dasar Python",          issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/DasarPython.png",         pdf: "/Sertif/Dicoding/DBS/DasarPython.pdf",         color: "bg-red-400" },
-  { title: "Dasar SQL",             issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/DasarSQL.png",            pdf: "/Sertif/Dicoding/DBS/DasarSQL.pdf",            color: "bg-red-400" },
-  { title: "Financial Literacy",    issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/FinancialLiteracy.png",   pdf: "/Sertif/Dicoding/DBS/FinancialLiteracy.pdf",   color: "bg-red-400" },
+  { title: "Dasar Data Science", issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/DasarDataScience.webp", pdf: "/Sertif/Dicoding/DBS/DasarDataScience.pdf", color: "bg-red-400" },
+  { title: "Dasar Machine Learning", issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/DasarMachineLearning.webp", pdf: "/Sertif/Dicoding/DBS/DasarMachineLearning.pdf", color: "bg-red-400" },
+  { title: "Dasar Python", issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/DasarPython.webp", pdf: "/Sertif/Dicoding/DBS/DasarPython.pdf", color: "bg-red-400" },
+  { title: "Dasar SQL", issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/DasarSQL.webp", pdf: "/Sertif/Dicoding/DBS/DasarSQL.pdf", color: "bg-red-400" },
+  { title: "Financial Literacy", issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/FinancialLiteracy.webp", pdf: "/Sertif/Dicoding/DBS/FinancialLiteracy.pdf", color: "bg-red-400" },
   // Dicoding x Microsoft
-  { title: "Aplikasi GenAI Microsoft Azure",  issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/AplikasiGenAIMicrorosoftAzure.png",  pdf: "/Sertif/Dicoding/MICROSOFT/AplikasiGenAIMicrorosoftAzure.pdf",  color: "bg-cyan-400" },
-  { title: "Dasar Machine Learning",          issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/DasarMachineLearning.png",            pdf: "/Sertif/Dicoding/MICROSOFT/DasarMachineLearning.pdf",            color: "bg-cyan-400" },
-  { title: "Dasar Python",                    issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/DasarPython.png",                     pdf: "/Sertif/Dicoding/MICROSOFT/DasarPython.pdf",                     color: "bg-cyan-400" },
-  { title: "Data Science Microsoft Fabric",   issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/DataScienceMicrosoftFabric.png",      pdf: "/Sertif/Dicoding/MICROSOFT/DataScienceMicrosoftFabric.pdf",      color: "bg-cyan-400" },
-  { title: "Fundamental Pemrosesan Data",     issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/FundamentalPemrosesanData.png",       pdf: "/Sertif/Dicoding/MICROSOFT/FundamentalPemrosesanData.pdf",       color: "bg-cyan-400" },
+  { title: "Aplikasi GenAI Microsoft Azure", issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/AplikasiGenAIMicrorosoftAzure.webp", pdf: "/Sertif/Dicoding/MICROSOFT/AplikasiGenAIMicrorosoftAzure.pdf", color: "bg-cyan-400" },
+  { title: "Dasar Machine Learning", issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/DasarMachineLearning.webp", pdf: "/Sertif/Dicoding/MICROSOFT/DasarMachineLearning.pdf", color: "bg-cyan-400" },
+  { title: "Dasar Python", issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/DasarPython.webp", pdf: "/Sertif/Dicoding/MICROSOFT/DasarPython.pdf", color: "bg-cyan-400" },
+  { title: "Data Science Microsoft Fabric", issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/DataScienceMicrosoftFabric.webp", pdf: "/Sertif/Dicoding/MICROSOFT/DataScienceMicrosoftFabric.pdf", color: "bg-cyan-400" },
+  { title: "Fundamental Pemrosesan Data", issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/FundamentalPemrosesanData.webp", pdf: "/Sertif/Dicoding/MICROSOFT/FundamentalPemrosesanData.pdf", color: "bg-cyan-400" },
   // Udemy
-  { title: "Web 3 Development Essential",                              issuer: "Udemy", image: "/Sertif/Udemy/UC-3baf949d-16ab-4eff-83b7-f75170ba8d17.png", pdf: "/Sertif/Udemy/UC-3baf949d-16ab-4eff-83b7-f75170ba8d17.pdf", color: "bg-orange-400" },
-  { title: "Belajar Web Development Menggunakan Bahasa Pemrograman PHP", issuer: "Udemy", image: "/Sertif/Udemy/UC-44fd7143-156c-4168-906b-13ed4459b999.png", pdf: "/Sertif/Udemy/UC-44fd7143-156c-4168-906b-13ed4459b999.pdf", color: "bg-orange-400" },
-  { title: "Complete Web & Mobile UI Designer: UI/UX, Figma, More",   issuer: "Udemy", image: "/Sertif/Udemy/UC-9ff05921-4ad5-47d8-b558-bc5905aa3807.png", pdf: "/Sertif/Udemy/UC-9ff05921-4ad5-47d8-b558-bc5905aa3807.pdf", color: "bg-orange-400" },
-  { title: "Converted Website Into Mobile APPS",                       issuer: "Udemy", image: "/Sertif/Udemy/UC-8fc02690-1a9f-446d-ae9b-d15cd05d4c3b.png", pdf: "/Sertif/Udemy/UC-8fc02690-1a9f-446d-ae9b-d15cd05d4c3b.pdf", color: "bg-orange-400" },
+  { title: "Web 3 Development Essential", issuer: "Udemy", image: "/Sertif/Udemy/UC-3baf949d-16ab-4eff-83b7-f75170ba8d17.webp", pdf: "/Sertif/Udemy/UC-3baf949d-16ab-4eff-83b7-f75170ba8d17.pdf", color: "bg-orange-400" },
+  { title: "Belajar Web Development Menggunakan Bahasa Pemrograman PHP", issuer: "Udemy", image: "/Sertif/Udemy/UC-44fd7143-156c-4168-906b-13ed4459b999.webp", pdf: "/Sertif/Udemy/UC-44fd7143-156c-4168-906b-13ed4459b999.pdf", color: "bg-orange-400" },
+  { title: "Complete Web & Mobile UI Designer: UI/UX, Figma, More", issuer: "Udemy", image: "/Sertif/Udemy/UC-9ff05921-4ad5-47d8-b558-bc5905aa3807.webp", pdf: "/Sertif/Udemy/UC-9ff05921-4ad5-47d8-b558-bc5905aa3807.pdf", color: "bg-orange-400" },
+  { title: "Converted Website Into Mobile APPS", issuer: "Udemy", image: "/Sertif/Udemy/UC-8fc02690-1a9f-446d-ae9b-d15cd05d4c3b.webp", pdf: "/Sertif/Udemy/UC-8fc02690-1a9f-446d-ae9b-d15cd05d4c3b.pdf", color: "bg-orange-400" },
 ];
 
 // ─── Category accent colors ────────────────────────────────────────────────────
 const CATEGORY_COLORS: Record<string, string> = {
-  "Semua":                    "bg-yellow-400",
-  "Hackaton":                 "bg-purple-400",
-  "Dicoding x Bank Indonesia":"bg-blue-400",
-  "Dicoding x DBS":           "bg-red-400",
-  "Dicoding x Microsoft":     "bg-cyan-400",
-  "Udemy":                    "bg-orange-400",
+  "Semua": "bg-yellow-400",
+  "Hackaton": "bg-purple-400",
+  "Dicoding x Bank Indonesia": "bg-blue-400",
+  "Dicoding x DBS": "bg-red-400",
+  "Dicoding x Microsoft": "bg-cyan-400",
+  "Udemy": "bg-orange-400",
 };
 
 const ALL_CATEGORIES = ["Semua", ...Array.from(new Set(CERTIFICATES.map((c) => c.issuer)))];
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function CertificatesPage() {
-  const [activeTab, setActiveTab]       = useState("Semua");
-  const [lightbox, setLightbox]         = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState("Semua");
+  const [lightbox, setLightbox] = useState<number | null>(null);
 
   const filtered = activeTab === "Semua" ? CERTIFICATES : CERTIFICATES.filter((c) => c.issuer === activeTab);
   const activeCert = lightbox !== null ? filtered[lightbox] : null;
@@ -97,9 +97,9 @@ export default function CertificatesPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           {[
             { label: "Total Sertifikat", value: CERTIFICATES.length, color: "bg-yellow-400" },
-            { label: "Kategori",         value: ALL_CATEGORIES.length - 1, color: "bg-pink-400" },
-            { label: "Ditampilkan",      value: filtered.length, color: "bg-lime-400" },
-            { label: "Filter Aktif",     value: activeTab === "Semua" ? "All" : activeTab.split(" ")[0], color: "bg-cyan-400" },
+            { label: "Kategori", value: ALL_CATEGORIES.length - 1, color: "bg-pink-400" },
+            { label: "Ditampilkan", value: filtered.length, color: "bg-lime-400" },
+            { label: "Filter Aktif", value: activeTab === "Semua" ? "All" : activeTab.split(" ")[0], color: "bg-cyan-400" },
           ].map((s) => (
             <div key={s.label} className={`${s.color} border-4 border-black p-4 shadow-[4px_4px_0px_0px_#000]`}>
               <div className="text-2xl md:text-3xl font-black truncate">{s.value}</div>

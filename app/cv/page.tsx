@@ -11,12 +11,12 @@ export default function CVPage() {
 
   return (
     <div className="min-h-screen bg-[#F3F4F6] py-10 px-4 md:px-8 selection:bg-[#8D624F]/30 font-sans flex flex-col items-center">
-      
+
       <div className="w-full max-w-[210mm] flex justify-between items-center mb-8 print:hidden">
         <Link href="/" className="flex items-center gap-2 text-gray-500 hover:text-gray-800 transition-colors font-medium">
           <ArrowLeft className="w-5 h-5" /> Back
         </Link>
-        <button 
+        <button
           onClick={handlePrint}
           className="flex items-center gap-2 px-5 py-2.5 bg-[#8D624F] hover:bg-[#724e3e] text-white rounded-lg transition-colors font-semibold shadow-md"
         >
@@ -25,16 +25,16 @@ export default function CVPage() {
       </div>
 
       <div className="w-full max-w-[210mm] min-h-[297mm] bg-white shadow-2xl print:shadow-none flex flex-col md:flex-row overflow-hidden text-gray-800">
-        
+
         <div className="w-full md:w-[35%] bg-[#E8E8E8] p-8 flex flex-col">
-          
+
           <div className="flex justify-center mb-10 mt-4 md:mt-0 relative">
             <div className="w-44 h-44 rounded-full border-4 border-white shadow-md overflow-hidden bg-gray-300 relative">
-              <Image 
-                src="/logo.png" 
-                alt="Profile" 
-                fill 
-                className="object-cover" 
+              <Image
+                src="/logo.webp"
+                alt="Profile"
+                fill
+                className="object-cover"
               />
             </div>
             <div className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-[2px] h-32 bg-[#8D624F] hidden md:block opacity-50"></div>
@@ -94,7 +94,7 @@ export default function CVPage() {
             <h2 className="text-2xl font-serif font-bold text-[#8D624F] mb-4 border-b border-[#C0A080] pb-2 tracking-widest">
               STUDY
             </h2>
-            
+
             <div className="mb-6">
               <h3 className="font-bold text-gray-800">MAN 1 Lamongan</h3>
               <p className="text-sm text-gray-600 mb-1">Mathematics & Natural Science</p>
@@ -139,7 +139,7 @@ export default function CVPage() {
         </div>
 
         <div className="w-full md:w-[65%] p-8 md:p-12 bg-white flex flex-col">
-          
+
           <header className="mb-12 mt-4">
             <h1 className="text-[40px] md:text-[52px] font-serif font-bold text-[#8D624F] leading-[1.1] mb-4 uppercase tracking-tight">
               MOH DHIYAULHAQ <br />
@@ -163,7 +163,7 @@ export default function CVPage() {
             <h2 className="text-2xl font-serif font-bold text-[#8D624F] mb-6 border-b border-[#E5D7CB] pb-2 tracking-wide uppercase">
               PROJECTS & EXPERIENCE
             </h2>
-            
+
             <div className="space-y-8">
               <div>
                 <h3 className="text-[#8D624F] font-bold text-lg mb-2">
@@ -210,8 +210,9 @@ export default function CVPage() {
 
         </div>
       </div>
-      
-      <style dangerouslySetInnerHTML={{__html: `
+
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
         
         .font-serif {

@@ -14,33 +14,6 @@ const PROJECTS = [
     icon: <Terminal className="w-8 h-8" />,
     color: "bg-cyan-400",
     tags: ["Next.js", "Prisma", "PostgreSQL", "Socket.io"]
-  },
-  {
-    title: "PPOB Web Platform (16 Categories)",
-    year: "2025",
-    category: "Web App / FinTech",
-    desc: "Complex Payment Point Online Bank (PPOB) application serving 16 service categories including pulsa, electricity, BPJS, and internet with automated transaction routing.",
-    icon: <Globe className="w-8 h-8" />,
-    color: "bg-pink-400",
-    tags: ["React", "API Integration", "Node.js", "MySQL"]
-  },
-  {
-    title: "Multi-Platform Bot Development",
-    year: "2025",
-    category: "Automation",
-    desc: "Automated bots for WhatsApp, Discord, and Telegram tailored for business and educational use cases. Features automated responses, security filters, and role management.",
-    icon: <Bot className="w-8 h-8" />,
-    color: "bg-yellow-400",
-    tags: ["Node.js", "WhatsApp API", "Discord.js", "Telegram API"]
-  },
-  {
-    title: "Point of Sales (POS) Application",
-    year: "2025",
-    category: "Mobile App",
-    desc: "Cross-platform POS mobile application using Flutter for Android and iOS. Integrated with Xendit payment gateway for real-time transaction processing.",
-    icon: <Smartphone className="w-8 h-8" />,
-    color: "bg-green-400",
-    tags: ["Flutter", "Dart", "Xendit", "Firebase"]
   }
 ];
 

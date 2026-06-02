@@ -2,7 +2,7 @@
 
 Personal portfolio website built with **Next.js**, **Tailwind CSS**, and **Framer Motion**. Designed with a bold Neo-Brutalism aesthetic to showcase projects, skills, and professional experience.
 
-![Portfolio Preview](/public/logo.png)
+![Portfolio Preview](/public/logo.webp)
 
 ## 👤 About Me
 

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   keywords: ["HeyHaqi", "Moh Dhiyaulhaq Ulumuddin", "Haqi", "Portfolio Web Developer", "PTI UM", "Next.js"],
   authors: [{ name: "Moh. Dhiyaulhaq Ulumuddin" }],
   icons: {
-    icon: '/logo.png',
+    icon: '/logo.webp',
   },
   openGraph: {
     title: "HeyHaqi | Web Developer Portfolio",
@@ -31,7 +31,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
+
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
