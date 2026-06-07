@@ -64,9 +64,17 @@ const ALL_CATEGORIES = ["Semua", ...Array.from(new Set(CERTIFICATES.map((c) => c
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function CertificatesPage() {
   const [activeTab, setActiveTab] = useState("Semua");
+  const [searchQuery, setSearchQuery] = useState("");
   const [lightbox, setLightbox] = useState<number | null>(null);
 
-  const filtered = activeTab === "Semua" ? CERTIFICATES : CERTIFICATES.filter((c) => c.issuer === activeTab);
+  const filtered = CERTIFICATES.filter((c) => {
+    const matchesCategory = activeTab === "Semua" || c.issuer === activeTab;
+    const matchesSearch = 
+      c.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+      c.issuer.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
   const activeCert = lightbox !== null ? filtered[lightbox] : null;
 
   const prev = () => setLightbox((i) => (i !== null && i > 0 ? i - 1 : i));
@@ -106,6 +114,17 @@ export default function CertificatesPage() {
               <div className="text-[10px] font-bold uppercase mt-0.5">{s.label}</div>
             </div>
           ))}
+        </div>
+
+        {/* ── Search Bar ── */}
+        <div className="mb-6">
+          <input
+            type="text"
+            placeholder="🔍 Search certificates by title or issuer..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full bg-white border-4 border-black px-4 py-3 font-bold text-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none focus:translate-x-0.5 focus:translate-y-0.5 focus:shadow-none transition-all placeholder-gray-500"
+          />
         </div>
 
         {/* ── Tab Filter ── */}

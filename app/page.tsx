@@ -7,10 +7,12 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Skills from "@/components/Skills";
 import Timeline from "@/components/Timeline";
+import DraggableStickers from "@/components/DraggableStickers";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen relative">
+      <DraggableStickers />
       <Navbar />
       <Hero />
       <About />

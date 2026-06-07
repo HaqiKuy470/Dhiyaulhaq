@@ -26,6 +26,8 @@ export const metadata: Metadata = {
   },
 };
 
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -109,8 +111,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(navigationSchema) }}
         />
       </head>
-      {/* Memasukkan variable font Space_Mono ke body */}
-      <body className={`${spaceMono.variable} antialiased`}>
+      <body className={`${spaceMono.variable} antialiased relative min-h-screen`}>
         {children}
       </body>
     </html>

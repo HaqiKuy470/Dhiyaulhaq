@@ -40,7 +40,7 @@ export default function Projects() {
             </p>
             
             <div className="flex gap-4">
-              <Link href="https://company.heyhaqi.my.id/" className="flex-1 px-4 py-3 border-4 border-black font-black uppercase bg-white text-xs md:text-sm shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all text-center">
+              <Link href="#" className="flex-1 px-4 py-3 border-4 border-black font-black uppercase bg-white text-xs md:text-sm shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all text-center">
                 Details
               </Link>
             </div>

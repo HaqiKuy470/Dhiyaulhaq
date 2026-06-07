@@ -21,13 +21,15 @@ async function convertDir(dir) {
             continue;
         }
 
-        const ext = extname(file).toLowerCase();
-        if (![".png", ".jpg", ".jpeg"].includes(ext)) continue;
+        const ext = extname(file);
+        const extLower = ext.toLowerCase();
+        if (![".png", ".jpg", ".jpeg"].includes(extLower)) continue;
 
         const outPath = join(dir, basename(file, ext) + ".webp");
 
         await sharp(fullPath)
-            .webp({ quality: 85 })
+            .resize({ width: 1200, withoutEnlargement: true })
+            .webp({ quality: 75 })
             .toFile(outPath);
 
         console.log(`✅ ${fullPath} → ${outPath}`);

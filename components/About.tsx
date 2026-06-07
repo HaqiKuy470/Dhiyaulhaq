@@ -21,10 +21,10 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            <StatBox label="Projects" value="20+" color="bg-cyan-400" />
+            <StatBox label="Certificates" value="20+" color="bg-cyan-400" />
             <StatBox label="Experience" value="2 Yrs" color="bg-yellow-400" />
-            <StatBox label="Tech Stack" value="15+" color="bg-pink-400" />
-            <StatBox label="Clients" value="10+" color="bg-green-400" />
+            <StatBox label="Tech Stack" value="10+" color="bg-pink-400" />
+            <StatBox label="Companies" value="1" color="bg-green-400" />
           </div>
         </div>
       </div>
