@@ -57,61 +57,112 @@ export default function ArticlePage() {
           </div>
           
           <div className="p-8 md:p-12 max-w-none bg-white">
-            {article.content.split('\n').map((line, idx) => {
-              const trimmed = line.trim();
-              
-              // Simple markdown parser logic
-              const renderText = (text: string) => {
-                const parts = text.split(/(\*\*.*?\*\*)/g);
-                return parts.map((part, i) => {
-                  if (part.startsWith('**') && part.endsWith('**')) {
-                    return <strong key={i} className="bg-yellow-200 px-1 border-b-2 border-black font-black">{part.slice(2, -2)}</strong>;
-                  }
-                  return part;
-                });
-              };
+            {(() => {
+              let isInRujukan = false;
+              return article.content.split('\n').map((line, idx) => {
+                const trimmed = line.trim();
+                
+                // Simple markdown parser logic
+                const renderText = (text: string) => {
+                  const parts = text.split(/(\*\*.*?\*\*)/g);
+                  return parts.map((part, i) => {
+                    if (part.startsWith('**') && part.endsWith('**')) {
+                      return <strong key={i} className="bg-yellow-200 px-1 border-b-2 border-black font-black">{part.slice(2, -2)}</strong>;
+                    }
+                    return part;
+                  });
+                };
 
-              if (trimmed.startsWith('###')) {
-                return (
-                  <h3 key={idx} className="text-2xl font-black uppercase mt-10 mb-6 border-b-4 border-black inline-block pb-1 bg-white">
-                    {renderText(trimmed.replace('###', '').trim())}
-                  </h3>
-                );
-              } 
-              
-              if (trimmed.startsWith('- ')) {
-                return (
-                  <div key={idx} className="flex gap-3 items-start mb-3 font-bold">
-                    <div className="mt-1.5 w-3 h-3 bg-black shrink-0 border-2 border-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" /> 
-                    <div className="flex-1">{renderText(trimmed.replace('- ', ''))}</div>
-                  </div>
-                );
-              } 
-              
-              if (trimmed.match(/^[0-9]+\./)) {
-                const parts = trimmed.split('.');
-                const number = parts[0];
-                const rest = parts.slice(1).join('.').trim();
-                return (
-                  <div key={idx} className="flex gap-3 items-start mb-3 font-bold">
-                    <div className="bg-black text-white px-2 py-0.5 text-xs font-black border-2 border-black">
-                      {number}
+                if (trimmed.startsWith('## Daftar Rujukan')) {
+                  isInRujukan = true;
+                  return (
+                    <h2 key={idx} className="text-3xl font-black uppercase mt-12 mb-6 border-b-4 border-black inline-block pb-1 bg-white">
+                      {trimmed.replace('##', '').trim()}
+                    </h2>
+                  );
+                }
+
+                if (trimmed.startsWith('###')) {
+                  return (
+                    <h3 key={idx} className="text-2xl font-black uppercase mt-10 mb-6 border-b-4 border-black inline-block pb-1 bg-white">
+                      {renderText(trimmed.replace('###', '').trim())}
+                    </h3>
+                  );
+                } 
+                
+                if (trimmed.startsWith('- ')) {
+                  return (
+                    <div key={idx} className="flex gap-3 items-start mb-3 font-bold">
+                      <div className="mt-1.5 w-3 h-3 bg-black shrink-0 border-2 border-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" /> 
+                      <div className="flex-1">{renderText(trimmed.replace('- ', ''))}</div>
                     </div>
-                    <div className="flex-1">{renderText(rest)}</div>
-                  </div>
-                );
-              } 
-              
-              if (trimmed !== '') {
-                return (
-                  <p key={idx} className="mb-6 font-bold leading-relaxed text-gray-800">
-                    {renderText(trimmed)}
-                  </p>
-                );
-              }
-              
-              return <div key={idx} className="h-4" />;
-            })}
+                  );
+                } 
+                
+                if (trimmed.match(/^[0-9]+\./)) {
+                  const parts = trimmed.split('.');
+                  const number = parts[0];
+                  const rest = parts.slice(1).join('.').trim();
+                  return (
+                    <div key={idx} className="flex gap-3 items-start mb-3 font-bold">
+                      <div className="bg-black text-white px-2 py-0.5 text-xs font-black border-2 border-black">
+                        {number}
+                      </div>
+                      <div className="flex-1">{renderText(rest)}</div>
+                    </div>
+                  );
+                } 
+
+                if (trimmed === '---') {
+                  return <hr key={idx} className="my-6 border-t-4 border-black border-dashed" />;
+                }
+
+                if (trimmed.startsWith('Peneliti:') || trimmed.startsWith('Peneliti ')) {
+                  return (
+                    <p key={idx} className="mb-1 font-bold leading-relaxed text-gray-800">
+                      {renderText(trimmed)}
+                    </p>
+                  );
+                }
+
+                if (trimmed.startsWith('Jurnal/Artikel:') || trimmed.startsWith('Jurnal/Artikel ')) {
+                  return (
+                    <p key={idx} className="mb-1 font-bold leading-relaxed text-gray-800">
+                      {renderText(trimmed)}
+                    </p>
+                  );
+                }
+
+                if (trimmed.startsWith('Hasil Penelitian:') || trimmed.startsWith('Hasil Penelitian ')) {
+                  return (
+                    <p key={idx} className="mb-6 font-bold leading-relaxed text-gray-800">
+                      {renderText(trimmed)}
+                    </p>
+                  );
+                }
+                
+                if (trimmed !== '') {
+                  if (isInRujukan) {
+                    return (
+                      <p key={idx} className="mb-2 font-bold leading-relaxed text-gray-800 text-sm">
+                        {renderText(trimmed)}
+                      </p>
+                    );
+                  }
+                  return (
+                    <p key={idx} className="mb-6 font-bold leading-relaxed text-gray-800">
+                      {renderText(trimmed)}
+                    </p>
+                  );
+                }
+                
+                if (isInRujukan) {
+                  return null;
+                }
+                
+                return <div key={idx} className="h-4" />;
+              });
+            })()}
           </div>
         </article>
 
