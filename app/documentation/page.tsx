@@ -59,7 +59,7 @@ const EVENT_PHOTOS: EventPhoto[] = [
   },
   {
     id: 5,
-    title: "Tim Presentasi",
+    title: "Comming Soon",
     event: "College",
     date: "Now",
     location: "Universitas Negeri Malang",
