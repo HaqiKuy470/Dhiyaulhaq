@@ -26,17 +26,17 @@ export default function Projects() {
           <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-white">
             <div className="mb-4 flex flex-wrap gap-2">
               <span className="text-xs font-black uppercase border-2 border-black px-2 py-1 bg-cyan-400 shadow-[2px_2px_0px_0px_#000]">
-                Superweb Ecosystem
+                Ecosystem
               </span>
               <span className="text-xs font-black uppercase border-2 border-black px-2 py-1 bg-gray-100 shadow-[2px_2px_0px_0px_#000]">
                 In-Development
               </span>
             </div>
             
-            <h3 className="text-3xl font-black uppercase mb-4">Arshaka Project</h3>
+            <h3 className="text-3xl font-black uppercase mb-4">Arshaka Digital</h3>
             
             <p className="font-bold text-sm md:text-base mb-8 leading-relaxed text-black bg-pink-200 border-2 border-black p-4 shadow-[4px_4px_0px_0px_#000]">
-              An integrated digital ecosystem to help your business grow and succeed.
+              Digital Company for boosts your business
             </p>
             
             <div className="flex gap-4">

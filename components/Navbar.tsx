@@ -41,13 +41,13 @@ export default function Navbar() {
               {item.name}
             </Link>
           ))}
-          <Link href="#contact" className="brutalist-button bg-pink-400 text-xs md:text-sm text-center md:hidden mt-2" onClick={() => setIsOpen(false)}>
-            Contact me
+          <Link href="#" className="brutalist-button bg-pink-400 text-xs md:text-sm text-center md:hidden mt-2" onClick={() => setIsOpen(false)}>
+            -
           </Link>
         </div>
 
-        <Link href="#contact" className="brutalist-button bg-pink-400 text-xs md:text-sm hidden md:block">
-          Contact me
+        <Link href="#" className="brutalist-button bg-pink-400 text-xs md:text-sm hidden md:block">
+          -
         </Link>
       </div>
     </nav>

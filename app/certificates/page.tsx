@@ -36,12 +36,15 @@ const CERTIFICATES: Cert[] = [
   { title: "Dasar Python", issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/DasarPython.webp", pdf: "/Sertif/Dicoding/DBS/DasarPython.pdf", color: "bg-red-400" },
   { title: "Dasar SQL", issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/DasarSQL.webp", pdf: "/Sertif/Dicoding/DBS/DasarSQL.pdf", color: "bg-red-400" },
   { title: "Financial Literacy", issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/FinancialLiteracy.webp", pdf: "/Sertif/Dicoding/DBS/FinancialLiteracy.pdf", color: "bg-red-400" },
+  { title: "Fundamental Data Analisis", issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/FundamentalDataAnalisis.webp", pdf: "/Sertif/Dicoding/DBS/FundamentalDataAnalisis.pdf", color: "bg-red-400" },
   // Dicoding x Microsoft
   { title: "Aplikasi GenAI Microsoft Azure", issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/AplikasiGenAIMicrorosoftAzure.webp", pdf: "/Sertif/Dicoding/MICROSOFT/AplikasiGenAIMicrorosoftAzure.pdf", color: "bg-cyan-400" },
   { title: "Dasar Machine Learning", issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/DasarMachineLearning.webp", pdf: "/Sertif/Dicoding/MICROSOFT/DasarMachineLearning.pdf", color: "bg-cyan-400" },
   { title: "Dasar Python", issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/DasarPython.webp", pdf: "/Sertif/Dicoding/MICROSOFT/DasarPython.pdf", color: "bg-cyan-400" },
   { title: "Data Science Microsoft Fabric", issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/DataScienceMicrosoftFabric.webp", pdf: "/Sertif/Dicoding/MICROSOFT/DataScienceMicrosoftFabric.pdf", color: "bg-cyan-400" },
   { title: "Fundamental Pemrosesan Data", issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/FundamentalPemrosesanData.webp", pdf: "/Sertif/Dicoding/MICROSOFT/FundamentalPemrosesanData.pdf", color: "bg-cyan-400" },
+  // Google
+  { title: "Juara Vibe Coding", issuer: "Google", image: "/Sertif/Google/JuaraVibeCoding.webp", pdf: "/Sertif/Google/JuaraVibeCoding.pdf", color: "bg-green-400" },
   // Udemy
   { title: "Web 3 Development Essential", issuer: "Udemy", image: "/Sertif/Udemy/UC-3baf949d-16ab-4eff-83b7-f75170ba8d17.webp", pdf: "/Sertif/Udemy/UC-3baf949d-16ab-4eff-83b7-f75170ba8d17.pdf", color: "bg-orange-400" },
   { title: "Belajar Web Development Menggunakan Bahasa Pemrograman PHP", issuer: "Udemy", image: "/Sertif/Udemy/UC-44fd7143-156c-4168-906b-13ed4459b999.webp", pdf: "/Sertif/Udemy/UC-44fd7143-156c-4168-906b-13ed4459b999.pdf", color: "bg-orange-400" },
@@ -56,6 +59,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   "Dicoding x Bank Indonesia": "bg-blue-400",
   "Dicoding x DBS": "bg-red-400",
   "Dicoding x Microsoft": "bg-cyan-400",
+  "Google": "bg-green-400",
   "Udemy": "bg-orange-400",
 };
 
