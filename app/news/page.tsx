@@ -1,5 +1,3 @@
-"use client";
-
 import { ArrowLeft, BookOpen, Calendar, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { NEWS_ARTICLES } from "./data";

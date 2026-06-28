@@ -1,16 +1,15 @@
-"use client";
-
 import { ArrowLeft, Calendar, Tag } from "lucide-react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import { NEWS_ARTICLES } from "../data";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-export default function ArticlePage() {
-  const params = useParams();
-  const slug = params.slug;
-  
+export async function generateStaticParams() {
+  return NEWS_ARTICLES.map((a) => ({ slug: a.slug }));
+}
+
+export default function ArticlePage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
   const article = NEWS_ARTICLES.find((a) => a.slug === slug);
 
   if (!article) {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { ArrowLeft, ExternalLink, Award, X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -81,8 +81,19 @@ export default function CertificatesPage() {
 
   const activeCert = lightbox !== null ? filtered[lightbox] : null;
 
-  const prev = () => setLightbox((i) => (i !== null && i > 0 ? i - 1 : i));
-  const next = () => setLightbox((i) => (i !== null && i < filtered.length - 1 ? i + 1 : i));
+  const prev = useCallback(() => setLightbox((i) => (i !== null && i > 0 ? i - 1 : i)), []);
+  const next = useCallback(() => setLightbox((i) => (i !== null && i < filtered.length - 1 ? i + 1 : i)), [filtered.length]);
+
+  useEffect(() => {
+    if (lightbox === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") prev();
+      else if (e.key === "ArrowRight") next();
+      else if (e.key === "Escape") setLightbox(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightbox, prev, next]);
 
   return (
     <main className="min-h-screen bg-[#f4f4f0] font-mono text-black">

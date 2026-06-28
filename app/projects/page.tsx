@@ -1,11 +1,22 @@
-"use client";
-
-import { ArrowLeft, ExternalLink, Github, Terminal, Smartphone, Globe, Bot, BookAIcon } from "lucide-react";
+import { ArrowLeft, ExternalLink, Terminal, BookAIcon } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ReactNode } from "react";
 
-const PROJECTS = [
+interface Project {
+  title: string;
+  year: string;
+  category: string;
+  desc: string;
+  icon: ReactNode;
+  color: string;
+  tags: string[];
+  docs?: string;
+  live?: string;
+}
+
+const PROJECTS: Project[] = [
   {
     title: "Web-Based Terminal Manager",
     year: "2026",
@@ -13,7 +24,7 @@ const PROJECTS = [
     desc: "A browser-based terminal interface to monitor and manage multi-platform bots in real-time. Integrated with PostgreSQL via Prisma ORM for audit trail and history tracking.",
     icon: <Terminal className="w-8 h-8" />,
     color: "bg-cyan-400",
-    tags: ["Next.js", "Prisma", "PostgreSQL", "Socket.io"]
+    tags: ["Next.js", "Prisma", "PostgreSQL", "Socket.io"],
   }
 ];
 
@@ -70,12 +81,34 @@ export default function ProjectsPage() {
                   </div>
                   
                   <div className="flex gap-4">
-                    <button className="flex-1 px-4 py-3 bg-white border-4 border-black font-black uppercase text-xs shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex items-center justify-center gap-2">
-                      <BookAIcon className="w-4 h-4" /> Documentation
-                    </button>
-                    <button className="flex-1 px-4 py-3 bg-black text-white border-4 border-black font-black uppercase text-xs shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex items-center justify-center gap-2">
-                      <ExternalLink className="w-4 h-4" /> Live
-                    </button>
+                    {project.docs ? (
+                      <Link
+                        href={project.docs}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 px-4 py-3 bg-white border-4 border-black font-black uppercase text-xs shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex items-center justify-center gap-2"
+                      >
+                        <BookAIcon className="w-4 h-4" /> Documentation
+                      </Link>
+                    ) : (
+                      <span className="flex-1 px-4 py-3 bg-gray-100 border-4 border-black font-black uppercase text-xs flex items-center justify-center gap-2 opacity-40 cursor-not-allowed select-none">
+                        <BookAIcon className="w-4 h-4" /> Docs Soon
+                      </span>
+                    )}
+                    {project.live ? (
+                      <Link
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 px-4 py-3 bg-black text-white border-4 border-black font-black uppercase text-xs shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex items-center justify-center gap-2"
+                      >
+                        <ExternalLink className="w-4 h-4" /> Live
+                      </Link>
+                    ) : (
+                      <span className="flex-1 px-4 py-3 bg-gray-100 border-4 border-black font-black uppercase text-xs flex items-center justify-center gap-2 opacity-40 cursor-not-allowed select-none">
+                        <ExternalLink className="w-4 h-4" /> Live Soon
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>

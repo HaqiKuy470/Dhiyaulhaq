@@ -1,7 +1,7 @@
 import Marquee from "react-fast-marquee";
 
 const skillsRow1 = ["Next.js", "React", "Flutter", "Node.js", "Express", "Python", "PostgreSQL", "MySQL", "TypeScript"];
-const skillsRow2 = ["n8n", "OpenCV", "Docker", "Gemini API", "Prisma", "Figma", "Git", "Linux", "Antigravity", "Cursor"];
+const skillsRow2 = ["n8n", "OpenCV", "Docker", "Gemini API", "Prisma", "Figma", "Git", "Linux", "Tailwind CSS", "Cursor"];
 
 export default function Skills() {
   return (
