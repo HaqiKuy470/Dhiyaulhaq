@@ -1,4 +1,4 @@
-# Modern Neo-Brutalism Portfolio
+# Portfolio Dhiyaulhaq
 
 Personal portfolio website built with **Next.js**, **Tailwind CSS**, and **Framer Motion**. Designed with a bold Neo-Brutalism aesthetic to showcase projects, skills, and professional experience.
 
