@@ -733,7 +733,7 @@ Bagi pelaku UMKM yang masih ragu untuk memulai, kabar baiknya adalah proses ini 
 
 ---
 
-*Tulisan ini adalah bagian dari eksplorasi penulis seputar transformasi digital UMKM. Diskusi lebih lanjut bisa disampaikan melalui [media sosial penulis](https://heyhaqi.my.id).*
+*Tulisan ini adalah bagian dari eksplorasi penulis seputar transformasi digital UMKM. Diskusi lebih lanjut bisa disampaikan melalui [media sosial penulis](https://www.instagram.com/haqikuy).*
     `
   }
 ];
