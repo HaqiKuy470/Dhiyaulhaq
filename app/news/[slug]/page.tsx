@@ -1,5 +1,6 @@
 import { ArrowLeft, Calendar, Tag } from "lucide-react";
 import Link from "next/link";
+import { Metadata } from "next";
 import { NEWS_ARTICLES } from "../data";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,8 +9,40 @@ export async function generateStaticParams() {
   return NEWS_ARTICLES.map((a) => ({ slug: a.slug }));
 }
 
-export default function ArticlePage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const article = NEWS_ARTICLES.find((a) => a.slug === slug);
+
+  if (!article) {
+    return { title: "Article Not Found | HeyHaqi" };
+  }
+
+  const url = `https://heyhaqi.my.id/news/${article.slug}`;
+
+  return {
+    title: `${article.title} | HeyHaqi`,
+    description: article.excerpt,
+    keywords: [article.category, "HeyHaqi", "Moh Dhiyaulhaq Ulumuddin", article.title],
+    alternates: { canonical: url },
+    openGraph: {
+      title: article.title,
+      description: article.excerpt,
+      url,
+      siteName: "HeyHaqi Portfolio",
+      locale: "id_ID",
+      type: "article",
+      publishedTime: article.date,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.excerpt,
+    },
+  };
+}
+
+export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const article = NEWS_ARTICLES.find((a) => a.slug === slug);
 
   if (!article) {
@@ -63,10 +96,24 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
                 
                 // Simple markdown parser logic
                 const renderText = (text: string) => {
-                  const parts = text.split(/(\*\*.*?\*\*)/g);
+                  const parts = text.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
                   return parts.map((part, i) => {
                     if (part.startsWith('**') && part.endsWith('**')) {
                       return <strong key={i} className="bg-yellow-200 px-1 border-b-2 border-black font-black">{part.slice(2, -2)}</strong>;
+                    }
+                    const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/);
+                    if (linkMatch) {
+                      return (
+                        <a
+                          key={i}
+                          href={linkMatch[2]}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-700 underline decoration-2 underline-offset-2 hover:bg-yellow-200 font-black"
+                        >
+                          {linkMatch[1]}
+                        </a>
+                      );
                     }
                     return part;
                   });
