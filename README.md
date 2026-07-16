@@ -28,12 +28,14 @@ Hi, I'm **Moh Dhiyaulhaq Ulumuddin**, an Informatics Engineering student at Stat
 - **Project Showcase:** Detailed view of latest work and contributions.
 - **Certificates Gallery:** Collection of professional certifications (Coursera, Dicoding, Udemy, etc.).
 - **Interactive Timeline:** Professional and educational journey overview.
-- **News/Blog Section:** Dynamic content management for articles and updates.
+- **News/Blog Section:** Dynamic content management for articles and updates, with per-article SEO metadata (Open Graph, Twitter Card, canonical URL) and automatic sitemap inclusion.
 
 ## 📂 Project Structure
 
 ```text
 ├── app/              # Next.js App Router (Pages & Layouts)
+│   ├── news/         # News/Blog listing, article data, and dynamic [slug] pages
+│   └── sitemap.ts    # Auto-generated sitemap (includes all news articles)
 ├── components/       # Reusable UI Components (Hero, About, Skills, etc.)
 ├── public/           # Static assets (Images, CV, Certificates)
 ├── tailwind.config.ts # Custom Neo-Brutalism theme configuration
