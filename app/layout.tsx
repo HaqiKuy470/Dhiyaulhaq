@@ -85,7 +85,7 @@ export default function RootLayout({
       {
         "@type": "SiteNavigationElement",
         "position": 1,
-        "name": "Projects",
+        "name": "Products",
         "url": "https://heyhaqi.my.id/projects"
       },
       {
