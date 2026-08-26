@@ -70,7 +70,7 @@ export default function Footer() {
 
         <div className="border-t-4 border-black pt-8 flex flex-col md:flex-row justify-between items-center text-sm font-bold gap-4 md:gap-0">
           <p className="bg-white border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_#000] text-center md:text-left">
-            &copy; {new Date().getFullYear()} ARSHAKA. ALL RIGHTS RESERVED.
+            &copy; {new Date().getFullYear()} HAQIKUY. ALL RIGHTS RESERVED.
           </p>
           
           <div className="flex items-center gap-2 bg-white border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_#000]">
