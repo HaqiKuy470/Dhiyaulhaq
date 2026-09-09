@@ -12,7 +12,6 @@ export default function Navbar() {
     { name: "Products", href: "/projects" },
     { name: "Certificates", href: "/certificates" },
     { name: "Docs", href: "/documentation" },
-    { name: "Articles", href: "/news" },
   ];
 
   return (

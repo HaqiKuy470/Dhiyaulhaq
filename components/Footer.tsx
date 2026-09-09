@@ -35,7 +35,6 @@ export default function Footer() {
                 <li><Link href="/projects" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">Products</Link></li>
                 <li><Link href="/certificates" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">Certificates</Link></li>
                 <li><Link href="/documentation" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">Docs</Link></li>
-                <li><Link href="/news" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">News</Link></li>
               </ul>
             </div>
 

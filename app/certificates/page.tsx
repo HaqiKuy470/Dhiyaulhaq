@@ -49,6 +49,7 @@ const CERTIFICATES: Cert[] = [
   { title: "Juara Vibe Coding", issuer: "Google", image: "/Sertif/Google/JuaraVibeCoding.webp", pdf: "/Sertif/Google/JuaraVibeCoding.pdf", color: "bg-green-400" },
   // Idweb
   { title: "Web Design", issuer: "Idweb", image: "/Sertif/Idweb/WebDesign.webp", pdf: "/Sertif/Idweb/WebDesign.pdf", color: "bg-pink-400" },
+  { title: "Blog Review", issuer: "Idweb", image: "/Sertif/Idweb/BlogRiview.webp", pdf: "/Sertif/Idweb/BlogRiview.pdf", color: "bg-pink-400" },
   // Udemy
   { title: "Web 3 Development Essential", issuer: "Udemy", image: "/Sertif/Udemy/UC-3baf949d-16ab-4eff-83b7-f75170ba8d17.webp", pdf: "/Sertif/Udemy/UC-3baf949d-16ab-4eff-83b7-f75170ba8d17.pdf", color: "bg-orange-400" },
   { title: "Belajar Web Development Menggunakan Bahasa Pemrograman PHP", issuer: "Udemy", image: "/Sertif/Udemy/UC-44fd7143-156c-4168-906b-13ed4459b999.webp", pdf: "/Sertif/Udemy/UC-44fd7143-156c-4168-906b-13ed4459b999.pdf", color: "bg-orange-400" },

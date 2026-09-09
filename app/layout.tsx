@@ -53,11 +53,6 @@ export default function RootLayout({
     "@type": "WebSite",
     "name": "HeyHaqi",
     "url": "https://heyhaqi.my.id",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://heyhaqi.my.id/news?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
   };
 
   const personSchema = {
@@ -97,12 +92,6 @@ export default function RootLayout({
       {
         "@type": "SiteNavigationElement",
         "position": 3,
-        "name": "News",
-        "url": "https://heyhaqi.my.id/news"
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "position": 4,
         "name": "CV",
         "url": "https://heyhaqi.my.id/cv"
       }
