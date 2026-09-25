@@ -20,6 +20,7 @@ interface Cert {
 const CERTIFICATES: Cert[] = [
   // Hackaton
   { title: "Hackathon Refactory UNAIR", issuer: "Hackaton", image: "/Sertif/Hackaton/REFACTORY_UNAIR.webp", pdf: "/Sertif/Hackaton/REFACTORY_UNAIR.pdf", color: "bg-purple-400" },
+  { title: "Essential Training Program Digdaya x Hackathon", issuer: "Hackaton", image: "/Sertif/Hackaton/DIGDAYA_HACKATHON.webp", pdf: "/Sertif/Hackaton/DIGDAYA_HACKATHON.pdf", color: "bg-purple-400" },
   // Dicoding x Bank Indonesia
   { title: "Back-End with Google Cloud", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/BackEndGoogleCloud.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/BackEndGoogleCloud.pdf", color: "bg-blue-400" },
   { title: "Back-End with Python", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/BackEndPython.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/BackEndPython.pdf", color: "bg-blue-400" },
