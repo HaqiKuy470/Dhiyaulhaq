@@ -34,7 +34,7 @@ export default function Hero() {
           <div className="relative aspect-[4/3] w-full overflow-hidden border border-rule bg-figure">
             <Image
               src="/foto.webp"
-              alt="Dhiyaulhaq and teammates standing in front of the Refactory Hackathon banner at Universitas Airlangga"
+              alt="Portrait of Moh Dhiyaulhaq Ulumuddin"
               fill
               priority
               sizes="(min-width: 1024px) 40vw, 100vw"

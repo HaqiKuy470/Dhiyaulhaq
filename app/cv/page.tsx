@@ -1,230 +1,282 @@
 "use client";
 
-import { Printer, Mail, MapPin, Globe, Phone, ArrowLeft, Github, Youtube, Music } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft, Printer } from "lucide-react";
+import { CERTIFICATES, ISSUER_COUNTS } from "@/data/certificates";
+import { CONTACT, PRODUCTS, SOCIALS } from "@/data/site";
+
+const EDUCATION = [
+  { years: "2025 to now", place: "Universitas Negeri Malang", detail: "Informatics Engineering Education" },
+  { years: "2022 to 2025", place: "MAN 1 Lamongan", detail: "Mathematics & Natural Science (MIPA)" },
+];
+
+const SKILL_GROUPS = [
+  { label: "Frontend", items: "Next.js · React · Flutter · Tailwind CSS" },
+  { label: "Backend", items: "Node.js · Express · Python" },
+  { label: "Database", items: "PostgreSQL · MySQL · Prisma" },
+  { label: "AI & Automation", items: "Gemini API · OpenCV · n8n · Docker" },
+  { label: "Design", items: "Figma · Canva · Google Stitch" },
+  { label: "Tools", items: "Git · Cursor · Antigravity · Linux" },
+];
+
+const EXPERIENCE = [
+  {
+    title: "Arshaka Ecosystem",
+    role: "Founder",
+    years: "2025 to now",
+    points: ["Building and managing an ecosystem of tech companies."],
+  },
+  {
+    title: "Digdaya × Hackathon, Bank Indonesia",
+    role: "Team lead",
+    years: "2026",
+    points: ["Completed the Essential Training Program, 2 May to 23 June 2026."],
+  },
+  {
+    title: "Hackathon Refactory × UNAIR",
+    role: "Team lead · Finalist",
+    years: "2026",
+    points: ["Led Team Arshaka to the finals at Universitas Airlangga, Surabaya."],
+  },
+  {
+    title: "Google · Juara Vibe Coding",
+    role: "Participant",
+    years: "2026",
+    points: ["Built a digital lab website for Chemistry, Physics, and Biology."],
+  },
+];
+
+const PROJECTS = [
+  {
+    title: "Web-Based Terminal Manager",
+    years: "2026",
+    points: [
+      "Built a browser-based terminal interface to monitor and manage multi-platform bots in real time.",
+      "Logged command execution to PostgreSQL via Prisma ORM for audit trail and history tracking.",
+    ],
+  },
+  {
+    title: "PPOB Web Platform (16 categories)",
+    years: "2025",
+    points: [
+      "Developed a Payment Point Online Bank web application serving 16 service categories, including pulsa, electricity, BPJS, and internet.",
+      "Integrated multi-vendor payment APIs with automated transaction routing and real-time status updates.",
+    ],
+  },
+  {
+    title: "Multi-Platform Bot Development",
+    years: "2025",
+    points: [
+      "Built automated bots for WhatsApp, Discord, and Telegram for business and educational use cases.",
+      "Implemented automated responses, security filters, role management, and third-party API integrations.",
+    ],
+  },
+  {
+    title: "Point of Sales (POS) Application",
+    years: "2025",
+    points: [
+      "Built a cross-platform POS app in Flutter for Android and iOS, with Xendit for real-time payments.",
+      "Developed inventory management, transaction history, and sales reporting.",
+    ],
+  },
+];
+
+function SideHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 className="mb-2.5 border-b border-ink pb-1.5 font-mono text-[9.5px] tracking-[0.12em] text-accent uppercase">
+      {children}
+    </h2>
+  );
+}
+
+function MainHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 className="mb-3 border-b-2 border-ink pb-1.5 font-mono text-[10px] tracking-[0.12em] text-accent uppercase">
+      {children}
+    </h2>
+  );
+}
 
 export default function CVPage() {
-  const handlePrint = () => {
-    window.print();
-  };
-
   return (
-    <div className="min-h-screen bg-[#F3F4F6] py-10 px-4 md:px-8 selection:bg-[#8D624F]/30 font-sans flex flex-col items-center">
-
-      <div className="w-full max-w-[210mm] flex justify-between items-center mb-8 print:hidden">
-        <Link href="/" className="flex items-center gap-2 text-gray-500 hover:text-gray-800 transition-colors font-medium">
-          <ArrowLeft className="w-5 h-5" /> Back
+    <div className="cv-screen flex min-h-screen flex-col items-center bg-paper-deep px-4 py-8 md:px-8">
+      <div className="mb-6 flex w-full max-w-[210mm] items-center justify-between print:hidden">
+        <Link href="/" className="label-mono inline-flex min-h-11 items-center gap-2 hover:text-accent">
+          <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back
         </Link>
         <button
-          onClick={handlePrint}
-          className="flex items-center gap-2 px-5 py-2.5 bg-[#8D624F] hover:bg-[#724e3e] text-white rounded-lg transition-colors font-semibold shadow-md"
+          type="button"
+          onClick={() => window.print()}
+          className="label-mono inline-flex min-h-11 items-center gap-2 bg-ink px-5 text-paper hover:bg-accent"
         >
-          <Printer className="w-4 h-4" /> Print PDF (A4)
+          <Printer className="h-4 w-4" aria-hidden="true" /> Print PDF (A4)
         </button>
       </div>
 
-      <div className="w-full max-w-[210mm] min-h-[297mm] bg-white shadow-2xl print:shadow-none flex flex-col md:flex-row overflow-hidden text-gray-800">
-
-        <div className="w-full md:w-[35%] bg-[#E8E8E8] p-8 flex flex-col">
-
-          <div className="flex justify-center mb-10 mt-4 md:mt-0 relative">
-            <div className="w-44 h-44 rounded-full border-4 border-white shadow-md overflow-hidden bg-gray-300 relative">
-              <Image
-                src="/logo.webp"
-                alt="Profile"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-[2px] h-32 bg-[#8D624F] hidden md:block opacity-50"></div>
-          </div>
-
-          <div className="mb-10">
-            <h2 className="text-2xl font-serif font-bold text-[#8D624F] mb-4 border-b border-[#C0A080] pb-2 tracking-widest">
-              CONTACT
-            </h2>
-            <div className="flex flex-col gap-4 text-sm text-gray-700">
-              <div className="flex items-center gap-3">
-                <div className="bg-[#8D624F] p-1.5 rounded-full text-white">
-                  <Phone className="w-3.5 h-3.5" />
-                </div>
-                +62 851 1142 2715
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="bg-[#8D624F] p-1.5 rounded-full text-white">
-                  <Mail className="w-3.5 h-3.5" />
-                </div>
-                haqikuy470@gmail.com
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="bg-[#8D624F] p-1.5 rounded-full text-white">
-                  <Globe className="w-3.5 h-3.5" />
-                </div>
-                heyhaqi.my.id
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="bg-[#8D624F] p-1.5 rounded-full text-white">
-                  <MapPin className="w-3.5 h-3.5" />
-                </div>
-                Malang
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="bg-[#8D624F] p-1.5 rounded-full text-white">
-                  <Github className="w-3.5 h-3.5" />
-                </div>
-                github.com/HaqiKuy470
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="bg-[#8D624F] p-1.5 rounded-full text-white">
-                  <Youtube className="w-3.5 h-3.5" />
-                </div>
-                youtube.com/@haqikuy
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="bg-[#8D624F] p-1.5 rounded-full text-white">
-                  <Music className="w-3.5 h-3.5" />
-                </div>
-                @haqikuy
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-10">
-            <h2 className="text-2xl font-serif font-bold text-[#8D624F] mb-4 border-b border-[#C0A080] pb-2 tracking-widest">
-              STUDY
-            </h2>
-
-            <div className="mb-6">
-              <h3 className="font-bold text-gray-800">MAN 1 Lamongan</h3>
-              <p className="text-sm text-gray-600 mb-1">Mathematics & Natural Science</p>
-              <span className="inline-block bg-[#D1D5DB] text-gray-700 text-xs font-semibold px-2 py-1 rounded">2022 - 2025</span>
-            </div>
-
-            <div className="mb-2">
-              <p className="text-sm italic text-[#8D624F] mb-1">informatics engineering education</p>
-              <h3 className="font-bold text-gray-800">Universitas Negeri Malang</h3>
-              <span className="inline-block bg-[#D1D5DB] text-gray-700 text-xs font-semibold px-2 py-1 rounded">2025 - NOW</span>
-            </div>
-          </div>
-
+      <article className="cv-sheet w-full max-w-[210mm] bg-paper text-ink shadow-[0_20px_60px_-20px_rgba(27,25,21,0.35)] print:shadow-none md:min-h-[297mm]">
+        {/* ── Masthead ── */}
+        <header className="flex items-end justify-between gap-6 border-b-4 border-ink px-7 pt-7 pb-4 md:px-10">
           <div>
-            <h2 className="text-2xl font-serif font-bold text-[#8D624F] mb-4 border-b border-[#C0A080] pb-2 tracking-widest">
-              SKILLS
-            </h2>
-            <div className="flex flex-col gap-3 text-[13px] text-gray-700">
-              <div>
-                <span className="font-bold">Frontend :</span> Next.js · React · Flutter
-              </div>
-              <div>
-                <span className="font-bold">Backend :</span> Node.js · Express · Python
-              </div>
-              <div>
-                <span className="font-bold">Database :</span> PostgreSQL · MySQL
-              </div>
-              <div>
-                <span className="font-bold">Automation :</span> n8n · OpenCV · Docker
-              </div>
-              <div>
-                <span className="font-bold">AI & API :</span> Gemini API · Prisma
-              </div>
-              <div>
-                <span className="font-bold">Design :</span> Figma · Canva · Google Stitch
-              </div>
-              <div>
-                <span className="font-bold">Tools :</span> Git · Cursor · Antigravity · Linux
-              </div>
-            </div>
+            <p className="mb-2 font-mono text-[9.5px] tracking-[0.12em] text-accent uppercase">Curriculum vitae</p>
+            <h1 className="font-display text-[34px] leading-[0.95] font-semibold tracking-[-0.02em] md:text-[44px]">
+              Moh Dhiyaulhaq <span className="font-normal italic">Ulumuddin</span>
+            </h1>
+            <p className="mt-2 font-mono text-[11px] tracking-[0.16em] uppercase">Fullstack developer</p>
+          </div>
+          <div className="relative hidden h-[92px] w-[92px] shrink-0 overflow-hidden border border-ink sm:block">
+            <Image src="/foto.webp" alt="Portrait of Moh Dhiyaulhaq Ulumuddin" fill sizes="92px" className="object-cover" />
+          </div>
+        </header>
+
+        <div className="grid grid-cols-1 md:grid-cols-[34%_66%]">
+          {/* ── Sidebar ── */}
+          <aside className="flex flex-col gap-5 border-ink bg-paper-deep px-7 py-6 md:border-r md:px-7">
+            <section>
+              <SideHeading>Contact</SideHeading>
+              <ul className="flex flex-col gap-1 text-[11.5px] leading-snug">
+                <li>
+                  <a href={`mailto:${CONTACT.email}`} className="break-all hover:text-accent">
+                    {CONTACT.email}
+                  </a>
+                </li>
+                <li>{CONTACT.whatsappDisplay}</li>
+                <li>heyhaqi.my.id</li>
+                <li>{CONTACT.location}</li>
+                {SOCIALS.filter((s) => ["LinkedIn", "GitHub", "YouTube"].includes(s.name)).map((s) => (
+                  <li key={s.name}>
+                    <span className="font-mono text-[9px] tracking-[0.08em] text-muted uppercase">{s.name}</span>{" "}
+                    <a href={s.href} className="hover:text-accent">
+                      {s.handle}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section>
+              <SideHeading>Education</SideHeading>
+              <ul className="flex flex-col gap-3">
+                {EDUCATION.map((e) => (
+                  <li key={e.place}>
+                    <p className="font-mono text-[9px] tracking-[0.08em] text-muted uppercase">{e.years}</p>
+                    <p className="font-display text-[14px] leading-tight font-semibold">{e.place}</p>
+                    <p className="text-[11.5px] text-ink-soft italic">{e.detail}</p>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section>
+              <SideHeading>Skills</SideHeading>
+              <dl className="flex flex-col gap-2 text-[11.5px] leading-snug">
+                {SKILL_GROUPS.map((g) => (
+                  <div key={g.label}>
+                    <dt className="font-mono text-[9px] tracking-[0.08em] text-muted uppercase">{g.label}</dt>
+                    <dd>{g.items}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+
+            <section>
+              <SideHeading>Certificates</SideHeading>
+              <p className="mb-2 text-[11.5px] leading-snug">
+                <span className="font-display text-[22px] leading-none font-bold text-accent">{CERTIFICATES.length}</span>{" "}
+                verified certificates, including:
+              </p>
+              <ul className="flex flex-col gap-1 text-[11px]">
+                {ISSUER_COUNTS.map((i) => (
+                  <li key={i.issuer} className="flex items-baseline gap-2">
+                    <span>{i.issuer}</span>
+                    <span aria-hidden="true" className="flex-1 -translate-y-1 border-b border-dotted border-[#8a8374]" />
+                    <span className="font-semibold">{i.count}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section>
+              <SideHeading>Products</SideHeading>
+              <ul className="flex flex-col gap-1">
+                {PRODUCTS.map((p) => (
+                  <li key={p.url} className="flex items-baseline justify-between gap-2">
+                    <span className="font-display text-[13.5px] leading-tight font-semibold">{p.name}</span>
+                    <span className="font-mono text-[9px] tracking-[0.06em] text-muted">{p.domain}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </aside>
+
+          {/* ── Main column ── */}
+          <div className="flex flex-col gap-5 px-7 py-6 md:px-9">
+            <section>
+              <MainHeading>Profile</MainHeading>
+              <p className="text-[12.5px] leading-[1.6]">
+                Informatics Engineering student specializing in AI integration and software architecture. I build and
+                manage web applications and tech products integrated with AI to create efficient, automated digital
+                solutions. Proficient in fullstack development with Next.js, Node.js, Python, and Flutter, with hands-on
+                experience in workflow automation, bot infrastructure, and computer vision systems.
+              </p>
+            </section>
+
+            <section>
+              <MainHeading>Experience &amp; achievements</MainHeading>
+              <ol className="flex flex-col gap-3">
+                {EXPERIENCE.map((x) => (
+                  <li key={x.title} className="cv-item">
+                    <div className="flex items-baseline justify-between gap-3">
+                      <h3 className="font-display text-[14.5px] leading-tight font-semibold">{x.title}</h3>
+                      <span className="shrink-0 font-mono text-[9.5px] tracking-[0.06em] text-muted uppercase">
+                        {x.years}
+                      </span>
+                    </div>
+                    <p className="font-mono text-[9.5px] tracking-[0.08em] text-accent uppercase">{x.role}</p>
+                    {x.points.map((pt) => (
+                      <p key={pt} className="mt-0.5 text-[12px] leading-[1.5] text-ink-soft">
+                        {pt}
+                      </p>
+                    ))}
+                  </li>
+                ))}
+              </ol>
+            </section>
+
+            <section>
+              <MainHeading>Selected projects</MainHeading>
+              <ol className="flex flex-col gap-3">
+                {PROJECTS.map((p) => (
+                  <li key={p.title} className="cv-item">
+                    <div className="flex items-baseline justify-between gap-3">
+                      <h3 className="font-display text-[14.5px] leading-tight font-semibold">{p.title}</h3>
+                      <span className="shrink-0 font-mono text-[9.5px] tracking-[0.06em] text-muted uppercase">
+                        {p.years}
+                      </span>
+                    </div>
+                    <ul className="mt-1 ml-4 list-disc text-[12px] leading-[1.5] text-ink-soft marker:text-accent">
+                      {p.points.map((pt) => (
+                        <li key={pt}>{pt}</li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
+              </ol>
+            </section>
+
           </div>
         </div>
+      </article>
 
-        <div className="w-full md:w-[65%] p-8 md:p-12 bg-white flex flex-col">
-
-          <header className="mb-12 mt-4">
-            <h1 className="text-[40px] md:text-[52px] font-serif font-bold text-[#8D624F] leading-[1.1] mb-4 uppercase tracking-tight">
-              MOH DHIYAULHAQ <br />
-              ULUMUDDIN
-            </h1>
-            <h2 className="text-xl md:text-2xl tracking-[0.2em] text-gray-900 font-medium uppercase">
-              FULLSTACK DEVELOPER
-            </h2>
-          </header>
-
-          <section className="mb-12">
-            <h2 className="text-2xl font-serif font-bold text-[#8D624F] mb-4 border-b border-[#E5D7CB] pb-2 tracking-wide uppercase">
-              ABOUT ME
-            </h2>
-            <p className="text-gray-700 leading-relaxed text-justify text-[15px]">
-              Informatics Engineering student specializing in AI integration and software architecture. Experienced in building and managing SaaS web application ecosystems integrated with AI to create efficient, automated digital solutions. Proficient in fullstack development with Next.js, Node.js, Python, and Flutter, with hands-on experience in workflow automation, bot infrastructure, and computer vision systems.
-            </p>
-          </section>
-
-          <section className="flex-1">
-            <h2 className="text-2xl font-serif font-bold text-[#8D624F] mb-6 border-b border-[#E5D7CB] pb-2 tracking-wide uppercase">
-              PROJECTS & EXPERIENCE
-            </h2>
-
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-[#8D624F] font-bold text-lg mb-2">
-                  Web-Based Terminal Manager - 2026
-                </h3>
-                <ul className="list-disc list-outside ml-5 text-[14px] text-gray-700 leading-relaxed space-y-1">
-                  <li>Built a browser-based terminal interface to monitor and manage multi-platform bots in real-time.</li>
-                  <li>Integrated command execution logging with PostgreSQL via Prisma ORM for audit trail and history tracking.</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-[#8D624F] font-bold text-lg mb-2">
-                  PPOB Web Platform (16 Categories) - 2025
-                </h3>
-                <ul className="list-disc list-outside ml-5 text-[14px] text-gray-700 leading-relaxed space-y-1">
-                  <li>Developed a complex Payment Point Online Bank (PPOB) web application serving 16 service categories including pulsa, electricity, BPJS, and internet.</li>
-                  <li>Integrated multi-vendor payment APIs with automated transaction routing and real-time status updates.</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-[#8D624F] font-bold text-lg mb-2">
-                  Multi-Platform Bot Development - 2025
-                </h3>
-                <ul className="list-disc list-outside ml-5 text-[14px] text-gray-700 leading-relaxed space-y-1">
-                  <li>Built automated bots for WhatsApp, Discord, and Telegram tailored for business and educational use cases.</li>
-                  <li>Implemented automated responses, security filters, role management, and third-party API integrations.</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-[#8D624F] font-bold text-lg mb-2">
-                  Point of Sales (POS) Application - 2025
-                </h3>
-                <ul className="list-disc list-outside ml-5 text-[14px] text-gray-700 leading-relaxed space-y-1">
-                  <li>Built a cross-platform POS mobile application using Flutter for Android and iOS.</li>
-                  <li>Integrated Xendit payment gateway for real-time transaction processing.</li>
-                  <li>Developed features including inventory management, transaction history, and sales reporting.</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-        </div>
-      </div>
-
-      <style dangerouslySetInnerHTML={{
-        __html: `
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
-        
-        .font-serif {
-          font-family: 'Playfair Display', serif;
-        }
-
+      <style>{`
         @media print {
           @page { size: A4; margin: 0; }
-          body { background-color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-          .min-h-screen { padding: 0 !important; }
+          html, body { background: #f2ede3 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+          .cv-screen { padding: 0 !important; background: #f2ede3 !important; }
+          .cv-sheet { max-width: none !important; }
+          .cv-item { break-inside: avoid; }
         }
-      `}} />
+      `}</style>
     </div>
   );
 }
