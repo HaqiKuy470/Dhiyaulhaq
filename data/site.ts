@@ -1,5 +1,5 @@
 export const CONTACT = {
-  email: "mohdhiyaulhaq.u@gmail.com",
+  email: "haqikuy470@gmail.com",
   whatsapp: "6285111422715",
   whatsappDisplay: "+62 851 1142 2715",
   location: "Malang, East Java, Indonesia",

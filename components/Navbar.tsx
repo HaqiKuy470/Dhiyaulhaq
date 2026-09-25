@@ -64,13 +64,6 @@ export default function Navbar({ variant = "compact" }: { variant?: "full" | "co
   if (variant === "full") {
     return (
       <header>
-        <div className="border-b border-ink">
-          <Container className="label-mono flex justify-between py-2.5 !text-[0.6875rem] md:py-3.5 md:!text-xs">
-            <span>Vol. 01 · Edition {new Date().getFullYear()}</span>
-            <span className="hidden sm:inline">Malang, Indonesia</span>
-            <span>heyhaqi.my.id</span>
-          </Container>
-        </div>
         <Container className="pt-4 md:pt-7">
           <div className="flex items-end justify-between gap-4">
             {nameplate("text-[4.5rem] sm:text-[7rem] md:text-[10rem] xl:text-[14.75rem]")}

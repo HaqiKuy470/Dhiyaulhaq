@@ -56,7 +56,7 @@ export default function Footer() {
         </div>
 
         <div className="label-mono flex flex-col gap-2 border-t border-rule-dark pt-6 !text-[0.6875rem] text-[#bdb5a6] md:flex-row md:justify-between md:!text-xs">
-          <span>Set in Fraunces, Newsreader &amp; JetBrains Mono. Built with Next.js.</span>
+          <span>As professional programmer, designer and developer.</span>
           <span>
             &copy; {new Date().getFullYear()} Moh Dhiyaulhaq Ulumuddin · {CONTACT.location}
           </span>

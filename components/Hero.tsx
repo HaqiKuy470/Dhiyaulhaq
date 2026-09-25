@@ -33,7 +33,7 @@ export default function Hero() {
         <figure className="flex flex-col gap-3">
           <div className="relative aspect-[4/3] w-full overflow-hidden border border-rule bg-figure">
             <Image
-              src="/Dokumentasi/DSC_0330.webp"
+              src="/foto.webp"
               alt="Dhiyaulhaq and teammates standing in front of the Refactory Hackathon banner at Universitas Airlangga"
               fill
               priority
@@ -42,7 +42,7 @@ export default function Hero() {
             />
           </div>
           <figcaption className="text-sm text-muted italic md:text-base">
-            Fig. 1. Team Arshaka at the Refactory Hackathon, Universitas Airlangga, April 2026.
+            Fig. 1. Dhiyaulhaq. A developer and product builder based in Malang, Indonesia.
           </figcaption>
         </figure>
       </Container>
