@@ -3,6 +3,14 @@ import type { ReactNode } from "react";
 // Shared building blocks for the editorial layout: section kickers,
 // headings, and the page-width container.
 
+const NUMBER_WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+
+// Small counts read better spelled out in running copy: 4 -> "four".
+export function numberWord(n: number, capitalize = false) {
+  const word = NUMBER_WORDS[n] ?? String(n);
+  return capitalize ? word.charAt(0).toUpperCase() + word.slice(1) : word;
+}
+
 export function Container({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <div className={`mx-auto w-full max-w-[1440px] px-5 md:px-10 xl:px-20 ${className}`}>{children}</div>;
 }

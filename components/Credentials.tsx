@@ -1,12 +1,11 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Container, Kicker } from "@/components/editorial";
+import { Container, Kicker, numberWord } from "@/components/editorial";
 import { CERTIFICATES, ISSUER_COUNTS } from "@/data/certificates";
 
-const NUMBER_WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
 
 export default function Credentials() {
-  const issuers = NUMBER_WORDS[ISSUER_COUNTS.length] ?? String(ISSUER_COUNTS.length);
+  const issuers = numberWord(ISSUER_COUNTS.length);
 
   return (
     <section id="credentials" aria-labelledby="credentials-heading" className="scroll-mt-6 border-t-[3px] border-ink md:border-t-4">

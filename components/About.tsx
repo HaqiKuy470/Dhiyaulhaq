@@ -1,11 +1,11 @@
 import { Container, Em, SectionHeading } from "@/components/editorial";
 import { CERTIFICATES } from "@/data/certificates";
-import { PRODUCTS, SKILLS } from "@/data/site";
+import { LIVE_PRODUCTS, SKILLS } from "@/data/site";
 
 export default function About() {
   const stats = [
     { value: CERTIFICATES.length, label: "Verified certificates" },
-    { value: PRODUCTS.length, label: "Live products" },
+    { value: LIVE_PRODUCTS.length, label: "Live products" },
     { value: SKILLS.length, label: "Tools in the kit" },
   ];
 

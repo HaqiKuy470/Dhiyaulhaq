@@ -28,8 +28,10 @@ export interface Product {
   category: string;
   tagline: string;
   tags: string[];
-  // Cover treatment: "ink" is the dark cover, "accent" the red one.
-  cover: "ink" | "accent";
+  status: "live" | "coming-soon";
+  // Cover treatment: "ink" is the dark cover, "accent" the red one,
+  // "paper" the light outlined one used for products not launched yet.
+  cover: "ink" | "accent" | "paper";
 }
 
 export const PRODUCTS: Product[] = [
@@ -40,6 +42,7 @@ export const PRODUCTS: Product[] = [
     category: "Game development · Roblox",
     tagline: "A Roblox game development studio building experiences, systems, and assets for the Roblox platform.",
     tags: ["Roblox", "Game Development", "Lua"],
+    status: "live",
     cover: "ink",
   },
   {
@@ -49,9 +52,33 @@ export const PRODUCTS: Product[] = [
     category: "Publishing · Developer media",
     tagline: "Daily dev insights, tutorials, and tech news for developers who want to stay up to date.",
     tags: ["Tech News", "Tutorials", "Developer Content"],
+    status: "live",
     cover: "accent",
   },
+  {
+    name: "Kado Spesialmu",
+    domain: "kado-spesialmu.web.id",
+    url: "https://kado-spesialmu.web.id",
+    category: "Commerce · Gifts",
+    tagline: "An online gift shop selling both digital and physical gifts.",
+    tags: ["E-commerce", "Digital Gifts", "Physical Gifts"],
+    status: "live",
+    cover: "accent",
+  },
+  {
+    name: "Loka Shaka",
+    domain: "lokashaka.id",
+    url: "https://lokashaka.id",
+    category: "3D animation · Game studio",
+    tagline: "A 3D animation and game studio.",
+    tags: ["3D Animation", "Game Development"],
+    status: "coming-soon",
+    cover: "paper",
+  },
 ];
+
+export const LIVE_PRODUCTS = PRODUCTS.filter((p) => p.status === "live");
+export const UPCOMING_PRODUCTS = PRODUCTS.filter((p) => p.status === "coming-soon");
 
 export const SERVICES = [
   {

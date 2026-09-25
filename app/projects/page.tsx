@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ProductFeature } from "@/components/Projects";
-import { Container, Em, Kicker } from "@/components/editorial";
-import { PRODUCTS } from "@/data/site";
+import { Container, Em, Kicker, numberWord } from "@/components/editorial";
+import { LIVE_PRODUCTS, PRODUCTS, UPCOMING_PRODUCTS } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Products | HeyHaqi",
-  description: "Products built and run by Moh Dhiyaulhaq Ulumuddin: Shaka Studio and Compile Daily.",
+  description: "Products built and run by Moh Dhiyaulhaq Ulumuddin: Shaka Studio, Compile Daily, Kado Spesialmu and Loka Shaka.",
 };
 
 export default function ProjectsPage() {
@@ -16,12 +16,15 @@ export default function ProjectsPage() {
       <Navbar />
       <main>
         <Container className="flex flex-col gap-5 pt-10 pb-10 md:pt-16 md:pb-14">
-          <Kicker data-intro>Products · Both live</Kicker>
+          <Kicker data-intro>
+            Products · {LIVE_PRODUCTS.length} live, {UPCOMING_PRODUCTS.length} coming soon
+          </Kicker>
           <h1 data-intro className="font-display text-[3rem] leading-[0.95] font-medium tracking-[-0.035em] md:text-8xl lg:text-[8rem]">
             Things I&apos;ve <Em>built.</Em>
           </h1>
           <p data-intro className="max-w-[720px] text-lg leading-[1.45] text-ink-soft md:text-[1.4375rem]">
-            A Roblox game studio and a daily publication for developers, each still running today.
+            A Roblox game studio, a daily publication for developers and a gift shop, all running today, plus a 3D
+            animation and game studio on the way. {numberWord(PRODUCTS.length, true)} products in all.
           </p>
         </Container>
 

@@ -4,7 +4,7 @@ import { CERTIFICATES } from "@/data/certificates";
 
 const ENTRIES = [
   { n: "01", title: "About", sub: "From the builder’s desk", href: "#about" },
-  { n: "02", title: "Products", sub: "Shaka Studio, Compile Daily", href: "#products" },
+  { n: "02", title: "Products", sub: "Shaka Studio, Compile Daily & more", href: "#products" },
   { n: "03", title: "Practice", sub: "Web, AI, mobile", href: "#practice" },
   { n: "04", title: "Toolkit", sub: "The index, A to Z", href: "#toolkit" },
   { n: "05", title: "Record", sub: "Study, work, awards", href: "#record" },
