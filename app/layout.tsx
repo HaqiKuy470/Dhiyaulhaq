@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, JetBrains_Mono, Newsreader } from "next/font/google";
 import "./globals.css";
+import ScrollEffects from "@/components/ScrollEffects";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -113,8 +114,19 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${fraunces.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}>
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
+        {/* Turn on scroll animations before first paint, unless the visitor prefers reduced motion. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              'if(window.matchMedia("(prefers-reduced-motion: no-preference)").matches)document.documentElement.dataset.motion="on";',
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
@@ -130,6 +142,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-paper font-serif text-ink antialiased">
         {children}
+        <ScrollEffects />
       </body>
     </html>
   );

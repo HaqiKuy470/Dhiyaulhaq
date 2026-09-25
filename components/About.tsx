@@ -17,7 +17,7 @@ export default function About() {
         </SectionHeading>
 
         <div className="flex flex-col gap-10 lg:gap-12">
-          <div className="text-lg leading-[1.6] md:columns-2 md:gap-12 md:text-xl">
+          <div data-reveal className="text-lg leading-[1.6] md:columns-2 md:gap-12 md:text-xl">
             <p className="mb-5">
               <span className="float-left pt-2 pr-3 font-display text-[4.75rem] leading-[0.82] font-semibold text-accent md:text-[6.75rem]">
                 I
@@ -36,15 +36,17 @@ export default function About() {
             </p>
           </div>
 
-          <blockquote className="border-y border-ink py-5 font-display text-[1.75rem] leading-[1.18] font-light text-accent italic md:py-7 md:text-[2.75rem]">
+          <blockquote data-reveal className="border-y border-ink py-5 font-display text-[1.75rem] leading-[1.18] font-light text-accent italic md:py-7 md:text-[2.75rem]">
             &ldquo;Passionate about building automated digital ecosystems.&rdquo;
           </blockquote>
 
-          <dl className="grid grid-cols-3 gap-3 md:gap-8">
+          <dl data-reveal className="grid grid-cols-3 gap-3 md:gap-8">
             {stats.map((s) => (
               <div key={s.label} className="flex flex-col-reverse gap-1">
                 <dt className="label-mono !text-[0.625rem] text-muted md:!text-xs">{s.label}</dt>
-                <dd className="font-display text-[2.5rem] leading-none font-semibold md:text-6xl">{s.value}</dd>
+                <dd data-count={s.value} className="font-display text-[2.5rem] leading-none font-semibold md:text-6xl">
+                  {s.value}
+                </dd>
               </div>
             ))}
           </dl>

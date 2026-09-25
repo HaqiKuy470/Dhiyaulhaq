@@ -49,11 +49,11 @@ export default function CertificatesPage() {
         {/* ── Header ── */}
         <Container className="grid grid-cols-1 items-end gap-8 pt-10 pb-8 md:pt-16 md:pb-12 lg:grid-cols-[8fr_4fr] lg:gap-16">
           <div className="flex flex-col gap-5">
-            <Kicker>Credentials · The archive</Kicker>
-            <h1 className="font-display text-[3rem] leading-[0.95] font-medium tracking-[-0.035em] md:text-8xl lg:text-[8rem] lg:leading-[0.92]">
+            <Kicker data-intro>Credentials · The archive</Kicker>
+            <h1 data-intro className="font-display text-[3rem] leading-[0.95] font-medium tracking-[-0.035em] md:text-8xl lg:text-[8rem] lg:leading-[0.92]">
               {CERTIFICATES.length} <span className="font-light italic">certificates,</span> filed.
             </h1>
-            <p className="max-w-[720px] text-lg leading-[1.45] text-ink-soft md:text-[1.4375rem]">
+            <p data-intro className="max-w-[720px] text-lg leading-[1.45] text-ink-soft md:text-[1.4375rem]">
               Every course and competition, from Dicoding learning paths to two hackathons and a Google award. Each
               entry opens a preview and the original PDF.
             </p>

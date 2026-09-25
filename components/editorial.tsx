@@ -7,8 +7,16 @@ export function Container({ children, className = "" }: { children: ReactNode; c
   return <div className={`mx-auto w-full max-w-[1440px] px-5 md:px-10 xl:px-20 ${className}`}>{children}</div>;
 }
 
-export function Kicker({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <span className={`label-mono text-accent ${className}`}>{children}</span>;
+export function Kicker({
+  children,
+  className = "",
+  ...rest
+}: { children: ReactNode; className?: string } & React.HTMLAttributes<HTMLSpanElement>) {
+  return (
+    <span className={`label-mono text-accent ${className}`} {...rest}>
+      {children}
+    </span>
+  );
 }
 
 export function SectionHeading({
@@ -25,7 +33,7 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <div className={`flex flex-col gap-3 md:gap-4 ${className}`}>
+    <div data-reveal className={`flex flex-col gap-3 md:gap-4 ${className}`}>
       <Kicker>{kicker}</Kicker>
       <Tag
         id={id}

@@ -65,11 +65,14 @@ export default function Navbar({ variant = "compact" }: { variant?: "full" | "co
     return (
       <header>
         <Container className="pt-4 md:pt-7">
-          <div className="flex items-end justify-between gap-4">
+          <div data-intro className="flex items-end justify-between gap-4">
             {nameplate("text-[4.5rem] sm:text-[7rem] md:text-[10rem] xl:text-[14.75rem]")}
             {menuButton}
           </div>
-          <div className="mt-3 flex items-center justify-between gap-6 border-t-[3px] border-b border-ink py-2.5 md:mt-5 md:border-t-4 md:py-3.5">
+          <div
+            data-intro
+            className="mt-3 flex items-center justify-between gap-6 border-t-[3px] border-b border-ink py-2.5 md:mt-5 md:border-t-4 md:py-3.5"
+          >
             <p className="text-[0.95rem] italic md:text-xl">The working notebook of Moh Dhiyaulhaq Ulumuddin</p>
             <nav aria-label="Primary" className="hidden gap-6 md:flex lg:gap-9">
               {links}

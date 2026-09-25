@@ -8,10 +8,11 @@ export default function Services() {
         <SectionHeading id="practice-heading" kicker="03 · Practice">
           What I <Em>work on.</Em>
         </SectionHeading>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-0">
+        <div data-reveal-group className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-0">
           {SERVICES.map((s) => (
             <div
               key={s.title}
+              data-reveal-item
               className="flex flex-col gap-3 border-b border-rule pb-6 md:mr-10 md:gap-4 md:border-r md:border-b-0 md:pr-10 md:pb-0 md:last:mr-0 md:last:border-r-0 md:last:pr-0"
             >
               <div className="flex items-baseline gap-3 md:flex-col md:gap-4">

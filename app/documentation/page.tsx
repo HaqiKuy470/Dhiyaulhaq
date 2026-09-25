@@ -103,11 +103,11 @@ export default function DocumentationPage() {
       <main>
         {/* ── Header ── */}
         <Container className="flex flex-col gap-5 pt-10 pb-8 md:pt-16 md:pb-12">
-          <Kicker>Documentation · Photo essay</Kicker>
-          <h1 className="font-display text-[3rem] leading-[0.95] font-medium tracking-[-0.035em] md:text-8xl lg:text-[8rem]">
+          <Kicker data-intro>Documentation · Photo essay</Kicker>
+          <h1 data-intro className="font-display text-[3rem] leading-[0.95] font-medium tracking-[-0.035em] md:text-8xl lg:text-[8rem]">
             From the <Em>field.</Em>
           </h1>
-          <p className="max-w-[720px] text-lg leading-[1.45] text-ink-soft md:text-[1.4375rem]">
+          <p data-intro className="max-w-[720px] text-lg leading-[1.45] text-ink-soft md:text-[1.4375rem]">
             Photos from hackathons, events, and campus life. {EVENT_PHOTOS.filter((p) => p.src).length} frames so far.
           </p>
         </Container>
