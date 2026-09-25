@@ -1,38 +1,27 @@
-import Marquee from "react-fast-marquee";
-
-const skillsRow1 = ["Next.js", "React", "Flutter", "Node.js", "Express", "Python", "PostgreSQL", "MySQL", "TypeScript"];
-const skillsRow2 = ["n8n", "OpenCV", "Docker", "Gemini API", "Prisma", "Figma", "Git", "Linux", "Tailwind CSS", "Cursor"];
+import { Container, Em, SectionHeading } from "@/components/editorial";
+import { SKILLS } from "@/data/site";
 
 export default function Skills() {
+  const sorted = [...SKILLS].sort((a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" }));
+
   return (
-    <section className="py-12 bg-white border-b-8 border-black font-mono overflow-hidden flex flex-col gap-6">
-      
-      <div className="bg-pink-400 border-y-4 border-black flex items-center">
-        <Marquee speed={70} gradient={false} direction="left" autoFill={true}>
-          {skillsRow1.map((item, idx) => (
-            <div key={idx} className="flex items-center px-4 py-6">
-              <span className="text-xl md:text-3xl font-black text-black uppercase tracking-tighter border-4 border-black bg-white px-4 py-2 shadow-[6px_6px_0px_0px_#000] whitespace-nowrap hover:bg-black hover:text-white hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-crosshair">
-                {item}
-              </span>
-              <span className="text-black font-black text-3xl ml-8">*</span>
-            </div>
+    <section id="toolkit" aria-labelledby="toolkit-heading" className="scroll-mt-6 bg-paper-deep">
+      <Container className="flex flex-col gap-8 py-12 md:gap-12 md:py-20 lg:py-24">
+        <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <SectionHeading id="toolkit-heading" kicker="04 · Toolkit">
+            The <Em>index.</Em>
+          </SectionHeading>
+          <span className="text-lg text-ink-soft italic">{sorted.length} tools, A to Z.</span>
+        </div>
+        <ul className="grid grid-cols-1 border-t border-ink sm:grid-cols-2 sm:gap-x-10 lg:grid-cols-4">
+          {sorted.map((s) => (
+            <li key={s.name} className="flex items-baseline justify-between gap-4 border-b border-[#c9c0ae] py-3 md:py-4">
+              <span className="font-display text-[1.375rem] font-medium md:text-[1.625rem]">{s.name}</span>
+              <span className="label-mono !text-[0.6875rem] text-muted">{s.category}</span>
+            </li>
           ))}
-        </Marquee>
-      </div>
-
-      <div className="bg-cyan-400 border-y-4 border-black flex items-center">
-        <Marquee speed={60} gradient={false} direction="right" autoFill={true}>
-          {skillsRow2.map((item, idx) => (
-            <div key={idx} className="flex items-center px-4 py-6">
-              <span className="text-xl md:text-3xl font-black text-black uppercase tracking-tighter border-4 border-black bg-yellow-400 px-4 py-2 shadow-[6px_6px_0px_0px_#000] whitespace-nowrap hover:bg-black hover:text-white hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-crosshair">
-                {item}
-              </span>
-              <span className="text-black font-black text-3xl ml-8">+</span>
-            </div>
-          ))}
-        </Marquee>
-      </div>
-
+        </ul>
+      </Container>
     </section>
   );
 }

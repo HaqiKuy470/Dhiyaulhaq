@@ -1,67 +1,82 @@
 "use client";
 
 import { useState } from "react";
-import { MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Container } from "@/components/editorial";
+import { CONTACT } from "@/data/site";
 
 export default function Contact() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSend = () => {
+  const handleSend = (e: React.FormEvent) => {
+    e.preventDefault();
     if (!name.trim() || !message.trim()) return;
 
     const text = `Halo Haqi! Saya *${name}* ingin menghubungimu.\n\n${message}`;
-    const encoded = encodeURIComponent(text);
-    window.open(`https://wa.me/6285111422715?text=${encoded}`, "_blank");
+    window.open(`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(text)}`, "_blank");
   };
 
+  const field =
+    "w-full border-0 border-b border-paper/60 bg-transparent px-0 py-3 font-serif text-lg text-paper placeholder:text-[#9e968a] focus:border-accent-soft focus:ring-0 focus:outline-none";
+
   return (
-    <section id="contact" className="py-20 bg-cyan-400 border-b-8 border-black font-mono">
-      <div className="container mx-auto px-6 max-w-3xl">
-        <div className="bg-white border-4 border-black p-8 md:p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-
-          <div className="inline-block bg-pink-400 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_#000] mb-8">
-            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter">
-              Contact
-            </h2>
-          </div>
-
-          <div className="space-y-6 font-bold text-black">
-            <div className="space-y-2">
-              <label className="block text-sm uppercase">Name</label>
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full p-3 border-4 border-black focus:bg-yellow-200 outline-none transition-all shadow-[4px_4px_0px_0px_#000] focus:shadow-none focus:translate-x-1 focus:translate-y-1"
-                placeholder="Namamu"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="block text-sm uppercase">Message</label>
-              <textarea
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                className="w-full p-3 border-4 border-black h-32 focus:bg-yellow-200 outline-none transition-all shadow-[4px_4px_0px_0px_#000] focus:shadow-none focus:translate-x-1 focus:translate-y-1 resize-none"
-                placeholder="Tulis pesanmu di sini..."
-              />
-            </div>
-
-            <button
-              onClick={handleSend}
-              className="w-full bg-green-400 py-4 text-xl font-black uppercase border-4 border-black shadow-[6px_6px_0px_0px_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all cursor-pointer flex items-center justify-center gap-3"
-            >
-              <MessageCircle className="w-6 h-6" /> Send via WhatsApp
-            </button>
-
-            <p className="text-xs text-center text-gray-500 font-bold">
-              Akan membuka WhatsApp dengan pesan otomatis
-            </p>
-          </div>
-
+    <section id="letters" aria-labelledby="letters-heading" className="scroll-mt-6 bg-ink text-paper">
+      <Container className="grid grid-cols-1 gap-10 py-14 md:py-20 lg:grid-cols-[7fr_5fr] lg:items-end lg:gap-20 lg:py-24">
+        <div className="flex flex-col gap-5">
+          <span className="label-mono text-accent-soft">07 · Letters</span>
+          <h2
+            id="letters-heading"
+            className="font-display text-[3.25rem] leading-[0.98] font-medium tracking-[-0.03em] md:text-8xl lg:text-[6.5rem] lg:leading-[0.95]"
+          >
+            Let&apos;s build <span className="font-light italic">something.</span>
+          </h2>
+          <a
+            href={`mailto:${CONTACT.email}`}
+            className="self-start font-display text-[1.375rem] font-light break-all italic underline decoration-1 underline-offset-[6px] hover:text-accent-soft md:text-[2.75rem] md:underline-offset-8"
+          >
+            {CONTACT.email}
+          </a>
         </div>
-      </div>
+
+        <form onSubmit={handleSend} className="flex flex-col gap-5">
+          <p className="label-mono !text-xs text-[#bdb5a6]">Or send a note on WhatsApp</p>
+          <div>
+            <label htmlFor="letter-name" className="label-mono !text-xs">
+              Name
+            </label>
+            <input
+              id="letter-name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Your name"
+              autoComplete="name"
+              className={field}
+            />
+          </div>
+          <div>
+            <label htmlFor="letter-message" className="label-mono !text-xs">
+              Message
+            </label>
+            <textarea
+              id="letter-message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Write your message here"
+              rows={3}
+              className={`${field} resize-none`}
+            />
+          </div>
+          <button
+            type="submit"
+            disabled={!name.trim() || !message.trim()}
+            className="label-mono flex min-h-12 items-center justify-between bg-paper px-5 text-ink hover:bg-accent-soft disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            Send via WhatsApp <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </button>
+        </form>
+      </Container>
     </section>
   );
 }

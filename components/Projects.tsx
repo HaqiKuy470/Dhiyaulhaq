@@ -1,87 +1,61 @@
-import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { Container, Em, SectionHeading } from "@/components/editorial";
+import { PRODUCTS, type Product } from "@/data/site";
 
-interface Product {
-  name: string;
-  display: string;
-  tagline: string;
-  url: string;
-  bg: string;
-  chip: string;
+export function ProductFeature({ product, index }: { product: Product; index: number }) {
+  const [first, ...rest] = product.name.split(" ");
+  return (
+    <article className="flex flex-col gap-3 md:gap-5">
+      <div
+        className={`flex h-56 flex-col justify-between p-5 text-paper md:h-[380px] md:p-9 ${product.cover === "ink" ? "bg-ink" : "bg-accent"}`}
+      >
+        <span className="label-mono !text-[0.625rem] md:!text-xs">
+          Feature {String(index + 1).padStart(2, "0")} · {product.domain}
+        </span>
+        <span
+          aria-hidden="true"
+          className="font-display text-[3.5rem] leading-[0.95] font-light tracking-[-0.03em] italic md:text-8xl"
+        >
+          {first}
+          <br />
+          {rest.join(" ")}
+        </span>
+      </div>
+      <span className="label-mono !text-xs text-muted">{product.category}</span>
+      <h3 className="font-display text-[1.75rem] leading-[1.05] font-semibold md:text-[2.5rem]">{product.name}</h3>
+      <p className="text-lg leading-[1.55] md:text-xl">{product.tagline}</p>
+      <div className="border-t border-rule">
+        <a
+          href={product.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="label-mono inline-flex min-h-11 items-center gap-1.5 hover:text-accent"
+        >
+          Visit {product.domain} <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+        </a>
+      </div>
+    </article>
+  );
 }
-
-const PRODUCTS: Product[] = [
-  {
-    name: "SHAKA STUDIO",
-    display: "Shaka Studio",
-    tagline: "Roblox game development studio building experiences & assets",
-    url: "https://shakastudio.net",
-    bg: "bg-purple-500",
-    chip: "bg-yellow-400",
-  },
-  {
-    name: "COMPILE DAILY",
-    display: "Compile Daily",
-    tagline: "Daily dev insights, tutorials, and tech news",
-    url: "https://compiledaily.net",
-    bg: "bg-orange-500",
-    chip: "bg-lime-400",
-  },
-];
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 border-b-8 border-black bg-[#f4f4f0] font-mono">
-      <div className="container mx-auto px-6">
-
-        <h2 className="text-4xl md:text-5xl font-black uppercase mb-12 inline-block bg-green-400 px-4 py-2 border-4 border-black shadow-[6px_6px_0px_0px_#000]">
-          My Products
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {PRODUCTS.map((product) => (
-            <div
-              key={product.url}
-              className="w-full bg-white border-4 border-black shadow-[8px_8px_0px_0px_#000] flex flex-col overflow-hidden hover:shadow-none hover:translate-x-2 hover:translate-y-2 transition-all"
-            >
-              <div className={`h-48 border-b-4 border-black ${product.bg} flex flex-col items-center justify-center p-8 relative overflow-hidden`}>
-                <span className="text-5xl md:text-6xl font-black opacity-20 uppercase tracking-tighter absolute -right-4 -bottom-4 rotate-6">
-                  {product.name}
-                </span>
-
-                <div className={`relative z-10 ${product.chip} px-6 py-4 border-4 border-black shadow-[6px_6px_0px_0px_#000] transform -rotate-2`}>
-                  <span className="text-2xl md:text-3xl font-black text-black uppercase tracking-tighter">
-                    {product.name}
-                  </span>
-                </div>
-              </div>
-
-              <div className="p-8 flex flex-col justify-center bg-white">
-                <div className="mb-4 flex flex-wrap gap-2">
-                  <span className="text-xs font-black uppercase border-2 border-black px-2 py-1 bg-cyan-400 shadow-[2px_2px_0px_0px_#000]">
-                    Live
-                  </span>
-                </div>
-
-                <h3 className="text-2xl font-black uppercase mb-4">{product.display}</h3>
-
-                <p className="font-bold text-sm md:text-base mb-8 leading-relaxed text-black bg-pink-200 border-2 border-black p-4 shadow-[4px_4px_0px_0px_#000]">
-                  {product.tagline}
-                </p>
-
-                <Link
-                  href={product.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-3 border-4 border-black font-black uppercase bg-white text-xs md:text-sm shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all text-center"
-                >
-                  Visit Site
-                </Link>
-              </div>
-            </div>
+    <section id="products" aria-labelledby="products-heading" className="scroll-mt-6 border-t-[3px] border-ink md:border-t-4">
+      <Container className="flex flex-col gap-8 py-12 md:gap-14 md:py-20 lg:py-24">
+        <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end lg:gap-12">
+          <SectionHeading id="products-heading" kicker="02 · Products">
+            Two products, <Em>both live.</Em>
+          </SectionHeading>
+          <p className="max-w-[380px] text-lg leading-normal text-ink-soft">
+            Things I&apos;ve built and keep running, from a Roblox game studio to a daily publication for developers.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
+          {PRODUCTS.map((p, i) => (
+            <ProductFeature key={p.url} product={p} index={i} />
           ))}
         </div>
-
-      </div>
+      </Container>
     </section>
   );
 }

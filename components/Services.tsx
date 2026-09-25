@@ -1,46 +1,31 @@
-const SERVICES = [
-  { 
-    id: "01",
-    title: "Web Development", 
-    desc: "Building modern, responsive, and fast web ecosystems using Next.js and React.", 
-    color: "bg-pink-400" 
-  },
-  { 
-    id: "02",
-    title: "AI & Machine Learning", 
-    desc: "Exploration and implementation of artificial intelligence for automation and data analysis.", 
-    color: "bg-cyan-400" 
-  },
-  { 
-    id: "03",
-    title: "Mobile Development", 
-    desc: "Developing cross-platform mobile applications using Flutter for efficient business solutions.", 
-    color: "bg-yellow-400" 
-  },
-];
+import { Container, Em, SectionHeading } from "@/components/editorial";
+import { SERVICES } from "@/data/site";
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 bg-white border-b-8 border-black">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-black uppercase mb-12 inline-block bg-purple-400 px-4 py-2 border-4 border-black shadow-[6px_6px_0px_0px_#000]">
-          Service
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {SERVICES.map((srv) => (
-            <div key={srv.id} className="brutalist-card flex flex-col p-0">
-              <div className={`p-4 border-b-4 border-black ${srv.color} flex justify-between items-center`}>
-                <span className="text-2xl font-black uppercase">{srv.title}</span>
-                <span className="bg-white border-2 border-black px-2 py-1 text-xs font-black shadow-[2px_2px_0px_0px_#000]">{srv.id}</span>
+    <section id="practice" aria-labelledby="practice-heading" className="scroll-mt-6 border-t-[3px] border-ink md:border-t-4">
+      <Container className="flex flex-col gap-8 py-12 md:gap-14 md:py-20 lg:py-24">
+        <SectionHeading id="practice-heading" kicker="03 · Practice">
+          What I <Em>work on.</Em>
+        </SectionHeading>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-0">
+          {SERVICES.map((s) => (
+            <div
+              key={s.title}
+              className="flex flex-col gap-3 border-b border-rule pb-6 md:mr-10 md:gap-4 md:border-r md:border-b-0 md:pr-10 md:pb-0 md:last:mr-0 md:last:border-r-0 md:last:pr-0"
+            >
+              <div className="flex items-baseline gap-3 md:flex-col md:gap-4">
+                <span className="font-display text-[1.75rem] leading-none font-light text-accent italic md:text-[2.5rem]">
+                  {s.numeral}
+                </span>
+                <h3 className="font-display text-[1.625rem] leading-[1.05] font-semibold md:text-[2.125rem]">{s.title}</h3>
               </div>
-              <div className="p-6 bg-[#f4f4f0] flex-1">
-                <p className="font-bold text-sm leading-relaxed">{srv.desc}</p>
-              </div>
+              <p className="text-lg leading-[1.55] md:text-xl">{s.desc}</p>
+              <span className="label-mono !text-xs text-muted">{s.tools}</span>
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

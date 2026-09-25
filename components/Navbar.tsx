@@ -1,54 +1,98 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Container } from "@/components/editorial";
+import { NAV_ITEMS } from "@/data/site";
 
-export default function Navbar() {
+// The site masthead. "full" is the magazine nameplate on the home page;
+// "compact" is the single-row header used on inner pages.
+export default function Navbar({ variant = "compact" }: { variant?: "full" | "compact" }) {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
-  const menuItems = [
-    { name: "Home", href: "/" },
-    { name: "Products", href: "/projects" },
-    { name: "Certificates", href: "/certificates" },
-    { name: "Docs", href: "/documentation" },
-  ];
+  const links = (
+    <>
+      {NAV_ITEMS.map((item) => {
+        const active = item.href === pathname;
+        return (
+          <Link
+            key={item.href}
+            href={item.href}
+            onClick={() => setIsOpen(false)}
+            aria-current={active ? "page" : undefined}
+            className={`label-mono flex min-h-11 items-center hover:underline hover:underline-offset-4 ${active ? "text-accent" : ""}`}
+          >
+            {item.name}
+          </Link>
+        );
+      })}
+    </>
+  );
+
+  const menuButton = (
+    <button
+      type="button"
+      onClick={() => setIsOpen(!isOpen)}
+      aria-expanded={isOpen}
+      aria-controls="site-menu"
+      aria-label={isOpen ? "Close menu" : "Open menu"}
+      className="flex h-11 w-11 shrink-0 items-center justify-center border border-ink md:hidden"
+    >
+      {isOpen ? <X className="h-5 w-5" strokeWidth={1.75} /> : <Menu className="h-5 w-5" strokeWidth={1.75} />}
+    </button>
+  );
+
+  const mobileMenu = isOpen && (
+    <nav id="site-menu" aria-label="Primary" className="flex flex-col border-b border-ink md:hidden [&>a]:border-b [&>a]:border-rule [&>a:last-child]:border-b-0">
+      {links}
+    </nav>
+  );
+
+  const nameplate = (size: string) => (
+    <Link
+      href="/"
+      onClick={() => setIsOpen(false)}
+      className={`font-display leading-[0.86] font-extrabold tracking-[-0.045em] ${size}`}
+    >
+      Hey<span className="font-normal text-accent italic">Haqi</span>
+    </Link>
+  );
+
+  if (variant === "full") {
+    return (
+      <header>
+        <Container className="pt-4 md:pt-7">
+          <div className="flex items-end justify-between gap-4">
+            {nameplate("text-[4.5rem] sm:text-[7rem] md:text-[10rem] xl:text-[14.75rem]")}
+            {menuButton}
+          </div>
+          <div className="mt-3 flex items-center justify-between gap-6 border-t-[3px] border-b border-ink py-2.5 md:mt-5 md:border-t-4 md:py-3.5">
+            <p className="text-[0.95rem] italic md:text-xl">The working notebook of Moh Dhiyaulhaq Ulumuddin</p>
+            <nav aria-label="Primary" className="hidden gap-6 md:flex lg:gap-9">
+              {links}
+            </nav>
+          </div>
+          {mobileMenu}
+        </Container>
+      </header>
+    );
+  }
 
   return (
-    <nav className="fixed top-0 w-full z-50 px-4 py-4">
-      <div className="container mx-auto flex flex-col md:flex-row md:justify-between md:items-center bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-        <div className="flex justify-between items-center w-full md:w-auto">
-          <Link href="/" className="text-xl font-black uppercase tracking-tighter bg-yellow-400 px-2 border-2 border-black" onClick={() => setIsOpen(false)}>
-            HAQI
-          </Link>
-          <button 
-            className="md:hidden border-2 border-black p-1 hover:bg-cyan-400 transition-colors"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+    <header>
+      <Container>
+        <div className="flex items-center justify-between gap-6 border-b-[3px] border-ink py-4 md:border-b-4 md:py-5">
+          {nameplate("text-4xl md:text-5xl")}
+          <nav aria-label="Primary" className="hidden gap-6 md:flex lg:gap-9">
+            {links}
+          </nav>
+          {menuButton}
         </div>
-
-        <div className={`md:flex flex-col md:flex-row gap-6 mt-4 md:mt-0 ${isOpen ? 'flex' : 'hidden'}`}>
-          {menuItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              onClick={() => setIsOpen(false)}
-              className="font-bold uppercase text-sm hover:bg-cyan-400 px-2 py-1 md:py-0 transition-colors border-b-2 border-transparent hover:border-black block md:inline-block"
-            >
-              {item.name}
-            </Link>
-          ))}
-          <Link href="#" className="brutalist-button bg-pink-400 text-xs md:text-sm text-center md:hidden mt-2" onClick={() => setIsOpen(false)}>
-            -
-          </Link>
-        </div>
-
-        <Link href="#" className="brutalist-button bg-pink-400 text-xs md:text-sm hidden md:block">
-          -
-        </Link>
-      </div>
-    </nav>
+        {mobileMenu}
+      </Container>
+    </header>
   );
 }

@@ -1,94 +1,35 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { ArrowLeft, ExternalLink, Award, X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
-import Link from "next/link";
+import { ArrowUpRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Container, Kicker } from "@/components/editorial";
+import { CERTIFICATES, CERTIFICATE_ISSUERS } from "@/data/certificates";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-interface Cert {
-  title: string;
-  issuer: string;
-  image: string;
-  pdf: string;
-  color: string;
-}
+const ALL = "All";
+const CATEGORIES = [ALL, ...CERTIFICATE_ISSUERS];
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
-const CERTIFICATES: Cert[] = [
-  // Hackaton
-  { title: "Hackathon Refactory UNAIR", issuer: "Hackaton", image: "/Sertif/Hackaton/REFACTORY_UNAIR.webp", pdf: "/Sertif/Hackaton/REFACTORY_UNAIR.pdf", color: "bg-purple-400" },
-  // Dicoding x Bank Indonesia
-  { title: "Back-End with Google Cloud", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/BackEndGoogleCloud.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/BackEndGoogleCloud.pdf", color: "bg-blue-400" },
-  { title: "Back-End with Python", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/BackEndPython.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/BackEndPython.pdf", color: "bg-blue-400" },
-  { title: "Dasar AI", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/DasarAI.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/DasarAI.pdf", color: "bg-blue-400" },
-  { title: "Dasar Data Science", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/DasarDataScience.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/DasarDataScience.pdf", color: "bg-blue-400" },
-  { title: "Dasar Google Cloud", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/DasarGoogleCloud.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/DasarGoogleCloud.pdf", color: "bg-blue-400" },
-  { title: "Dasar Machine Learning", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/DasarMachineLearning.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/DasarMachineLearning.pdf", color: "bg-blue-400" },
-  { title: "Dasar Python", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/DasarPython.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/DasarPython.pdf", color: "bg-blue-400" },
-  { title: "Prompt Engineering", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/PromtEngine.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/PromtEngine.pdf", color: "bg-blue-400" },
-  { title: "UX Design", issuer: "Dicoding x Bank Indonesia", image: "/Sertif/Dicoding/BANK-INDONESIA/UXDesign.webp", pdf: "/Sertif/Dicoding/BANK-INDONESIA/UXDesign.pdf", color: "bg-blue-400" },
-  // Dicoding x DBS
-  { title: "Dasar Data Science", issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/DasarDataScience.webp", pdf: "/Sertif/Dicoding/DBS/DasarDataScience.pdf", color: "bg-red-400" },
-  { title: "Dasar Machine Learning", issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/DasarMachineLearning.webp", pdf: "/Sertif/Dicoding/DBS/DasarMachineLearning.pdf", color: "bg-red-400" },
-  { title: "Dasar Python", issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/DasarPython.webp", pdf: "/Sertif/Dicoding/DBS/DasarPython.pdf", color: "bg-red-400" },
-  { title: "Dasar SQL", issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/DasarSQL.webp", pdf: "/Sertif/Dicoding/DBS/DasarSQL.pdf", color: "bg-red-400" },
-  { title: "Financial Literacy", issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/FinancialLiteracy.webp", pdf: "/Sertif/Dicoding/DBS/FinancialLiteracy.pdf", color: "bg-red-400" },
-  { title: "Fundamental Data Analisis", issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/FundamentalDataAnalisis.webp", pdf: "/Sertif/Dicoding/DBS/FundamentalDataAnalisis.pdf", color: "bg-red-400" },
-  { title: "Fundamental Deep Learning", issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/FundamentalDeepLearning.webp", pdf: "/Sertif/Dicoding/DBS/FundamentalDeepLearning.pdf", color: "bg-red-400" },
-  { title: "Machine Learning", issuer: "Dicoding x DBS", image: "/Sertif/Dicoding/DBS/MachineLearning.webp", pdf: "/Sertif/Dicoding/DBS/MachineLearning.pdf", color: "bg-red-400" },
-  // Dicoding x Microsoft
-  { title: "Aplikasi GenAI Microsoft Azure", issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/AplikasiGenAIMicrorosoftAzure.webp", pdf: "/Sertif/Dicoding/MICROSOFT/AplikasiGenAIMicrorosoftAzure.pdf", color: "bg-cyan-400" },
-  { title: "Dasar Machine Learning", issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/DasarMachineLearning.webp", pdf: "/Sertif/Dicoding/MICROSOFT/DasarMachineLearning.pdf", color: "bg-cyan-400" },
-  { title: "Dasar Python", issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/DasarPython.webp", pdf: "/Sertif/Dicoding/MICROSOFT/DasarPython.pdf", color: "bg-cyan-400" },
-  { title: "Data Science Microsoft Fabric", issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/DataScienceMicrosoftFabric.webp", pdf: "/Sertif/Dicoding/MICROSOFT/DataScienceMicrosoftFabric.pdf", color: "bg-cyan-400" },
-  { title: "Fundamental Pemrosesan Data", issuer: "Dicoding x Microsoft", image: "/Sertif/Dicoding/MICROSOFT/FundamentalPemrosesanData.webp", pdf: "/Sertif/Dicoding/MICROSOFT/FundamentalPemrosesanData.pdf", color: "bg-cyan-400" },
-  // Google
-  { title: "Juara Vibe Coding", issuer: "Google", image: "/Sertif/Google/JuaraVibeCoding.webp", pdf: "/Sertif/Google/JuaraVibeCoding.pdf", color: "bg-green-400" },
-  // Idweb
-  { title: "Web Design", issuer: "Idweb", image: "/Sertif/Idweb/WebDesign.webp", pdf: "/Sertif/Idweb/WebDesign.pdf", color: "bg-pink-400" },
-  { title: "Blog Review", issuer: "Idweb", image: "/Sertif/Idweb/BlogRiview.webp", pdf: "/Sertif/Idweb/BlogRiview.pdf", color: "bg-pink-400" },
-  // Udemy
-  { title: "Web 3 Development Essential", issuer: "Udemy", image: "/Sertif/Udemy/UC-3baf949d-16ab-4eff-83b7-f75170ba8d17.webp", pdf: "/Sertif/Udemy/UC-3baf949d-16ab-4eff-83b7-f75170ba8d17.pdf", color: "bg-orange-400" },
-  { title: "Belajar Web Development Menggunakan Bahasa Pemrograman PHP", issuer: "Udemy", image: "/Sertif/Udemy/UC-44fd7143-156c-4168-906b-13ed4459b999.webp", pdf: "/Sertif/Udemy/UC-44fd7143-156c-4168-906b-13ed4459b999.pdf", color: "bg-orange-400" },
-  { title: "Complete Web & Mobile UI Designer: UI/UX, Figma, More", issuer: "Udemy", image: "/Sertif/Udemy/UC-9ff05921-4ad5-47d8-b558-bc5905aa3807.webp", pdf: "/Sertif/Udemy/UC-9ff05921-4ad5-47d8-b558-bc5905aa3807.pdf", color: "bg-orange-400" },
-  { title: "Converted Website Into Mobile APPS", issuer: "Udemy", image: "/Sertif/Udemy/UC-8fc02690-1a9f-446d-ae9b-d15cd05d4c3b.webp", pdf: "/Sertif/Udemy/UC-8fc02690-1a9f-446d-ae9b-d15cd05d4c3b.pdf", color: "bg-orange-400" },
-];
-
-// ─── Category accent colors ────────────────────────────────────────────────────
-const CATEGORY_COLORS: Record<string, string> = {
-  "Semua": "bg-yellow-400",
-  "Hackaton": "bg-purple-400",
-  "Dicoding x Bank Indonesia": "bg-blue-400",
-  "Dicoding x DBS": "bg-red-400",
-  "Dicoding x Microsoft": "bg-cyan-400",
-  "Google": "bg-green-400",
-  "Idweb": "bg-pink-400",
-  "Udemy": "bg-orange-400",
-};
-
-const ALL_CATEGORIES = ["Semua", ...Array.from(new Set(CERTIFICATES.map((c) => c.issuer)))];
-
-// ─── Page ─────────────────────────────────────────────────────────────────────
 export default function CertificatesPage() {
-  const [activeTab, setActiveTab] = useState("Semua");
+  const [activeTab, setActiveTab] = useState(ALL);
   const [searchQuery, setSearchQuery] = useState("");
   const [lightbox, setLightbox] = useState<number | null>(null);
 
+  const query = searchQuery.toLowerCase();
   const filtered = CERTIFICATES.filter((c) => {
-    const matchesCategory = activeTab === "Semua" || c.issuer === activeTab;
-    const matchesSearch = 
-      c.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-      c.issuer.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = activeTab === ALL || c.issuer === activeTab;
+    const matchesSearch = c.title.toLowerCase().includes(query) || c.issuer.toLowerCase().includes(query);
     return matchesCategory && matchesSearch;
   });
 
   const activeCert = lightbox !== null ? filtered[lightbox] : null;
 
   const prev = useCallback(() => setLightbox((i) => (i !== null && i > 0 ? i - 1 : i)), []);
-  const next = useCallback(() => setLightbox((i) => (i !== null && i < filtered.length - 1 ? i + 1 : i)), [filtered.length]);
+  const next = useCallback(
+    () => setLightbox((i) => (i !== null && i < filtered.length - 1 ? i + 1 : i)),
+    [filtered.length],
+  );
 
   useEffect(() => {
     if (lightbox === null) return;
@@ -102,197 +43,186 @@ export default function CertificatesPage() {
   }, [lightbox, prev, next]);
 
   return (
-    <main className="min-h-screen bg-[#f4f4f0] font-mono text-black">
+    <>
       <Navbar />
-
-      <div className="container mx-auto max-w-6xl py-12 px-6 pt-32">
-
+      <main>
         {/* ── Header ── */}
-        <div className="mb-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 px-4 py-2 border-4 border-black bg-white shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all font-black uppercase text-sm w-fit"
-          >
-            <ArrowLeft className="w-5 h-5" /> Back to Home
-          </Link>
-          <div className="bg-green-400 border-4 border-black px-6 py-3 shadow-[8px_8px_0px_0px_#000]">
-            <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tighter flex items-center gap-3">
-              <Award className="w-10 h-10" /> My Certificates
+        <Container className="grid grid-cols-1 items-end gap-8 pt-10 pb-8 md:pt-16 md:pb-12 lg:grid-cols-[8fr_4fr] lg:gap-16">
+          <div className="flex flex-col gap-5">
+            <Kicker>Credentials · The archive</Kicker>
+            <h1 className="font-display text-[3rem] leading-[0.95] font-medium tracking-[-0.035em] md:text-8xl lg:text-[8rem] lg:leading-[0.92]">
+              {CERTIFICATES.length} <span className="font-light italic">certificates,</span> filed.
             </h1>
+            <p className="max-w-[720px] text-lg leading-[1.45] text-ink-soft md:text-[1.4375rem]">
+              Every course and competition, from Dicoding learning paths to two hackathons and a Google award. Each
+              entry opens a preview and the original PDF.
+            </p>
           </div>
-        </div>
+          <div className="flex flex-col gap-2 lg:pb-3">
+            <label htmlFor="cert-search" className="label-mono !text-xs text-muted">
+              Search the archive
+            </label>
+            <input
+              id="cert-search"
+              type="search"
+              placeholder="Python, Azure, UX…"
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setLightbox(null);
+              }}
+              className="h-13 border border-ink bg-[#fbf8f2] px-4 font-serif text-xl text-ink placeholder:text-muted focus:border-accent focus:outline-none"
+            />
+          </div>
+        </Container>
 
-        {/* ── Stats Bar ── */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-          {[
-            { label: "Total Sertifikat", value: CERTIFICATES.length, color: "bg-yellow-400" },
-            { label: "Kategori", value: ALL_CATEGORIES.length - 1, color: "bg-pink-400" },
-            { label: "Ditampilkan", value: filtered.length, color: "bg-lime-400" },
-            { label: "Filter Aktif", value: activeTab === "Semua" ? "All" : activeTab.split(" ")[0], color: "bg-cyan-400" },
-          ].map((s) => (
-            <div key={s.label} className={`${s.color} border-4 border-black p-4 shadow-[4px_4px_0px_0px_#000]`}>
-              <div className="text-2xl md:text-3xl font-black truncate">{s.value}</div>
-              <div className="text-[10px] font-bold uppercase mt-0.5">{s.label}</div>
-            </div>
-          ))}
-        </div>
+        {/* ── Filters ── */}
+        <Container>
+          <div
+            role="group"
+            aria-label="Filter by issuer"
+            className="flex flex-wrap gap-2 border-y border-ink py-4"
+          >
+            {CATEGORIES.map((cat) => {
+              const active = activeTab === cat;
+              const count = cat === ALL ? CERTIFICATES.length : CERTIFICATES.filter((c) => c.issuer === cat).length;
+              return (
+                <button
+                  key={cat}
+                  type="button"
+                  aria-pressed={active}
+                  onClick={() => {
+                    setActiveTab(cat);
+                    setLightbox(null);
+                  }}
+                  className={`label-mono min-h-11 border border-ink px-4 !text-xs ${active ? "bg-ink text-paper" : "hover:bg-paper-deep"}`}
+                >
+                  {cat} <span className="opacity-70">{count}</span>
+                </button>
+              );
+            })}
+          </div>
+        </Container>
 
-        {/* ── Search Bar ── */}
-        <div className="mb-6">
-          <input
-            type="text"
-            placeholder="🔍 Search certificates by title or issuer..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-white border-4 border-black px-4 py-3 font-bold text-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none focus:translate-x-0.5 focus:translate-y-0.5 focus:shadow-none transition-all placeholder-gray-500"
-          />
-        </div>
-
-        {/* ── Tab Filter ── */}
-        <div className="flex flex-wrap gap-2 mb-10">
-          {ALL_CATEGORIES.map((cat) => {
-            const bg = CATEGORY_COLORS[cat] ?? "bg-gray-300";
-            const active = activeTab === cat;
-            const count = cat === "Semua" ? CERTIFICATES.length : CERTIFICATES.filter((c) => c.issuer === cat).length;
-            return (
-              <button
-                key={cat}
-                onClick={() => setActiveTab(cat)}
-                className={`
-                  flex items-center gap-2 px-4 py-2 border-4 border-black font-black uppercase text-xs transition-all
-                  ${active
-                    ? `${bg} shadow-none translate-x-0.5 translate-y-0.5`
-                    : "bg-white shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5"
-                  }
-                `}
-              >
-                {cat}
-                <span className={`${active ? "bg-black text-white" : "bg-gray-200"} text-[10px] font-black px-1.5 py-0.5 border border-black`}>
-                  {count}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* ── Grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((cert, idx) => (
-            <div
-              key={`${cert.issuer}-${cert.title}-${idx}`}
-              className="group flex flex-col bg-white border-4 border-black shadow-[8px_8px_0px_0px_#000] hover:shadow-none hover:translate-x-2 hover:translate-y-2 transition-all overflow-hidden"
-            >
-              {/* Thumbnail */}
-              <div
-                className={`relative h-48 w-full border-b-4 border-black overflow-hidden ${cert.color} cursor-zoom-in`}
-                onClick={() => setLightbox(idx)}
-              >
-                <Image src={cert.image} alt={cert.title} fill className="object-contain p-3 group-hover:scale-105 transition-transform duration-300" />
-                {/* Zoom hint */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-all bg-white border-4 border-black p-2 shadow-[4px_4px_0px_0px_#000]">
-                    <ZoomIn className="w-5 h-5" />
-                  </div>
-                </div>
-                {/* Category chip */}
-                <div className={`absolute top-2 left-2 ${cert.color} border-2 border-black px-2 py-0.5`}>
-                  <span className="text-[9px] font-black uppercase leading-none">{cert.issuer.split(" ")[0]}</span>
-                </div>
-              </div>
-
-              {/* Body */}
-              <div className="p-5 flex flex-col flex-1 justify-between">
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <Award className="w-4 h-4 shrink-0 text-yellow-500" />
-                    <span className="text-[10px] font-black uppercase bg-gray-100 border-2 border-black px-2 py-0.5 truncate">
-                      {cert.issuer}
-                    </span>
-                  </div>
-                  <h3 className="text-sm font-black uppercase leading-snug line-clamp-3">{cert.title}</h3>
-                </div>
-
-                <div className="flex gap-2 mt-4">
-                  {/* Preview button */}
-                  <button
-                    onClick={() => setLightbox(idx)}
-                    className="flex-1 px-3 py-2 border-4 border-black bg-white font-black uppercase text-[10px] shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all flex items-center justify-center gap-1"
-                  >
-                    <ZoomIn className="w-3.5 h-3.5" /> Preview
-                  </button>
-                  {/* PDF button */}
-                  <Link
-                    href={cert.pdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 px-3 py-2 bg-black text-white border-4 border-black font-black uppercase text-[10px] shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all flex items-center justify-center gap-1"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" /> PDF
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+        {/* ── List ── */}
+        <Container className="pb-16 md:pb-24">
+          <div className="label-mono hidden grid-cols-[72px_minmax(0,1fr)_280px_200px] gap-6 border-b border-ink py-4 !text-[0.6875rem] text-muted md:grid">
+            <span>No.</span>
+            <span>Title</span>
+            <span>Issuer</span>
+            <span className="text-right">File</span>
+          </div>
+          {filtered.length === 0 ? (
+            <p className="py-12 font-display text-2xl font-light text-muted italic md:text-[2rem]">
+              Nothing in the archive matches that search.
+            </p>
+          ) : (
+            <ol>
+              {filtered.map((cert, idx) => (
+                <li
+                  key={cert.pdf}
+                  className="grid grid-cols-[40px_minmax(0,1fr)] gap-x-3 gap-y-1 border-b border-rule py-4 md:grid-cols-[72px_minmax(0,1fr)_280px_200px] md:items-baseline md:gap-6 md:py-[1.125rem]"
+                >
+                  <span className="font-mono text-[0.8125rem] text-muted md:row-auto">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-display text-xl leading-[1.2] font-medium md:text-[1.625rem]">{cert.title}</span>
+                  <span className="col-start-2 text-base text-ink-soft italic md:col-start-auto md:text-[1.1875rem]">
+                    {cert.issuer}
+                  </span>
+                  <span className="col-start-2 flex gap-5 md:col-start-auto md:justify-end">
+                    <button
+                      type="button"
+                      onClick={() => setLightbox(idx)}
+                      className="label-mono min-h-11 !text-xs hover:text-accent hover:underline hover:underline-offset-4"
+                    >
+                      Preview
+                    </button>
+                    <a
+                      href={cert.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="label-mono inline-flex min-h-11 items-center gap-1.5 !text-xs text-accent hover:underline hover:underline-offset-4"
+                    >
+                      PDF <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                    </a>
+                  </span>
+                </li>
+              ))}
+            </ol>
+          )}
+        </Container>
+      </main>
 
       {/* ── Lightbox ── */}
       {lightbox !== null && activeCert && (
         <div
-          className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/90 p-4"
           onClick={() => setLightbox(null)}
         >
           <div
-            className="relative bg-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(255,255,255,0.1)] w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="lightbox-title"
+            className="flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden bg-paper"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Header */}
-            <div className={`${activeCert.color} border-b-4 border-black px-5 py-3 flex items-center justify-between gap-4`}>
+            <div className="flex items-start justify-between gap-4 border-b border-ink px-5 py-4">
               <div className="min-w-0">
-                <p className="font-black uppercase text-base leading-tight truncate">{activeCert.title}</p>
-                <p className="text-xs font-bold opacity-70">{activeCert.issuer}</p>
+                <p id="lightbox-title" className="font-display text-xl leading-tight font-semibold md:text-2xl">
+                  {activeCert.title}
+                </p>
+                <p className="text-base text-ink-soft italic">{activeCert.issuer}</p>
               </div>
               <button
+                type="button"
                 onClick={() => setLightbox(null)}
-                className="shrink-0 bg-black text-white border-2 border-black p-1.5 hover:bg-white hover:text-black transition-colors"
+                aria-label="Close preview"
+                className="flex h-11 w-11 shrink-0 items-center justify-center border border-ink hover:bg-ink hover:text-paper"
               >
-                <X className="w-5 h-5" />
+                <X className="h-5 w-5" strokeWidth={1.75} />
               </button>
             </div>
 
-            {/* Image */}
-            <div className="relative flex-1 min-h-[300px] md:min-h-[460px] bg-gray-50">
-              <Image src={activeCert.image} alt={activeCert.title} fill className="object-contain p-4" />
+            <div className="relative min-h-[300px] flex-1 bg-figure md:min-h-[480px]">
+              <Image
+                src={activeCert.image}
+                alt={`${activeCert.title} certificate`}
+                fill
+                sizes="(min-width: 896px) 896px, 100vw"
+                className="object-contain p-4"
+              />
             </div>
 
-            {/* Footer nav */}
-            <div className="border-t-4 border-black px-5 py-3 flex items-center justify-between bg-white gap-3">
+            <div className="flex items-center justify-between gap-3 border-t border-ink px-5 py-3">
               <button
+                type="button"
                 onClick={prev}
                 disabled={lightbox === 0}
-                className="flex items-center gap-1 px-4 py-2 border-4 border-black font-black uppercase text-xs bg-white shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all disabled:opacity-30 disabled:pointer-events-none"
+                className="label-mono inline-flex min-h-11 items-center gap-1 !text-xs disabled:opacity-30"
               >
-                <ChevronLeft className="w-4 h-4" /> Prev
+                <ChevronLeft className="h-4 w-4" aria-hidden="true" /> Prev
               </button>
-
-              <div className="flex items-center gap-3">
-                <span className="font-black text-xs">{lightbox + 1} / {filtered.length}</span>
-                <Link
+              <div className="flex items-center gap-5">
+                <span className="font-mono text-xs">
+                  {lightbox + 1} / {filtered.length}
+                </span>
+                <a
                   href={activeCert.pdf}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 px-4 py-2 bg-black text-white border-4 border-black font-black uppercase text-xs hover:bg-white hover:text-black transition-colors"
+                  className="label-mono inline-flex min-h-11 items-center gap-1.5 bg-ink px-4 !text-xs text-paper hover:bg-accent"
                 >
-                  <ExternalLink className="w-3.5 h-3.5" /> Open PDF
-                </Link>
+                  Open PDF <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
               </div>
-
               <button
+                type="button"
                 onClick={next}
                 disabled={lightbox === filtered.length - 1}
-                className="flex items-center gap-1 px-4 py-2 border-4 border-black font-black uppercase text-xs bg-white shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all disabled:opacity-30 disabled:pointer-events-none"
+                className="label-mono inline-flex min-h-11 items-center gap-1 !text-xs disabled:opacity-30"
               >
-                Next <ChevronRight className="w-4 h-4" />
+                Next <ChevronRight className="h-4 w-4" aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -300,6 +230,6 @@ export default function CertificatesPage() {
       )}
 
       <Footer />
-    </main>
+    </>
   );
 }
