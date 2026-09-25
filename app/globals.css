@@ -1,26 +1,37 @@
 @import "tailwindcss";
 
-@theme {
-  --font-mono: "Space Mono", monospace;
+@theme inline {
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-serif: var(--font-newsreader), Georgia, serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  --color-paper: #f2ede3;
+  --color-paper-deep: #e8e1d3;
+  --color-figure: #e3dccd;
+  --color-ink: #1b1915;
+  --color-ink-soft: #4f4a41;
+  --color-muted: #5c574d;
+  --color-rule: #cfc7b8;
+  --color-rule-dark: #4a463e;
+  --color-accent: #b23a1f;
+  --color-accent-soft: #e9a38f;
 }
 
-:root {
-  --background: #f4f4f0;
-  --foreground: #000000;
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-paper);
 }
 
-body {
-  background-color: var(--background);
-  color: var(--foreground);
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Small uppercase mono label used for kickers, meta rows and buttons. */
+@utility label-mono {
   font-family: var(--font-mono);
-  cursor: default !important; /* Hapus custom cursor library */
-}
-
-/* Utilitas khusus Neo-Brutalism */
-.brutalist-card {
-  @apply bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all;
-}
-
-.brutalist-button {
-  @apply border-4 border-black px-6 py-2 font-black uppercase shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }

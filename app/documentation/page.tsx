@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
-import { ArrowLeft, Camera, X, ZoomIn, ChevronLeft, ChevronRight, Filter, Upload, Image as ImageIcon } from "lucide-react";
-import Link from "next/link";
+import { useState, useEffect, useCallback } from "react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Container, Em, Kicker } from "@/components/editorial";
 
 // ─── Type Definitions ─────────────────────────────────────────────────────────
 interface EventPhoto {
@@ -14,13 +14,11 @@ interface EventPhoto {
   event: string;
   date: string;
   location: string;
-  src: string;
-  color: string; // fallback bg color
+  src: string; // empty = photo not added yet
 }
 
-// ─── Data (tambahkan foto event Anda di sini) ─────────────────────────────────
+// ─── Data (tambahkan foto event Anda di sini, file di /public/Dokumentasi/) ───
 const EVENT_PHOTOS: EventPhoto[] = [
-  // Contoh placeholder — ganti src dengan path foto real Anda di /public/Dokumentasi/
   {
     id: 1,
     title: "Tim Arshaka",
@@ -28,7 +26,6 @@ const EVENT_PHOTOS: EventPhoto[] = [
     date: "2026",
     location: "Universitas Airlangga, Surabaya",
     src: "/Dokumentasi/DSC_0330.webp",
-    color: "bg-purple-400",
   },
   {
     id: 2,
@@ -37,7 +34,6 @@ const EVENT_PHOTOS: EventPhoto[] = [
     date: "2026",
     location: "Universitas Airlangga, Surabaya",
     src: "/Dokumentasi/DSC_0390.webp",
-    color: "bg-purple-400",
   },
   {
     id: 3,
@@ -46,328 +42,204 @@ const EVENT_PHOTOS: EventPhoto[] = [
     date: "2026",
     location: "Universitas Airlangga, Surabaya",
     src: "/Dokumentasi/DSC_0826.webp",
-    color: "bg-purple-400",
   },
   {
     id: 4,
-    title: "Dokumentacion",
+    title: "Dokumentasi",
     event: "Hackathon Refactory UNAIR",
     date: "2026",
     location: "Universitas Airlangga, Surabaya",
     src: "/Dokumentasi/DSC_1076.webp",
-    color: "bg-purple-400",
   },
   {
     id: 5,
-    title: "Comming Soon",
+    title: "Coming soon",
     event: "College",
     date: "Now",
     location: "Universitas Negeri Malang",
     src: "",
-    color: "bg-blue-400",
   },
 ];
 
-const EVENT_COLORS: Record<string, string> = {
-  "Semua Event": "bg-yellow-400",
-  "Hackathon Refactory UNAIR": "bg-purple-400",
-  "College": "bg-blue-400",
-};
+const ALL = "All events";
+const EVENTS = [ALL, ...Array.from(new Set(EVENT_PHOTOS.map((p) => p.event)))];
 
-// ─── Placeholder Card ─────────────────────────────────────────────────────────
-function PlaceholderImage({ color, title }: { color: string; title: string }) {
+function PhotoPlaceholder({ title }: { title: string }) {
   return (
-    <div className={`${color} w-full h-full flex flex-col items-center justify-center gap-3 border-b-4 border-black`}>
-      <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_#000]">
-        <ImageIcon className="w-10 h-10" />
-      </div>
-      <span className="font-black uppercase text-xs bg-white border-2 border-black px-2 py-1 text-center max-w-[80%]">
-        {title}
-      </span>
+    <div className="label-mono flex h-full w-full items-center justify-center bg-figure !text-xs text-muted">
+      [{title}]
     </div>
   );
 }
 
 // ─── Main Page ─────────────────────────────────────────────────────────────────
 export default function DocumentationPage() {
-  const [activeFilter, setActiveFilter] = useState("Semua Event");
+  const [activeFilter, setActiveFilter] = useState(ALL);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-  const allEvents = ["Semua Event", ...Array.from(new Set(EVENT_PHOTOS.map((p) => p.event)))];
-
-  const filtered =
-    activeFilter === "Semua Event"
-      ? EVENT_PHOTOS
-      : EVENT_PHOTOS.filter((p) => p.event === activeFilter);
-
-  const openLightbox = (idx: number) => setLightboxIndex(idx);
-  const closeLightbox = () => setLightboxIndex(null);
-  const prevPhoto = () => setLightboxIndex((i) => (i !== null ? Math.max(0, i - 1) : null));
-  const nextPhoto = () => setLightboxIndex((i) => (i !== null ? Math.min(filtered.length - 1, i + 1) : null));
-
+  const filtered = activeFilter === ALL ? EVENT_PHOTOS : EVENT_PHOTOS.filter((p) => p.event === activeFilter);
   const activePhoto = lightboxIndex !== null ? filtered[lightboxIndex] : null;
 
+  const prevPhoto = useCallback(() => setLightboxIndex((i) => (i !== null ? Math.max(0, i - 1) : null)), []);
+  const nextPhoto = useCallback(
+    () => setLightboxIndex((i) => (i !== null ? Math.min(filtered.length - 1, i + 1) : null)),
+    [filtered.length],
+  );
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") prevPhoto();
+      else if (e.key === "ArrowRight") nextPhoto();
+      else if (e.key === "Escape") setLightboxIndex(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightboxIndex, prevPhoto, nextPhoto]);
+
   return (
-    <main className="min-h-screen bg-[#f4f4f0] font-mono text-black">
+    <>
       <Navbar />
+      <main>
+        {/* ── Header ── */}
+        <Container className="flex flex-col gap-5 pt-10 pb-8 md:pt-16 md:pb-12">
+          <Kicker>Documentation · Photo essay</Kicker>
+          <h1 className="font-display text-[3rem] leading-[0.95] font-medium tracking-[-0.035em] md:text-8xl lg:text-[8rem]">
+            From the <Em>field.</Em>
+          </h1>
+          <p className="max-w-[720px] text-lg leading-[1.45] text-ink-soft md:text-[1.4375rem]">
+            Photos from hackathons, events, and campus life. {EVENT_PHOTOS.filter((p) => p.src).length} frames so far.
+          </p>
+        </Container>
 
-      {/* ── Header ── */}
-      <div className="container mx-auto max-w-6xl py-12 px-6 pt-32">
-        <div className="mb-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 px-4 py-2 border-4 border-black bg-white shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all font-black uppercase text-sm w-fit"
-          >
-            <ArrowLeft className="w-5 h-5" /> Back to Home
-          </Link>
-
-          <div className="bg-lime-400 border-4 border-black px-6 py-3 shadow-[8px_8px_0px_0px_#000]">
-            <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tighter flex items-center gap-3">
-              <Camera className="w-10 h-10" />
-              Documentation
-            </h1>
-          </div>
-        </div>
-
-        {/* ── Stats Bar ── */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-          {[
-            { label: "Total Foto", value: EVENT_PHOTOS.length, color: "bg-yellow-400" },
-            { label: "Event", value: allEvents.length - 1, color: "bg-pink-400" },
-            { label: "Tahun", value: "2024", color: "bg-cyan-400" },
-            { label: "Kategori", value: "Aktif", color: "bg-lime-400" },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              className={`${stat.color} border-4 border-black p-4 shadow-[4px_4px_0px_0px_#000] flex flex-col`}
-            >
-              <span className="text-3xl font-black">{stat.value}</span>
-              <span className="text-xs font-bold uppercase">{stat.label}</span>
-            </div>
-          ))}
-        </div>
-
-        {/* ── Filter Bar ── */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-4">
-            <Filter className="w-5 h-5" />
-            <span className="font-black uppercase text-sm">Filter by Event:</span>
-          </div>
-
-          {/* Mobile toggle */}
-          <button
-            className="md:hidden w-full border-4 border-black bg-white px-4 py-2 font-black uppercase text-sm shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all flex items-center justify-between mb-3"
-            onClick={() => setIsFilterOpen(!isFilterOpen)}
-          >
-            {activeFilter}
-            <span>{isFilterOpen ? "▲" : "▼"}</span>
-          </button>
-
-          <div className={`flex flex-wrap gap-3 ${isFilterOpen ? "flex" : "hidden md:flex"}`}>
-            {allEvents.map((ev) => {
-              const bgColor = EVENT_COLORS[ev] || "bg-gray-300";
-              const isActive = activeFilter === ev;
+        {/* ── Filters ── */}
+        <Container>
+          <div role="group" aria-label="Filter by event" className="flex flex-wrap gap-2 border-y border-ink py-4">
+            {EVENTS.map((ev) => {
+              const active = activeFilter === ev;
               return (
                 <button
                   key={ev}
+                  type="button"
+                  aria-pressed={active}
                   onClick={() => {
                     setActiveFilter(ev);
-                    setIsFilterOpen(false);
+                    setLightboxIndex(null);
                   }}
-                  className={`
-                    px-4 py-2 border-4 border-black font-black uppercase text-xs transition-all
-                    ${isActive
-                      ? `${bgColor} shadow-none translate-x-0.5 translate-y-0.5`
-                      : "bg-white shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5"
-                    }
-                  `}
+                  className={`label-mono min-h-11 border border-ink px-4 !text-xs ${active ? "bg-ink text-paper" : "hover:bg-paper-deep"}`}
                 >
                   {ev}
                 </button>
               );
             })}
           </div>
-        </div>
-
-        {/* ── Upload hint ── */}
-        {/* <div className="mb-8 bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_#000] flex items-start gap-3">
-          <Upload className="w-5 h-5 shrink-0 mt-0.5" />
-          <p className="text-xs font-bold">
-            <span className="font-black">Cara tambah foto:</span> Letakkan foto di{" "}
-            <code className="bg-yellow-200 border border-black px-1">/public/Dokumentasi/[NamaEvent]/foto.webp</code>{" "}
-            lalu update array <code className="bg-yellow-200 border border-black px-1">EVENT_PHOTOS</code> di file ini.
-          </p>
-        </div>
+        </Container>
 
         {/* ── Photo Grid ── */}
-        {filtered.length === 0 ? (
-          <div className="border-4 border-black bg-white p-16 flex flex-col items-center justify-center shadow-[8px_8px_0px_0px_#000]">
-            <Camera className="w-16 h-16 mb-4 opacity-30" />
-            <p className="font-black uppercase text-lg text-center opacity-50">Belum ada foto untuk event ini</p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Container className="pt-8 pb-16 md:pt-12 md:pb-24">
+          <ul className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((photo, idx) => (
-              <div
-                key={photo.id}
-                className="group relative bg-white border-4 border-black shadow-[8px_8px_0px_0px_#000] hover:shadow-none hover:translate-x-2 hover:translate-y-2 transition-all overflow-hidden cursor-pointer"
-                onClick={() => openLightbox(idx)}
-              >
-                {/* Photo */}
-                <div className="relative h-56 w-full overflow-hidden">
-                  {photo.src ? (
-                    <Image
-                      src={photo.src}
-                      alt={photo.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  ) : (
-                    <PlaceholderImage color={photo.color} title={photo.title} />
-                  )}
-
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center">
-                    <div className="opacity-0 group-hover:opacity-100 transition-all bg-white border-4 border-black p-3 shadow-[4px_4px_0px_0px_#000]">
-                      <ZoomIn className="w-6 h-6" />
-                    </div>
-                  </div>
-
-                  {/* Event badge */}
-                  <div className={`absolute top-3 left-3 ${photo.color} border-2 border-black px-2 py-1`}>
-                    <span className="text-[10px] font-black uppercase leading-none">{photo.event.split(" ")[0]}</span>
-                  </div>
-                </div>
-
-                {/* Info */}
-                <div className="p-4 border-t-4 border-black">
-                  <h3 className="font-black uppercase text-sm leading-tight mb-1">{photo.title}</h3>
-                  <p className="text-xs font-bold opacity-60 mb-1">{photo.event}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-bold bg-gray-100 border-2 border-black px-2 py-0.5">{photo.date}</span>
-                    <span className="text-[10px] font-bold opacity-50">{photo.location}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* ── Event Sections Summary ── */}
-        <div className="mt-16">
-          <div className="inline-block bg-black text-white px-6 py-2 border-4 border-black shadow-[4px_4px_0px_0px_#000] mb-8">
-            <h2 className="text-xl font-black uppercase tracking-tighter">Semua Event</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {allEvents.filter((e) => e !== "Semua Event").map((eventName) => {
-              const photos = EVENT_PHOTOS.filter((p) => p.event === eventName);
-              const bgColor = EVENT_COLORS[eventName] || "bg-gray-300";
-              return (
-                <div
-                  key={eventName}
-                  className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_#000] overflow-hidden"
-                >
-                  <div className={`${bgColor} border-b-4 border-black px-5 py-3 flex items-center justify-between`}>
-                    <h3 className="font-black uppercase text-sm">{eventName}</h3>
-                    <span className="bg-white border-2 border-black px-2 py-0.5 text-xs font-black">
-                      {photos.length} foto
-                    </span>
-                  </div>
-                  <div className="p-4 flex gap-2 overflow-x-auto">
-                    {photos.slice(0, 4).map((p) => (
-                      <div
-                        key={p.id}
-                        className={`shrink-0 w-16 h-16 border-2 border-black overflow-hidden ${p.color} cursor-pointer hover:scale-105 transition-transform`}
-                        onClick={() => {
-                          setActiveFilter(eventName);
-                          openLightbox(EVENT_PHOTOS.filter((ph) => ph.event === eventName).indexOf(p));
-                        }}
-                      >
-                        {p.src ? (
-                          <Image src={p.src} alt={p.title} width={64} height={64} className="object-cover w-full h-full" />
-                        ) : (
-                          <div className={`w-full h-full flex items-center justify-center ${p.color}`}>
-                            <ImageIcon className="w-5 h-5" />
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                    {photos.length > 4 && (
-                      <div
-                        className="shrink-0 w-16 h-16 border-2 border-black bg-black text-white flex items-center justify-center font-black text-xs cursor-pointer"
-                        onClick={() => setActiveFilter(eventName)}
-                      >
-                        +{photos.length - 4}
-                      </div>
+              <li key={photo.id}>
+                <figure className="flex flex-col gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setLightboxIndex(idx)}
+                    aria-label={`Open photo: ${photo.title}`}
+                    className="group relative aspect-[3/2] w-full overflow-hidden border border-rule bg-figure"
+                  >
+                    {photo.src ? (
+                      <Image
+                        src={photo.src}
+                        alt={`${photo.title}, ${photo.event}`}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-300 group-hover:scale-[1.03] motion-reduce:transition-none"
+                      />
+                    ) : (
+                      <PhotoPlaceholder title={photo.title} />
                     )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
+                  </button>
+                  <figcaption className="flex flex-col gap-1 border-t border-ink pt-3">
+                    <span className="label-mono !text-[0.6875rem] text-muted">
+                      Fig. {idx + 1} · {photo.date}
+                    </span>
+                    <span className="font-display text-xl font-semibold md:text-2xl">{photo.title}</span>
+                    <span className="text-base text-ink-soft italic">
+                      {photo.event}, {photo.location}
+                    </span>
+                  </figcaption>
+                </figure>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </main>
 
       {/* ── Lightbox ── */}
       {lightboxIndex !== null && activePhoto && (
         <div
-          className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4"
-          onClick={closeLightbox}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/90 p-4"
+          onClick={() => setLightboxIndex(null)}
         >
           <div
-            className="relative bg-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(255,255,255,0.15)] max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="photo-title"
+            className="flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden bg-paper"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Lightbox Header */}
-            <div className={`${activePhoto.color} border-b-4 border-black px-5 py-3 flex items-center justify-between`}>
-              <div>
-                <h3 className="font-black uppercase text-base leading-tight">{activePhoto.title}</h3>
-                <p className="text-xs font-bold opacity-70">{activePhoto.event} · {activePhoto.location} · {activePhoto.date}</p>
+            <div className="flex items-start justify-between gap-4 border-b border-ink px-5 py-4">
+              <div className="min-w-0">
+                <p id="photo-title" className="font-display text-xl leading-tight font-semibold md:text-2xl">
+                  {activePhoto.title}
+                </p>
+                <p className="text-base text-ink-soft italic">
+                  {activePhoto.event} · {activePhoto.location} · {activePhoto.date}
+                </p>
               </div>
               <button
-                onClick={closeLightbox}
-                className="bg-black text-white border-2 border-black p-1.5 hover:bg-white hover:text-black transition-colors"
+                type="button"
+                onClick={() => setLightboxIndex(null)}
+                aria-label="Close photo"
+                className="flex h-11 w-11 shrink-0 items-center justify-center border border-ink hover:bg-ink hover:text-paper"
               >
-                <X className="w-5 h-5" />
+                <X className="h-5 w-5" strokeWidth={1.75} />
               </button>
             </div>
 
-            {/* Image */}
-            <div className="relative flex-1 min-h-[300px] md:min-h-[500px] bg-gray-100">
+            <div className="relative min-h-[300px] flex-1 bg-figure md:min-h-[520px]">
               {activePhoto.src ? (
                 <Image
                   src={activePhoto.src}
-                  alt={activePhoto.title}
+                  alt={`${activePhoto.title}, ${activePhoto.event}`}
                   fill
+                  sizes="(min-width: 1024px) 1024px, 100vw"
                   className="object-contain"
                 />
               ) : (
-                <PlaceholderImage color={activePhoto.color} title={activePhoto.title} />
+                <PhotoPlaceholder title={activePhoto.title} />
               )}
             </div>
 
-            {/* Nav */}
-            <div className="border-t-4 border-black px-5 py-3 flex items-center justify-between bg-white">
+            <div className="flex items-center justify-between gap-3 border-t border-ink px-5 py-3">
               <button
+                type="button"
                 onClick={prevPhoto}
                 disabled={lightboxIndex === 0}
-                className="flex items-center gap-2 px-4 py-2 border-4 border-black font-black uppercase text-xs bg-white shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:shadow-[4px_4px_0px_0px_#000] disabled:hover:translate-x-0 disabled:hover:translate-y-0"
+                className="label-mono inline-flex min-h-11 items-center gap-1 !text-xs disabled:opacity-30"
               >
-                <ChevronLeft className="w-4 h-4" /> Prev
+                <ChevronLeft className="h-4 w-4" aria-hidden="true" /> Prev
               </button>
-
-              <span className="font-black text-sm">
+              <span className="font-mono text-xs">
                 {lightboxIndex + 1} / {filtered.length}
               </span>
-
               <button
+                type="button"
                 onClick={nextPhoto}
                 disabled={lightboxIndex === filtered.length - 1}
-                className="flex items-center gap-2 px-4 py-2 border-4 border-black font-black uppercase text-xs bg-white shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:shadow-[4px_4px_0px_0px_#000] disabled:hover:translate-x-0 disabled:hover:translate-y-0"
+                className="label-mono inline-flex min-h-11 items-center gap-1 !text-xs disabled:opacity-30"
               >
-                Next <ChevronRight className="w-4 h-4" />
+                Next <ChevronRight className="h-4 w-4" aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -375,6 +247,6 @@ export default function DocumentationPage() {
       )}
 
       <Footer />
-    </main>
+    </>
   );
 }

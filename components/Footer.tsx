@@ -1,99 +1,67 @@
-"use client";
-import { Github, Linkedin, Instagram, Youtube, Music, Mail, Phone } from "lucide-react";
 import Link from "next/link";
+import { Container } from "@/components/editorial";
+import { CONTACT, NAV_ITEMS, SOCIALS } from "@/data/site";
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t-8 border-black pt-16 pb-8 font-mono overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-
-          <div className="md:col-span-2">
-            <div className="inline-block bg-yellow-400 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_#000] mb-6">
-              <h2 className="text-2xl font-black uppercase tracking-tighter">
-                Moh Dhiyaulhaq Ulumuddin
-              </h2>
-            </div>
-            <p className="font-bold text-sm md:text-base border-l-4 border-black pl-4 mb-6 max-w-sm bg-gray-100 p-2">
-              Informatics Engineering student at the State University of Malang with a passion for exploring new technologies.
+    <footer className="bg-ink text-paper">
+      <Container className="flex flex-col gap-10 pt-12 pb-8 md:pt-16">
+        <div className="grid grid-cols-1 gap-10 border-t border-paper pt-8 md:grid-cols-3 md:gap-12">
+          <div className="flex flex-col gap-3">
+            <Link href="/" className="self-start font-display text-4xl leading-none font-extrabold tracking-[-0.04em]">
+              Hey<span className="font-normal text-accent-soft italic">Haqi</span>
+            </Link>
+            <p className="max-w-xs text-lg leading-normal text-[#d8d0c2]">
+              Moh Dhiyaulhaq Ulumuddin. Informatics Engineering student at Universitas Negeri Malang.
             </p>
-            <div className="flex gap-4">
-              <SocialLink href="https://github.com/haqikuy470" icon={<Github className="w-6 h-6"/>} />
-              <SocialLink href="https://www.linkedin.com/in/moh-dhiyaulhaq/" icon={<Linkedin className="w-6 h-6"/>} />
-              <SocialLink href="https://instagram.com/haqikuy" icon={<Instagram className="w-6 h-6"/>} />
-              <SocialLink href="https://youtube.com/@haqikuy" icon={<Youtube className="w-6 h-6"/>} />
-              <SocialLink href="https://tiktok.com/@haqikuy" icon={<Music className="w-6 h-6"/>} />
-            </div>
           </div>
 
-          <div className="md:col-span-2 grid grid-cols-2 gap-4 md:gap-12">
-            
-            <div>
-              <h3 className="font-black uppercase mb-4 md:mb-6 border-b-4 border-black pb-2 inline-block">Sitemap</h3>
-              <ul className="space-y-3 md:space-y-4 font-bold text-sm md:text-base">
-                <li><Link href="/" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">Home</Link></li>
-                <li><Link href="/projects" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">Products</Link></li>
-                <li><Link href="/certificates" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">Certificates</Link></li>
-                <li><Link href="/documentation" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black inline-block">Docs</Link></li>
-              </ul>
-            </div>
+          <nav aria-label="Footer" className="flex flex-col">
+            <span className="label-mono !text-xs text-[#bdb5a6]">Sitemap</span>
+            {NAV_ITEMS.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="flex min-h-11 items-center border-b border-rule-dark text-lg hover:text-accent-soft"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
 
-            <div>
-              <h3 className="font-black uppercase mb-4 md:mb-6 border-b-4 border-black pb-2 inline-block">Contact</h3>
-              <ul className="space-y-3 md:space-y-4 font-bold text-sm md:text-base">
-                <li className="flex items-start md:items-center gap-2">
-                  <span className="bg-pink-400 p-1 border-2 border-black shrink-0">
-                    <Mail className="w-4 h-4 text-black" />
-                  </span>
-                   <a href="mailto:haqikuy470@gmail.com" className="hover:bg-pink-400 hover:px-2 transition-all border-2 border-transparent hover:border-black break-words">
-                    haqikuy470@gmail.com
-                  </a>
-                </li>
-                <li className="flex items-start md:items-center gap-2">
-                  <span className="bg-cyan-400 p-1 border-2 border-black shrink-0">
-                    <Phone className="w-4 h-4 text-black" />
-                  </span>
-                  <a href="https://wa.me/6285111422715" target="_blank" className="hover:bg-cyan-400 hover:px-2 transition-all border-2 border-transparent hover:border-black break-words">
-                    +62 851 1142 2715
-                  </a>
-                </li>
-                <li className="bg-gray-100 p-2 border-2 border-black mt-2 inline-block">
-                  Malang, East Java<br />Indonesia
-                </li>
-              </ul>
-            </div>
-
-          </div>
-
-        </div>
-
-        <div className="border-t-4 border-black pt-8 flex flex-col md:flex-row justify-between items-center text-sm font-bold gap-4 md:gap-0">
-          <p className="bg-white border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_#000] text-center md:text-left">
-            &copy; {new Date().getFullYear()} HAQIKUY. ALL RIGHTS RESERVED.
-          </p>
-          
-          <div className="flex items-center gap-2 bg-white border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_#000]">
-            <span className="uppercase text-xs">Built with</span>
-            
-            <div className="bg-black text-white px-1 text-xs font-black">NEXT.JS</div>
-
-            <span className="uppercase text-xs">by <span className="bg-blue-400 px-1 border border-black text-black">Haqikuy470</span></span>
+          <div className="flex flex-col">
+            <span className="label-mono !text-xs text-[#bdb5a6]">Elsewhere</span>
+            <a
+              href={`https://wa.me/${CONTACT.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="label-mono flex min-h-11 items-center justify-between gap-4 border-b border-rule-dark !text-xs hover:text-accent-soft"
+            >
+              <span>WhatsApp</span>
+              <span className="text-[#bdb5a6]">{CONTACT.whatsappDisplay}</span>
+            </a>
+            {SOCIALS.map((s) => (
+              <a
+                key={s.name}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="label-mono flex min-h-11 items-center justify-between gap-4 border-b border-rule-dark !text-xs hover:text-accent-soft"
+              >
+                <span>{s.name}</span>
+                <span className="text-[#bdb5a6] normal-case">{s.handle}</span>
+              </a>
+            ))}
           </div>
         </div>
-      </div>
+
+        <div className="label-mono flex flex-col gap-2 border-t border-rule-dark pt-6 !text-[0.6875rem] text-[#bdb5a6] md:flex-row md:justify-between md:!text-xs">
+          <span>Set in Fraunces, Newsreader &amp; JetBrains Mono. Built with Next.js.</span>
+          <span>
+            &copy; {new Date().getFullYear()} Moh Dhiyaulhaq Ulumuddin · {CONTACT.location}
+          </span>
+        </div>
+      </Container>
     </footer>
-  );
-}
-
-function SocialLink({ href, icon }: { href: string, icon: React.ReactNode }) {
-  return (
-    <a 
-      href={href} 
-      target="_blank" 
-      rel="noopener noreferrer"
-      className="w-12 h-12 bg-white border-4 border-black shadow-[4px_4px_0px_0px_#000] flex items-center justify-center text-black hover:shadow-none hover:translate-x-1 hover:translate-y-1 hover:bg-black hover:text-white transition-all shrink-0"
-    >
-      {icon}
-    </a>
   );
 }

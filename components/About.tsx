@@ -1,42 +1,55 @@
+import { Container, Em, SectionHeading } from "@/components/editorial";
+import { CERTIFICATES } from "@/data/certificates";
+import { PRODUCTS, SKILLS } from "@/data/site";
+
 export default function About() {
+  const stats = [
+    { value: CERTIFICATES.length, label: "Verified certificates" },
+    { value: PRODUCTS.length, label: "Live products" },
+    { value: SKILLS.length, label: "Tools in the kit" },
+  ];
+
   return (
-    <section id="about" className="py-20 bg-white border-b-8 border-black font-mono">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-black uppercase mb-12 inline-block bg-green-400 px-4 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-          About
-        </h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="brutalist-card p-8 bg-purple-200">
-            <h3 className="text-2xl font-black mb-4 underline">Biography</h3>
-            <p className="font-bold leading-relaxed">
-              Informatics Engineering student specializing in AI integration and software architecture. Experienced in building and managing SaaS web application ecosystems integrated with AI to create efficient, automated digital solutions. Proficient in fullstack development with Next.js, Node.js, Python, and Flutter.
+    <section id="about" aria-labelledby="about-heading" className="scroll-mt-6">
+      <Container className="grid grid-cols-1 gap-8 py-12 md:py-20 lg:grid-cols-[4fr_8fr] lg:gap-16 lg:py-24">
+        <SectionHeading id="about-heading" kicker="01 · About">
+          From the <Em>builder&apos;s</Em> desk
+        </SectionHeading>
+
+        <div className="flex flex-col gap-10 lg:gap-12">
+          <div className="text-lg leading-[1.6] md:columns-2 md:gap-12 md:text-xl">
+            <p className="mb-5">
+              <span className="float-left pt-2 pr-3 font-display text-[4.75rem] leading-[0.82] font-semibold text-accent md:text-[6.75rem]">
+                I
+              </span>
+              &apos;m an Informatics Engineering student specializing in AI integration and software architecture. I
+              build and manage web applications and tech products integrated with AI, to create efficient, automated
+              digital solutions.
             </p>
-            <div className="mt-6 flex flex-wrap gap-2">
-              <span className="bg-white border-2 border-black px-2 py-1 text-xs font-black">AI INTEGRATION</span>
-              <span className="bg-white border-2 border-black px-2 py-1 text-xs font-black">SOFTWARE ARCHITECTURE</span>
-              <span className="bg-white border-2 border-black px-2 py-1 text-xs font-black">FULLSTACK DEV</span>
-              <span className="bg-white border-2 border-black px-2 py-1 text-xs font-black">AUTOMATION</span>
-            </div>
+            <p className="mb-5">
+              Since 2025 I&apos;ve been studying Informatics Engineering Education at Universitas Negeri Malang, and
+              building the Arshaka Ecosystem alongside it.
+            </p>
+            <p>
+              My day-to-day stack is fullstack: Next.js and Node.js on the web, Python for data and machine learning,
+              and Flutter for mobile.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <StatBox label="Certificates" value="20+" color="bg-cyan-400" />
-            <StatBox label="Experience" value="2 Yrs" color="bg-yellow-400" />
-            <StatBox label="Tech Stack" value="10+" color="bg-pink-400" />
-            <StatBox label="Companies" value="1" color="bg-green-400" />
-          </div>
+          <blockquote className="border-y border-ink py-5 font-display text-[1.75rem] leading-[1.18] font-light text-accent italic md:py-7 md:text-[2.75rem]">
+            &ldquo;Passionate about building automated digital ecosystems.&rdquo;
+          </blockquote>
+
+          <dl className="grid grid-cols-3 gap-3 md:gap-8">
+            {stats.map((s) => (
+              <div key={s.label} className="flex flex-col-reverse gap-1">
+                <dt className="label-mono !text-[0.625rem] text-muted md:!text-xs">{s.label}</dt>
+                <dd className="font-display text-[2.5rem] leading-none font-semibold md:text-6xl">{s.value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
-      </div>
+      </Container>
     </section>
-  );
-}
-
-function StatBox({ label, value, color }: { label: string, value: string, color: string }) {
-  return (
-    <div className={`border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${color}`}>
-      <div className="text-3xl font-black">{value}</div>
-      <div className="text-xs uppercase font-bold">{label}</div>
-    </div>
   );
 }

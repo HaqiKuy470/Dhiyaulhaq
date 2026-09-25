@@ -1,31 +1,26 @@
-const TIMELINE = [
-  { year: "2025 - NOW", title: "Informatics Engineering Education", desc: "Universitas Negeri Malang (UM). Specializing in AI integration and software architecture.", color: "bg-green-400" },
-  { year: "2025 - NOW", title: "Arshaka Ecosystem", desc: "Building and managing SaaS web application ecosystems integrated with AI.", color: "bg-cyan-400" },
-  { year: "2022 - 2025", title: "MAN 1 Lamongan", desc: "Completed secondary education in Mathematics & Natural Science (MIPA).", color: "bg-pink-400" },
-];
+import { Container, Em, SectionHeading } from "@/components/editorial";
+import { RECORD } from "@/data/site";
 
 export default function Timeline() {
   return (
-    <section className="py-20 bg-[#f4f4f0] border-b-8 border-black">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-black uppercase mb-12 inline-block bg-orange-400 px-4 py-2 border-4 border-black shadow-[6px_6px_0px_0px_#000]">
-          History
-        </h2>
-
-        <div className="space-y-6">
-          {TIMELINE.map((item, idx) => (
-            <div key={idx} className="flex flex-col md:flex-row border-4 border-black bg-white shadow-[6px_6px_0px_0px_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
-              <div className={`${item.color} p-6 border-b-4 md:border-b-0 md:border-r-4 border-black flex items-center justify-center min-w-[150px]`}>
-                <span className="font-black text-xl uppercase bg-white border-2 border-black px-2 shadow-[2px_2px_0px_0px_#000]">{item.year}</span>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-black uppercase mb-2">{item.title}</h3>
-                <p className="font-bold text-sm text-gray-700">{item.desc}</p>
-              </div>
-            </div>
+    <section id="record" aria-labelledby="record-heading" className="scroll-mt-6">
+      <Container className="flex flex-col gap-8 py-12 md:gap-12 md:py-20 lg:py-24">
+        <SectionHeading id="record-heading" kicker="05 · Record">
+          Where I&apos;ve <Em>been.</Em>
+        </SectionHeading>
+        <ol className="flex flex-col border-t-[3px] border-ink md:border-t-4">
+          {RECORD.map((r) => (
+            <li
+              key={r.title}
+              className="grid grid-cols-1 gap-1.5 border-b border-rule py-4 md:grid-cols-[180px_5fr_6fr] md:items-baseline md:gap-10 md:py-7 lg:grid-cols-[220px_5fr_6fr]"
+            >
+              <span className="label-mono !text-xs md:!text-sm">{r.year}</span>
+              <h3 className="font-display text-2xl leading-[1.12] font-semibold md:text-[2rem]">{r.title}</h3>
+              <p className="text-[1.0625rem] leading-normal text-ink-soft md:text-xl">{r.desc}</p>
+            </li>
           ))}
-        </div>
-      </div>
+        </ol>
+      </Container>
     </section>
   );
 }
