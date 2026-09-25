@@ -18,7 +18,7 @@ export default function Credentials() {
               id="credentials-heading"
               className="font-display text-[8.75rem] leading-[0.82] font-bold tracking-[-0.05em] text-accent lg:text-[17.5rem] lg:leading-[0.85]"
             >
-              {CERTIFICATES.length}
+              <span data-count={CERTIFICATES.length}>{CERTIFICATES.length}</span>
               <span className="sr-only"> certificates</span>
             </h2>
             <p className="mb-1.5 font-display text-[1.375rem] leading-[1.2] font-light italic lg:mb-0 lg:text-[2.125rem]">
@@ -27,8 +27,8 @@ export default function Credentials() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-6 lg:gap-8 lg:pt-6">
-          <ul className="flex flex-col border-t border-ink">
+        <div data-reveal-group className="flex flex-col gap-6 lg:gap-8 lg:pt-6">
+          <ul data-reveal-item className="flex flex-col border-t border-ink">
             {ISSUER_COUNTS.map((i) => (
               <li key={i.issuer} className="flex items-baseline gap-3 border-b border-rule py-3 md:gap-4 md:py-4">
                 <span className="text-[1.0625rem] md:text-[1.375rem]">{i.issuer}</span>
@@ -38,6 +38,7 @@ export default function Credentials() {
             ))}
           </ul>
           <Link
+            data-reveal-item
             href="/certificates"
             className="label-mono inline-flex min-h-12 items-center justify-between gap-2.5 border border-ink px-5 hover:bg-ink hover:text-paper sm:self-start"
           >

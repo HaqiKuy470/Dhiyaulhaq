@@ -35,3 +35,11 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
+/* Elements animated by components/ScrollEffects start hidden so they don't
+   flash before GSAP takes over. Only applies when motion is on. */
+[data-motion="on"] [data-intro],
+[data-motion="on"] [data-reveal],
+[data-motion="on"] [data-reveal-item] {
+  visibility: hidden;
+}

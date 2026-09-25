@@ -23,7 +23,7 @@ export default function Contact() {
   return (
     <section id="letters" aria-labelledby="letters-heading" className="scroll-mt-6 bg-ink text-paper">
       <Container className="grid grid-cols-1 gap-10 py-14 md:py-20 lg:grid-cols-[7fr_5fr] lg:items-end lg:gap-20 lg:py-24">
-        <div className="flex flex-col gap-5">
+        <div data-reveal className="flex flex-col gap-5">
           <span className="label-mono text-accent-soft">07 · Letters</span>
           <h2
             id="letters-heading"
@@ -39,7 +39,7 @@ export default function Contact() {
           </a>
         </div>
 
-        <form onSubmit={handleSend} className="flex flex-col gap-5">
+        <form data-reveal onSubmit={handleSend} className="flex flex-col gap-5">
           <p className="label-mono !text-xs text-[#bdb5a6]">Or send a note on WhatsApp</p>
           <div>
             <label htmlFor="letter-name" className="label-mono !text-xs">

@@ -8,18 +8,19 @@ export default function Hero() {
     <section aria-labelledby="cover-heading">
       <Container className="grid grid-cols-1 items-start gap-10 py-9 md:py-16 lg:grid-cols-[7fr_5fr] lg:gap-16 lg:py-[4.5rem]">
         <div className="flex flex-col gap-5 md:gap-7">
-          <Kicker>Cover story · AI integration · Software architecture</Kicker>
+          <Kicker data-intro>Cover story · AI integration · Software architecture</Kicker>
           <h1
+            data-intro
             id="cover-heading"
             className="font-display text-[2.75rem] leading-[1.02] font-medium tracking-[-0.02em] md:text-7xl lg:text-[5.25rem] lg:leading-none lg:tracking-[-0.025em]"
           >
             Building automated digital ecosystems, <Em>one product at a time.</Em>
           </h1>
-          <p className="max-w-[680px] text-lg leading-[1.45] text-ink-soft md:text-2xl">
+          <p data-intro className="max-w-[680px] text-lg leading-[1.45] text-ink-soft md:text-2xl">
             An Informatics Engineering student at Universitas Negeri Malang who builds web applications and tech
             products integrated with AI, to create efficient, automated digital solutions.
           </p>
-          <div className="mt-1 flex flex-col gap-4 border-t border-rule pt-4 sm:flex-row sm:items-center sm:gap-8">
+          <div data-intro className="mt-1 flex flex-col gap-4 border-t border-rule pt-4 sm:flex-row sm:items-center sm:gap-8">
             <span className="label-mono">Words &amp; code by Moh Dhiyaulhaq Ulumuddin</span>
             <Link
               href="/cv"
@@ -30,8 +31,8 @@ export default function Hero() {
           </div>
         </div>
 
-        <figure className="flex flex-col gap-3">
-          <div className="relative aspect-[4/3] w-full overflow-hidden border border-rule bg-figure">
+        <figure data-intro className="flex flex-col gap-3">
+          <div data-parallax className="relative aspect-[4/3] w-full overflow-hidden border border-rule bg-figure">
             <Image
               src="/foto.webp"
               alt="Portrait of Moh Dhiyaulhaq Ulumuddin"

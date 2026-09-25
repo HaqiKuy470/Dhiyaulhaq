@@ -13,9 +13,9 @@ export default function Skills() {
           </SectionHeading>
           <span className="text-lg text-ink-soft italic">{sorted.length} tools, A to Z.</span>
         </div>
-        <ul className="grid grid-cols-1 border-t border-ink sm:grid-cols-2 sm:gap-x-10 lg:grid-cols-4">
+        <ul data-reveal-group className="grid grid-cols-1 border-t border-ink sm:grid-cols-2 sm:gap-x-10 lg:grid-cols-4">
           {sorted.map((s) => (
-            <li key={s.name} className="flex items-baseline justify-between gap-4 border-b border-[#c9c0ae] py-3 md:py-4">
+            <li key={s.name} data-reveal-item className="flex items-baseline justify-between gap-4 border-b border-[#c9c0ae] py-3 md:py-4">
               <span className="font-display text-[1.375rem] font-medium md:text-[1.625rem]">{s.name}</span>
               <span className="label-mono !text-[0.6875rem] text-muted">{s.category}</span>
             </li>

@@ -5,15 +5,16 @@ import { PRODUCTS, type Product } from "@/data/site";
 export function ProductFeature({ product, index }: { product: Product; index: number }) {
   const [first, ...rest] = product.name.split(" ");
   return (
-    <article className="flex flex-col gap-3 md:gap-5">
+    <article data-reveal-item className="flex flex-col gap-3 md:gap-5">
       <div
-        className={`flex h-56 flex-col justify-between p-5 text-paper md:h-[380px] md:p-9 ${product.cover === "ink" ? "bg-ink" : "bg-accent"}`}
+        className={`flex h-56 flex-col justify-between overflow-hidden p-5 text-paper md:h-[380px] md:p-9 ${product.cover === "ink" ? "bg-ink" : "bg-accent"}`}
       >
         <span className="label-mono !text-[0.625rem] md:!text-xs">
           Feature {String(index + 1).padStart(2, "0")} · {product.domain}
         </span>
         <span
           aria-hidden="true"
+          data-parallax-text
           className="font-display text-[3.5rem] leading-[0.95] font-light tracking-[-0.03em] italic md:text-8xl"
         >
           {first}
@@ -46,11 +47,11 @@ export default function Projects() {
           <SectionHeading id="products-heading" kicker="02 · Products">
             Two products, <Em>both live.</Em>
           </SectionHeading>
-          <p className="max-w-[380px] text-lg leading-normal text-ink-soft">
+          <p data-reveal className="max-w-[380px] text-lg leading-normal text-ink-soft">
             Things I&apos;ve built and keep running, from a Roblox game studio to a daily publication for developers.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
+        <div data-reveal-group className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
           {PRODUCTS.map((p, i) => (
             <ProductFeature key={p.url} product={p} index={i} />
           ))}
