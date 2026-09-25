@@ -13,7 +13,7 @@ const EDUCATION = [
 
 const SKILL_GROUPS = [
   { label: "Frontend", items: "Next.js · React · Flutter · Tailwind CSS" },
-  { label: "Backend", items: "Node.js · Express · Python" },
+  { label: "Backend", items: "Node.js · Express · Laravel · Python · PHP" },
   { label: "Database", items: "PostgreSQL · MySQL · Prisma" },
   { label: "AI & Automation", items: "Gemini API · OpenCV · n8n · Docker" },
   { label: "Design", items: "Figma · Canva · Google Stitch" },
