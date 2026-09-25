@@ -131,7 +131,7 @@ export default function CVPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-[34%_66%]">
           {/* ── Sidebar ── */}
-          <aside className="flex flex-col gap-5 border-ink bg-paper-deep px-7 py-6 md:border-r md:px-7">
+          <aside className="flex flex-col gap-4 border-ink bg-paper-deep px-7 py-6 md:border-r md:px-7">
             <section>
               <SideHeading>Contact</SideHeading>
               <ul className="flex flex-col gap-1 text-[11.5px] leading-snug">
@@ -143,7 +143,7 @@ export default function CVPage() {
                 <li>{CONTACT.whatsappDisplay}</li>
                 <li>heyhaqi.my.id</li>
                 <li>{CONTACT.location}</li>
-                {SOCIALS.filter((s) => ["LinkedIn", "GitHub", "YouTube"].includes(s.name)).map((s) => (
+                {SOCIALS.filter((s) => ["LinkedIn", "GitHub"].includes(s.name)).map((s) => (
                   <li key={s.name}>
                     <span className="font-mono text-[9px] tracking-[0.08em] text-muted uppercase">{s.name}</span>{" "}
                     <a href={s.href} className="hover:text-accent">
@@ -185,7 +185,7 @@ export default function CVPage() {
                 <span className="font-display text-[22px] leading-none font-bold text-accent">{CERTIFICATES.length}</span>{" "}
                 verified certificates, including:
               </p>
-              <ul className="flex flex-col gap-1 text-[11px]">
+              <ul className="flex flex-col gap-0.5 text-[11px]">
                 {ISSUER_COUNTS.map((i) => (
                   <li key={i.issuer} className="flex items-baseline gap-2">
                     <span>{i.issuer}</span>
@@ -201,8 +201,15 @@ export default function CVPage() {
               <ul className="flex flex-col gap-1">
                 {PRODUCTS.map((p) => (
                   <li key={p.url} className="flex items-baseline justify-between gap-2">
-                    <span className="font-display text-[13.5px] leading-tight font-semibold">{p.name}</span>
-                    <span className="font-mono text-[9px] tracking-[0.06em] text-muted">{p.domain}</span>
+                    <span className="font-display text-[13.5px] leading-tight font-semibold whitespace-nowrap">
+                      {p.name}
+                      {p.status === "coming-soon" && (
+                        <span className="ml-1 font-mono text-[8.5px] font-normal tracking-[0.06em] text-accent uppercase">
+                          soon
+                        </span>
+                      )}
+                    </span>
+                    <span className="font-mono text-[9px] tracking-[0.02em] whitespace-nowrap text-muted">{p.domain}</span>
                   </li>
                 ))}
               </ul>
